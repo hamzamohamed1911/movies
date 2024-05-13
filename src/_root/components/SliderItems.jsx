@@ -20,13 +20,13 @@ const SliderItems = ({ prevSlide, nextSlide, slides ,currentIndex ,setCurrentInd
         <div
           key={slide.id}
           ref={sliderRef}
-          className='cursor-pointer w-32  h-32 rounded-md lg:h-48 lg:w-56    '
+          className='cursor-pointer w-36  h-32 rounded-md lg:h-52 lg:w-60    '
           onKeyDown={handleKeyboardNavigation}
           tabIndex={index}
           onClick={() => setCurrentIndex(index)}
       
         >
-          <img src={slide.image} alt={slide.name} className={`rounded-md w-32  h-32 inline-block lg:h-48 lg:w-56   ${
+          <img src={slide.image} alt={slide.name} className={`rounded-md w-36  h-32 inline-block lg:h-52 lg:w-60   ${
           currentIndex === index ? 'border-[3px] border-navy' : '' }`}  />
         </div>
       ))}
