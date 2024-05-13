@@ -15,18 +15,18 @@ const SliderItems = ({ prevSlide, nextSlide, slides ,currentIndex ,setCurrentInd
    
   return (
     <>
-   <div className=" overflow-x-scroll flex gap-7 scroll whitespace-nowrap scroll-smooth scrollbar-hide transition-transform duration-300 ease-in-out transform-gesture">
+   <div className="overflow-x-scroll flex gap-7 scroll whitespace-nowrap scroll-smooth scrollbar-hide transition-transform duration-300 ease-in-out transform-gesture">
    {slides.map((slide, index) => (
         <div
           key={slide.id}
           ref={sliderRef}
-          className='cursor-pointer h-24 rounded-md  w-24  lg:h-48 lg:w-44   '
+          className='cursor-pointer w-32  h-32 rounded-md lg:h-48 lg:w-56    '
           onKeyDown={handleKeyboardNavigation}
           tabIndex={index}
           onClick={() => setCurrentIndex(index)}
       
         >
-          <img src={slide.image} alt={slide.name} className={`rounded-md h-24 w-24 inline-block lg:h-48 lg:w-44   ${
+          <img src={slide.image} alt={slide.name} className={`rounded-md w-32  h-32 inline-block lg:h-48 lg:w-56   ${
           currentIndex === index ? 'border-[3px] border-navy' : '' }`}  />
         </div>
       ))}
