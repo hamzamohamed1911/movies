@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { moviesLogo } from "../../assets";
 import Nav from "./Nav";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import { navLinks } from "../../constants";
 
 
 
@@ -16,8 +17,8 @@ const MainNavigation = () => {
    <header >
 <div className="flex items-center space-x-2 md:space-x-10">
   
-<Link to='/' className="flex gap-1  h-12  cursor-pointer">
-  <img src={moviesLogo} className=" h-10 object-contain"/>
+<Link to='/' className="flex gap-1  h-14  cursor-pointer">
+  <img src={moviesLogo} className=" h-12 object-contain"/>
   <span className=" text-babyblue flex self-center text-xl font-semibold">
   Movies
   </span>
@@ -70,7 +71,17 @@ const MainNavigation = () => {
       
       </div>
 
-        {/* Mobile Navigation Items */}
+    {/* Mobile Navigation Items */}
+           {navLinks.map(item => (
+          <NavLink
+            key={item.id}
+            to={item.href}
+            className={({ isActive }) =>
+              isActive ?'p-4 flex rounded-xl text-2xl   border-l-[1px] border-navy duration-300   text-navy  ' : 'text-2xl p-4  flex  hover:bg-navy rounded-xl  text-babyblue'}
+          >
+            {item.label}
+          </NavLink>
+        ))}
          
       </ul>
     
