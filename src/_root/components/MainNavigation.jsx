@@ -10,9 +10,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const MainNavigation = () => {
   const [open, setOpen] = useState(false);
-  const handlOpen = () => {
-    setOpen(!open);
-  };
+
 
   return (
    <header >
@@ -42,12 +40,11 @@ const MainNavigation = () => {
 </div>
 </div>
 
-
-     
-         <button onClick={handlOpen} className=" md:hidden  z-20  ">
+  
+         <button onClick={(()=>setOpen((prev)=>!prev))} className=" md:hidden  z-20  ">
        <RxHamburgerMenu className="w-12 h-12 text-blue "/>
          </button>
-         
+        
       
 
       {/* Mobile Navigation Menu */}
@@ -67,7 +64,7 @@ const MainNavigation = () => {
           </span>
       </Link>
 
-        <button onClick={handlOpen} className='z-20 md:hidden'>
+        <button onClick={(()=>setOpen((prev)=>!prev))} className='z-20 md:hidden'>
         {open && <AiOutlineClose  className="w-12 h-12 text-blue " />  }
       </button>
       
