@@ -77,7 +77,7 @@ const MainNavigation = () => {
             key={item.id}
             to={item.href}
             className={({ isActive }) =>
-              isActive ?'p-4 flex rounded-xl text-2xl   border-l-[1px] border-navy duration-300   text-navy  ' : 'text-2xl p-4  flex  hover:bg-navy rounded-xl  text-babyblue'}
+              isActive ?'p-4 flex rounded-xl text-2xl font-semibold   border-l-[1px] border-navy ease-in duration-300  text-navy  ' : 'ease-out duration-300 text-2xl p-4  flex  hover:bg-navy rounded-xl  text-babyblue'}
           >
             {item.label}
           </NavLink>
