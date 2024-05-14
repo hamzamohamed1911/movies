@@ -8,7 +8,10 @@ import Button from './Button';
 import SliderItems from './SliderItems';
 import { FaPlay } from "react-icons/fa";
 
-
+const slideVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,18 +42,20 @@ const Slider = () => {
    
  
   return ( <>
-   <div className="h-full relative  overflow-hidden">
+   <div className="h-full relative  overflow-hidden ">
       
       {slides.map((slide ,index) => (
           <div
           key={slide.id} 
-           className="w-screen absolute top-0 left-0" >
-        <motion.div
-            key={slide.id} 
-            className="w-full absolute top-0 left-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === currentIndex ? 1 : 0 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }} >
+           className="w-screen absolute top-0 left-0 p"  >
+       <motion.div
+  key={slide.id}
+  className="w-full absolute top-0 left-0"
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: index === currentIndex ? 1 : 0, scale: 1 }}
+  variants={slideVariants}
+  transition={{ duration: 0.8, ease: 'easeInOut' }}
+>
 
                 <img
                 src={slide.image}
@@ -60,42 +65,43 @@ const Slider = () => {
          
          {/* el setara */}
 
-        <div className='absolute h-full top-0 bottom-0 left-0  md:w-1/3 w-full bg-black md:bg-opacity-60 bg-opacity-20 bg-blend-color text-white lg:p-20 p-14 '>
+        <div className='absolute h-full top-0 bottom-0 left-0  md:w-1/3 w-full bg-black md:bg-opacity-60 bg-opacity-20 bg-blend-color text-white lg:p-20 p-14  '>
         <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">{slide.name}</h1>
         <span> rate</span> <span> rate</span> <span> rate</span>
-        <p className="max-w-xs text-xs md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
+        <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
         </div>
 
     </motion.div>
 
-     <div className="absolute top-72 lg:p-20 p-14 text-white ">
-          <div className='flex gap-3 py-3 z-20'>
-                <Button backgroundColor label="Watch trailer"/> 
-                <Button   label="watch now"/> 
-              
-          </div>
 
-      <div className='flex py-44 gap-3'>
-        <div className=" z-10">
-            <button onClick={prevSlide} className="text-white p-2 bg-black bg-opacity-70 border-solid border-[1px] rounded-md">
-            <IoIosArrowBack />
-            </button>
-        </div>
-        <div className="z-10">
-            <button onClick={nextSlide} className="text-white p-2 bg-black bg-opacity-10 border-solid border-[1px] rounded-md">
-            <IoIosArrowForward />
-            </button>
-        </div>
-      
-      </div>
-
-
-</div>
           </div>
           
         ))}
-      
-      <div className='absolute bottom-6'  >
+         
+        <div className="absolute lg:p-20 p-14 lg:top-1/3 top-1/3  ">
+
+        <div className='flex gap-3 py-3 '>
+                <Button backgroundColor label="Watch trailer"/> 
+                <Button   label="watch now" icon={<FaPlay/>}/> 
+                
+              
+          </div>
+       <div className='gap-3 flex lg:py-20 py-16'>
+       <Button
+            backgroundColor="transparent"
+            label={<IoIosArrowBack className="text-white  hover:text-opacity-70" />}
+            handleClick={prevSlide}
+          />
+          <Button
+            backgroundColor="transparent"
+            label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
+            handleClick={nextSlide}
+          />
+       </div>
+        </div>
+
+
+      <div className='absolute bottom-6 '  >
    <SliderItems prevSlide={prevSlide} nextSlide={nextSlide} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} slides={slides}/>
         
        </div>

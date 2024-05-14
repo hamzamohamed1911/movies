@@ -1,12 +1,14 @@
-
 import { Link } from "react-router-dom";
 import { moviesLogo } from "../../assets";
 import Nav from "./Nav";
 import { BsSearch } from "react-icons/bs";
+import { useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 
 const MainNavigation = () => {
+  const [open, setOpen] = useState(false);
 
   return (
    <header >
@@ -36,6 +38,15 @@ const MainNavigation = () => {
 </div>
 </div>
 
+
+     
+         <button className=" md:hidden  z-20  ">
+       <RxHamburgerMenu className="w-12 h-12 text-blue "/>
+         </button>
+         
+
+
+    
    </header>
   )
 }
