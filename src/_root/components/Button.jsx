@@ -12,9 +12,10 @@ const Button = ({label, backgroundColor,textColor,borderColor,fullWidth, handleC
           : "bg-navy "
       } rounded-md ${fullWidth && "w-full"}`}
     >
-      {label}
-      {icon}
+        {icon}
       
+      {label}
+    
 
     </button>
   )

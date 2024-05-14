@@ -82,7 +82,7 @@ const Slider = () => {
 
         <div className='flex gap-3 py-3 '>
                 <Button backgroundColor label="Watch trailer"/> 
-                <Button   label="watch now" icon={<FaPlay/>}/> 
+                <Button icon={<FaPlay/>}  label="watch now" /> 
                 
               
           </div>
