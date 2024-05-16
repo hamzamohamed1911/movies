@@ -17,7 +17,7 @@ const SideBar = () => {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.3, type: 'ease' }}
-            className="fixed h-screen   bg-primary flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl   md:w-96 w-56  z-50"
+            className="fixed h-screen   bg-primary flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl   lg:w-80 w-56  z-50"
           >
 
             <div className="px-4 py-6">

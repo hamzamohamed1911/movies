@@ -46,10 +46,10 @@ const Slider = () => {
             <motion.div
               key={slide.id}
               className="w-full absolute top-0 left-0"
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.4 }}
               animate={{ opacity: index === currentIndex ? 1 : 0, scale: 1 }}
               variants={slideVariants}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <img
                 src={slide.image}

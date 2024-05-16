@@ -52,7 +52,7 @@ const MainNavigation = () => {
       {/* Mobile Navigation Menu */}
        <div  className={
           open
-            ? 'fixed  inset-0 ease-in-out duration-500  '
+            ? 'fixed  inset-0 ease-in-out duration-500 md:hidden '
             : 'ease-in-out w-[100%] duration-500 fixed  left-[-100%]'
         }
 
@@ -60,8 +60,8 @@ const MainNavigation = () => {
       
       <div className={
           open
-            ? 'fixed left-0 top-0 w-[60%] h-full  bg-primary  ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl z-50 '
-            : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
+            ? 'fixed left-0 top-0 w-[50%] h-full  bg-primary  ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl z-50 '
+            : 'ease-in-out w-[50%] duration-500 fixed top-0 bottom-0 left-[-100%]'
         }>
 <ul >
       <div className="p-6 flex items-center justify-between">
@@ -90,7 +90,7 @@ const MainNavigation = () => {
             key={item.id}
             to={item.href}
             className={({ isActive }) =>
-              isActive ?'p-4 flex rounded-xl text-2xl font-semibold   border-l-[1px] border-navy ease-in duration-300  text-navy  ' : 'ease-out duration-300 text-2xl p-4  flex  hover:bg-navy rounded-xl  text-babyblue'}
+              isActive ?' animate-pulse transform transition-all ease-in-out duration-300  p-4 flex rounded-xl text-2xl font-semibold   border-l-[1px] border-navy text-navy  ' : 'ease-out duration-300 text-2xl p-4  flex  hover:bg-navy rounded-xl  text-babyblue'}
           >
             {item.label}
           </NavLink>

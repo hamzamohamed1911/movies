@@ -6,6 +6,18 @@ const Tv = () => {
        <h1 className=' text-8xl text-blue'>
        Tv Tv Tv Tv
     </h1>
+    <h1 className=' text-8xl text-blue'>
+       Tv Tv Tv Tv
+    </h1>
+    <h1 className=' text-8xl text-blue'>
+       Tv Tv Tv Tv
+    </h1>
+    <h1 className=' text-8xl text-blue'>
+       Tv Tv Tv Tv
+    </h1>
+    <h1 className=' text-8xl text-blue'>
+       loveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    </h1>
     </section>
   )
 }
