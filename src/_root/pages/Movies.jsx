@@ -3,7 +3,8 @@ import React from 'react'
 const Movies = () => {
   return (
     <section > 
-    <h1 className='flex justify-center object-center'>
+      
+    <h1 className=' text-8xl text-blue'>
     Movies
     </h1>
     </section>

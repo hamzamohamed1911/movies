@@ -1,37 +1,62 @@
-import { useRef } from "react";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-
-const SliderItems = ({ prevSlide, nextSlide, slides ,currentIndex ,setCurrentIndex}) => {
-  const sliderRef = useRef(null);
-
-    const handleKeyboardNavigation = (event) => {
-        if (event.key === 'ArrowRight' ) {
-            nextSlide();
-        } else if (event.key === 'ArrowLeft' ) {
-            prevSlide();
-        }
-      };
-
+const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 8,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 6,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
    
+    ],
+  };
+
   return (
-    <>
-   <div className=" flex justify-center items-center gap-7   whitespace-nowrap scroll-smooth scrollbar-hide transition-transform duration-300 ease-in-out transform-gesture">
-   {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          ref={sliderRef}
-          className='cursor-pointer w-36  h-32 rounded-md lg:h-64  lg:w-64 '
-          onKeyDown={handleKeyboardNavigation}
-          tabIndex={index}
-          onClick={() => setCurrentIndex(index)}
-      
-        >
-          <img src={slide.image} alt={slide.name} className={` w-36  h-32 rounded-md lg:h-52 lg:w-60    ${
-          currentIndex === index ? 'lg:h-64 lg:w-64  w-40  h-36 border-[3px] border-navy' : '' }`}  />
-        </div>
-      ))}
-   </div>
-    </>
+    
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className="cursor-pointer inline-block rounded-md lg:h-52 lg:w-60 w-44 h-40"
+            onClick={() => setCurrentIndex(index)}
+          >
+            <img
+              src={slide.image}
+              alt={slide.name}
+              className={`rounded-md lg:h-48 lg:w-56 w-40 h-36 ${
+                currentIndex === index ? "border-[4px] border-navy" : ""
+              }`}
+            />
+          </div>
+        ))}
+      </Slider>
+    
   );
 };
 

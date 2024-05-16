@@ -2,15 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import { moviesLogo } from "../../assets";
 import Nav from "./Nav";
 import { BsSearch } from "react-icons/bs";
-import { useState } from "react";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { navLinks } from "../../constants";
+import { useComponentContext } from "../../store/componentContext";
 
 
 
 const MainNavigation = () => {
-  const [open, setOpen] = useState(false);
+  const {open, setOpen} = useComponentContext();
 
 
   return (
@@ -49,26 +50,38 @@ const MainNavigation = () => {
       
 
       {/* Mobile Navigation Menu */}
- <div className={
+       <div  className={
           open
-            ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-primary ease-in-out duration-500'
+            ? 'fixed  inset-0 ease-in-out duration-500  '
+            : 'ease-in-out w-[100%] duration-500 fixed  left-[-100%]'
+        }
+
+             onClick={(()=>setOpen((prev)=>!prev))}>
+      
+      <div className={
+          open
+            ? 'fixed left-0 top-0 w-[60%] h-full  bg-primary  ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl z-50 '
             : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
         }>
-      
- <ul >
+<ul >
       <div className="p-6 flex items-center justify-between">
   {/* Mobile Logo */}
-      <Link to='/' className="flex gap-1  h-12  cursor-pointer">
+      <Link to='/' className="flex gap-1  h-12 ">
           <img src={moviesLogo} className=" h-10 object-contain"/>
           <span className=" text-babyblue flex self-center text-xl font-semibold">
           Movies
           </span>
       </Link>
 
-        <button onClick={(()=>setOpen((prev)=>!prev))} className='z-20 md:hidden'>
-        {open && <AiOutlineClose  className="w-12 h-12 text-blue " />  }
-      </button>
-      
+      <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen((prev) => !prev);
+          }}
+          className="z-20 md:hidden"
+        >
+          {open && <AiOutlineClose className="w-12 h-12 text-blue" />}
+        </button>
       </div>
 
     {/* Mobile Navigation Items */}
@@ -84,8 +97,9 @@ const MainNavigation = () => {
         ))}
          
       </ul>
+</div>
     
- </div>
+      </div>
 
 
     

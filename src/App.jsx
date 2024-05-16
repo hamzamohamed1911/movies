@@ -9,21 +9,21 @@ import Tv from './_root/pages/Tv'
 import About from './_root/pages/About'
 const router = createBrowserRouter([
   {
-    path:'/',
+    path:'',
     element:<RootLayout/>,
-    children:[
-      {index:true ,element:<Home/> },
-       {path:'/movies' ,element:<SideLayout/>,
-        children: [{
-        index:true ,
-        element:<Movies/>}]},
-        {path:'/tv' ,element:<SideLayout/>,
-        children: [{
-        index:true ,
-        element:<Tv/>}]},
-        {path:'/about' ,element:<About/> },
-    
-    ]
+    children: [
+      { path: '/', element: <Home /> },
+      { path: 'about', element: <About /> },
+      {
+        path: '/',
+        element: <SideLayout />,
+        children: [
+          { path: '/tv', element: <Tv /> }, 
+          { path: '/movies', element: <Movies /> }, 
+          
+        ],
+      },
+    ],
   }
 
 
@@ -35,6 +35,7 @@ function App() {
   return (
     <>
  <main >
+  
  <RouterProvider router={router}/>
 
  </main>

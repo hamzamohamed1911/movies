@@ -3,8 +3,8 @@ import React from 'react'
 const Tv = () => {
   return (
     <section > 
-    <h1 className='flex justify-center object-center'>
-    Tv
+       <h1 className=' text-8xl text-blue'>
+       Tv Tv Tv Tv
     </h1>
     </section>
   )
