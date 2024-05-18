@@ -20,6 +20,16 @@ const buttonVariants = {
   closed: { rotate: 0 },
   opened: { rotate: -45 }
 };
+  const listVariants = {
+  closed:{x:'-100vw'},
+  opened:{x:'0', transition : {when:"beforeChildren", staggerChildren:0.2}}
+  
+}
+const listItemVariants ={
+  closed:{x:-10 ,opacity:0},
+  opened:{x: 0 ,opacity:1}
+
+}
 
 const MainNavigation = () => {
   const { open, setOpen } = useComponentContext();
@@ -77,8 +87,8 @@ const MainNavigation = () => {
 
       {/* Mobile Navigation Menu */}
       {open && (
-        <div className="fixed inset-0 lg:hidden" onClick={handleCloseMenu}>
-          <div className="fixed left-0 top-0 w-[50%] h-full bg-primary ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl">
+        <motion.div variants={listVariants} initial="closed" animate="opened" className="fixed inset-0 md:hidden" onClick={handleCloseMenu}>
+          <div className="fixed left-0 top-0 w-[50%] h-full bg-primary ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl"  onClick={(e) => e.stopPropagation()} >
             <ul>
               <div className="p-6 flex items-center justify-between">
                 {/* Mobile Logo */}
@@ -101,16 +111,19 @@ const MainNavigation = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     isActive
-                      ? "animate-pulse transform transition-all ease-in-out duration-300 p-4 flex rounded-xl text-2xl font-semibold border-l-[1px] border-navy text-navy"
-                      : "ease-out duration-300 text-2xl p-4 flex hover:bg-navy rounded-xl text-babyblue"
+                      ? "animate-pulse transform transition-all ease-in-out duration-300 p-5 flex rounded-xl text-3xl font-semibold border-l-[1px] border-navy text-navy"
+                      : "ease-out duration-300 text-3xl p-5 flex hover:bg-navy rounded-xl text-babyblue"
                   }
                 >
+                  <motion.li  variants={listItemVariants}
+>
                   {item.label}
+                  </motion.li>
                 </NavLink>
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
       )}
     </header>
   );

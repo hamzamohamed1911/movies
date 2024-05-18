@@ -5,7 +5,7 @@ import SideBar from '../components/SideBar';
 const SideLayout = () => {
   return (
     <div className="flex">
-      <div className="hidden lg:flex lg:w-80  ">
+      <div className="hidden md:flex md:w-80  ">
         <SideBar />
       </div>
       <main className="flex-1 ">
