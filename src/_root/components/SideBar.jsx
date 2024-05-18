@@ -1,4 +1,3 @@
-"use client"
 import { navLinks } from '../../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink } from 'react-router-dom';

@@ -4,7 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import { slides } from '../../constants';
 import { motion } from 'framer-motion';
-import Button from './Button';
+import Button from './Button.jsx';
 import SliderItems from './SliderItems';
 import { FaPlay } from "react-icons/fa";
 
