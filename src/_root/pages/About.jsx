@@ -2,8 +2,8 @@ import React from 'react'
 
 const About = () => {
   return (
-    <section > 
-    <h1 className='flex justify-center object-center'>
+    <section className='flex justify-center items-center'> 
+    <h1 >
 about
     </h1>
     </section>
