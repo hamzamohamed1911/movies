@@ -2,7 +2,7 @@ import React from 'react'
 
 const Tv = () => {
   return (
-    <section className='flex justify-center items-center'> 
+    <section className='lg:pt-20 pt-20'> 
        <h1 className=' text-8xl text-blue'>
        Tv 
     </h1>

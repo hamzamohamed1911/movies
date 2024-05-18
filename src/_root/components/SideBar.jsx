@@ -28,9 +28,9 @@ const SideBar = () => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ duration: 0.3, type: 'ease' }}
-            className="fixed h-screen   bg-primary flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl   lg:w-80 w-56  z-50"
+            className=" fixed h-screen bg-primary  flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl  w-80 z-50 "
           >
-                 <button onClick={toggleSidebar} className="absolute bottom-1/2 left-80 text-babyblue rounded-md">
+              <button onClick={toggleSidebar} className="absolute bottom-1/2 left-80 text-babyblue rounded-md">
               <IoIosArrowBack size={24} />
             </button>
 
@@ -50,7 +50,7 @@ const SideBar = () => {
             key={item.id}
             to={item.href}
             className={({ isActive }) =>
-              isActive ?'p-5 flex rounded-xl text-3xl font-semibold   border-[1px] border-navy ease-in duration-300   text-babyblue ' : 'ease-out duration-300 text-3xl p-5  flex  hover:bg-navy rounded-xl  text-babyblue'}
+              isActive ?'p-5 flex rounded-xl text-3xl font-semibold  border-[1px] border-navy ease-in duration-300   text-babyblue ' : 'ease-out duration-300 text-3xl p-5  flex  hover:bg-navy rounded-xl  text-babyblue'}
           >
             {item.label}
           </NavLink>
