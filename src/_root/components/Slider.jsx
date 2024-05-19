@@ -66,15 +66,20 @@ const Slider = () => {
                 <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
               </div>
             </motion.div>
+            
           </div>
+
+          
         ))}
         <div className="absolute  lg:bottom-0 bottom-6 left-0 w-full text-center">
         <div className='lg:p-20 p-14'>
+
         <div className='flex gap-3 lg:py-10 py-8 '>
             <Button normal backgroundColor label="Watch trailer" />
             <Button normal icon={<FaPlay />} label="watch now" />
         </div>
-          <div className='gap-3 flex lg:py-20 py-18'>
+
+          <div className='gap-3 flex '>
             <Button
               normal
               backgroundColor="transparent"
