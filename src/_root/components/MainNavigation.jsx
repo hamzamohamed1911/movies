@@ -75,9 +75,9 @@ const MainNavigation = () => {
           <button>
             <BsSearch className="h-5 w-5 self-center text-babyblue flex items-center" />
           </button>
-          <form>
+          
           <Button label="Sign In" small  handleClick={handleSubmit} />
-          </form>
+  
         </div>
       
       </div>
@@ -155,7 +155,11 @@ const MainNavigation = () => {
         isOpen={openDropdown === 'Movies'}
         toggleDropdown={() => toggleDropdown('Movies')}
       />
+        
+          <Button label="Sign In" small  handleClick={handleSubmit} />
+        
           </motion.div>
+          
             </ul>
           </div>
           
