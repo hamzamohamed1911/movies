@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-
+import  { useState, useEffect } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
 import { slides } from '../../constants';
 import { motion } from 'framer-motion';
 import Button from './Button.jsx';
 import SliderItems from './SliderItems';
 import { FaPlay } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const slideVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -42,7 +41,7 @@ const Slider = () => {
     <>
       <div className="h-full relative  overflow-hidden ">
         {slides.map((slide, index) => (
-          <div key={slide.id} className="w-screen absolute top-0 left-0 p">
+          <div key={slide.id} className="w-screen absolute top-0 left-0 ">
             <motion.div
               key={slide.id}
               className="w-full absolute top-0 left-0"
@@ -57,9 +56,13 @@ const Slider = () => {
                 className="h-screen w-full object-cover object-both"
               />
               {/* el setara */}
-              <div className='absolute h-full top-0 bottom-0 left-0 md:w-1/3 w-full bg-black md:bg-opacity-60 bg-opacity-20 bg-blend-color text-white lg:p-20 p-12'>
+              <div className='absolute md:w-1/3 w-full h-full top-0 bottom-0 left-0  bg-black md:bg-opacity-60 bg-opacity-20  text-white lg:p-20 p-12'>
                 <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">{slide.name}</h1>
-                <span> rate</span> <span> rate</span> <span> rate</span>
+                <div className="flex">
+                  {/* In this specific case, we're using Array.from to create an array of a certain length (equal to the slide.rate), and we're mapping over it to render the rate icons. The map function in JavaScript provides two arguments: the current element being processed and its index. Since we don't need the current element (we're just interested in its index), we can use _ as a placeholder to indicate that we're ignoring it. */}
+            {Array.from({ length: slide.rate }).map((_, index) => (
+               <FaStar size={20} color='gold'  key={index}/> ))}
+          </div>
                 <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
               </div>
             </motion.div>
@@ -70,7 +73,7 @@ const Slider = () => {
         <div className='flex gap-3 lg:py-10 py-8 '>
             <Button backgroundColor label="Watch trailer" />
             <Button icon={<FaPlay />} label="watch now" />
-          </div>
+        </div>
           <div className='gap-3 flex lg:py-20 py-18'>
             <Button
               backgroundColor="transparent"
