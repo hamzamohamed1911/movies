@@ -95,7 +95,7 @@ export  const slides = [
                 {
                   id:14,
                   image: slider7,
-                  rate:5,
+                  rate:4,
                   name: 'Wolf 14',
                   description: 'Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 ',
                 }, 
@@ -136,7 +136,7 @@ export  const slides = [
                     {
                         id:20,
                         image: slider6,
-                        rate:5,
+                        rate:4,
                         name: 'Wolf 20',
                         description: 'Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 Description for Slide 6 ',
                     }, 
