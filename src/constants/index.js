@@ -189,9 +189,10 @@ export  const slides = [
   ];
   export const navLinks = [
     {id:1, href: "/", label: "Trending" },
-    {id:2, href: "/movies", label: 'Movies' },
+    {id:2, href: "/discover", label:'Discover' },
     {id:3, href: "/tv", label:'Tv' },
-    {id:4, href: "/about", label:'About' },
+    {id:4, href: "/movies", label: 'Movies' },
+    {id:5, href: "/about", label:'About' },
 
 
     

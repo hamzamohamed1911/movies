@@ -34,6 +34,11 @@ export default function Nav() {
         </NavLink>
       </motion.li>
       <motion.li variants={navItemVariants}>
+        <NavLink to="/discover" className={({ isActive }) => isActive ? activeClasses : notActive}>
+        Discover
+        </NavLink>
+      </motion.li>
+      <motion.li variants={navItemVariants}>
         <NavLink to="/tv" className={({ isActive }) => isActive ? activeClasses : notActive}>
           Tv
         </NavLink>

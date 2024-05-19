@@ -7,6 +7,7 @@ import Movies from './_root/pages/Movies'
 import SideLayout from './_root/pages/SideLayout'
 import Tv from './_root/pages/Tv'
 import About from './_root/pages/About'
+import Discover from './_root/pages/Discover'
 const router = createBrowserRouter([
   {
     path:'',
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
         path: '',
         element: <SideLayout />,
         children: [
-          { path: 'tv', element: <Tv /> }, 
+          { path: 'discover', element: <Discover /> }, 
+          { path: 'tv', element: <Tv /> },
           { path: 'movies', element: <Movies /> }, 
           
         ],

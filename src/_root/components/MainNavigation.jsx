@@ -5,6 +5,8 @@ import { BsSearch } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { navLinks } from "../../constants";
 import { useComponentContext } from "../../store/componentContext";
+import DropdownButton from "./DropdownButton";
+import { useState } from "react";
 
 const topVariants = {
   closed: { rotate: 0 },
@@ -33,6 +35,12 @@ const listItemVariants ={
 
 const MainNavigation = () => {
   const { open, setOpen } = useComponentContext();
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+  
 
   const handlClick = () => {
     setOpen(prev => !prev);
@@ -86,9 +94,10 @@ const MainNavigation = () => {
       </button>
 
       {/* Mobile Navigation Menu */}
+
       {open && (
-        <motion.div variants={listVariants} initial="closed" animate="opened" className="fixed inset-0 md:hidden" onClick={handleCloseMenu}>
-          <div className="fixed left-0 top-0 w-[50%] h-full bg-primary ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl"  onClick={(e) => e.stopPropagation()} >
+        <motion.div variants={listVariants} initial="closed" animate="opened" className="fixed inset-0 md:hidden " onClick={handleCloseMenu}>
+          <div className="fixed left-0 top-0 w-[50%] h-full overflow-auto bg-primary ease-in-out duration-500 rounded-tr-2xl rounded-br-2xl"  onClick={(e) => e.stopPropagation()} >
             <ul>
               <div className="p-6 flex items-center justify-between">
                 {/* Mobile Logo */}
@@ -121,10 +130,27 @@ const MainNavigation = () => {
                   </motion.li>
                 </NavLink>
               ))}
+                 <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
+                  <h1 className="text-blue">
+                      GENRE
+                  </h1>
+                  <DropdownButton
+        label="TV"
+        isOpen={openDropdown === 'TV'}
+        toggleDropdown={() => toggleDropdown('TV')}
+      />
+      <DropdownButton
+        label="Movies"
+        isOpen={openDropdown === 'Movies'}
+        toggleDropdown={() => toggleDropdown('Movies')}
+      />
+          </motion.div>
             </ul>
           </div>
         </motion.div>
       )}
+
+
     </header>
   );
 };

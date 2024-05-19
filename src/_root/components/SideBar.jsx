@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { moviesLogo } from '../../assets';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useState } from 'react';
+import DropdownButton from "./DropdownButton.jsx";
 
 const SideBar = () => {  
   const [isOpen, setIsOpen] = useState(true);
@@ -11,7 +12,11 @@ const SideBar = () => {
   const toggleSidebar = () => {
     setIsOpen((open)=>!open);
   };
+  const [openDropdown, setOpenDropdown] = useState(null);
 
+  const toggleDropdown = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
   
   return (
    <>
@@ -36,7 +41,7 @@ const SideBar = () => {
 
             <div className="px-4 py-6">
               <span className="grid lg:h-10 lg:w-32 sm:h-5 sm:w-16 place-content-center rounded-lg text-xs cursor-pointer text-gray-600">
-              <Link to='/' className="flex gap-1  h-12  cursor-pointer">
+       <Link to='/' className="flex gap-1  h-12  cursor-pointer">
           <img src={moviesLogo} className=" h-10 object-contain"/>
           <span className=" text-babyblue flex self-center text-xl font-semibold">
           Movies
@@ -54,7 +59,27 @@ const SideBar = () => {
             {item.label}
           </NavLink>
         ))}
+
+
+        <div className="flex flex-col px-4 py-6  text-3xl  ">
+                  <h1 className="text-blue">
+                      GENRE
+                  </h1>
+                  <DropdownButton
+        label="TV"
+        isOpen={openDropdown === 'TV'}
+        toggleDropdown={() => toggleDropdown('TV')}
+      />
+      <DropdownButton
+        label="Movies"
+        isOpen={openDropdown === 'Movies'}
+        toggleDropdown={() => toggleDropdown('Movies')}
+      />
+          </div>
+
               </ul>
+              
+        
             </div>
           </motion.div>}
         
