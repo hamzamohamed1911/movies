@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { moviesLogo } from "../../assets";
 import Nav from "./Nav";
 import { BsSearch } from "react-icons/bs";
@@ -7,6 +7,7 @@ import { navLinks } from "../../constants";
 import { useComponentContext } from "../../store/componentContext";
 import DropdownButton from "./DropdownButton";
 import { useState } from "react";
+import Button from "./Button";
 
 const topVariants = {
   closed: { rotate: 0 },
@@ -40,7 +41,13 @@ const MainNavigation = () => {
   const toggleDropdown = (label) => {
     setOpenDropdown(openDropdown === label ? null : label);
   };
-  
+  const navigate = useNavigate()
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate('/signin')
+  };
+
 
   const handlClick = () => {
     setOpen(prev => !prev);
@@ -63,13 +70,16 @@ const MainNavigation = () => {
 
       <div className="flex">
         <Nav />
-
         <div className="hidden md:flex space-x-6 px-4">
           <span className="flex items-center self-center w-[0.5px] h-6 bg-babyblue"></span>
           <button>
             <BsSearch className="h-5 w-5 self-center text-babyblue flex items-center" />
           </button>
+          <form>
+          <Button label="Sign In" small  handleClick={handleSubmit} />
+          </form>
         </div>
+      
       </div>
 
       <button
@@ -113,8 +123,9 @@ const MainNavigation = () => {
                 </Link>
               </div>
 
-              {/* Mobile Navigation Items */}
-              {navLinks.map((item) => (
+             {/* Mobile Navigation Items */}
+
+             {navLinks.map((item) => (
                 <NavLink
                   key={item.id}
                   to={item.href}
@@ -129,8 +140,8 @@ const MainNavigation = () => {
                   {item.label}
                   </motion.li>
                 </NavLink>
-              ))}
-                 <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
+                  ))}
+            <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
                   <h1 className="text-blue">
                       GENRE
                   </h1>
@@ -147,6 +158,7 @@ const MainNavigation = () => {
           </motion.div>
             </ul>
           </div>
+          
         </motion.div>
       )}
 

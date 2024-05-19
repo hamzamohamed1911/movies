@@ -6,6 +6,7 @@ import slider5 from './slider5.jpg'
 import slider6 from './slider6.jpg' 
 import slider7 from './slider7.jpg' 
 import moviesLogo from './movies.png' 
+import godFather from './godfather.jpg'
 
 
 export {
@@ -16,6 +17,7 @@ export {
     slider5,
     slider6,
     slider7,
-    moviesLogo
+    moviesLogo,
+    godFather
 
 }

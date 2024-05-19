@@ -71,16 +71,18 @@ const Slider = () => {
         <div className="absolute  lg:bottom-0 bottom-6 left-0 w-full text-center">
         <div className='lg:p-20 p-14'>
         <div className='flex gap-3 lg:py-10 py-8 '>
-            <Button backgroundColor label="Watch trailer" />
-            <Button icon={<FaPlay />} label="watch now" />
+            <Button normal backgroundColor label="Watch trailer" />
+            <Button normal icon={<FaPlay />} label="watch now" />
         </div>
           <div className='gap-3 flex lg:py-20 py-18'>
             <Button
+              normal
               backgroundColor="transparent"
               label={<IoIosArrowBack className="text-white hover:text-opacity-70" />}
               handleClick={prevSlide}
             />
             <Button
+            normal
               backgroundColor="transparent"
               label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
               handleClick={nextSlide}

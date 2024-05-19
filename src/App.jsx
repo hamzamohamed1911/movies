@@ -8,6 +8,9 @@ import SideLayout from './_root/pages/SideLayout'
 import Tv from './_root/pages/Tv'
 import About from './_root/pages/About'
 import Discover from './_root/pages/Discover'
+import AuthLayout from './_auth/AuthLayout'
+import SignIn from './_auth/forms/SignIn'
+import SignUp from './_auth/forms/SignUp'
 const router = createBrowserRouter([
   {
     path:'',
@@ -26,6 +29,16 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },{
+    path:"",
+    element:<AuthLayout/>,
+    children: [
+      { path: 'signin', element: <SignIn /> }, 
+      { path: 'signup', element: <SignUp /> },
+     
+      
+    ],
+
   }
 
 
