@@ -43,13 +43,14 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className="cursor-pointer inline-block rounded-md lg:h-52 lg:w-60 w-44 h-40"
-            onClick={() => setCurrentIndex(index)}
+            className="inline-block "
+            
           >
             <img
               src={slide.image}
               alt={slide.name}
-              className={`rounded-md lg:h-48 lg:w-56 w-40 h-36 ${
+              onClick={() => setCurrentIndex(index)}
+              className={`cursor-pointer  rounded-md lg:h-52 lg:w-56 w-40 h-36 ${
                 currentIndex === index ? "border-[4px] border-navy" : ""
               }`}
             />

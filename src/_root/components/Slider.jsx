@@ -62,7 +62,7 @@ const Slider = () => {
                   {/* In this specific case, we're using Array.from to create an array of a certain length (equal to the slide.rate), and we're mapping over it to render the rate icons. The map function in JavaScript provides two arguments: the current element being processed and its index. Since we don't need the current element (we're just interested in its index), we can use _ as a placeholder to indicate that we're ignoring it. */}
             {Array.from({ length: slide.rate }).map((_, index) => (
                <FaStar size={20} color='gold'  key={index}/> ))}
-          </div>
+            </div>
                 <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
               </div>
             </motion.div>
@@ -71,7 +71,8 @@ const Slider = () => {
 
           
         ))}
-        <div className="absolute  lg:bottom-0 bottom-6 left-0 w-full text-center">
+        <div className="absolute  lg:bottom-0 bottom-6 left-0 w-full ">
+
         <div className='lg:p-20 p-14'>
 
         <div className='flex gap-3 lg:py-10 py-8 '>
@@ -95,7 +96,7 @@ const Slider = () => {
           </div>
         </div>
 
-        <div className='py-8 mx-auto container  '>
+        <div className='py-8 mx-auto'>
 
         <SliderItems
           prevSlide={prevSlide}
