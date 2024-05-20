@@ -41,11 +41,7 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
     
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className="inline-block "
-            
-          >
+          <div key={slide.id}>
             <img
               src={slide.image}
               alt={slide.name}
