@@ -53,17 +53,22 @@ const Slider = () => {
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <img
-                src={slide.image}
-                alt={slide.name}
+                src={slide.posterUrl}
+                alt={slide.title}
                 className="h-screen w-full object-cover object-both"
               />
               {/* el setara */}
 
            <div className='absolute md:w-1/3 w-full h-full  bottom-0  bg-black md:bg-opacity-60 bg-opacity-30  text-white lg:p-20 p-14'>
-                <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">{slide.name}</h1>
+                <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">{slide.title}</h1>
              <div className="flex">
-               {Array.from({ length: slide.rate }).map((_, index) => (
-               <FaStar size={20} color='gold'  key={index}/> ))}
+             {[...Array(5)].map((_, i) => (
+                  <FaStar
+                    key={i}
+                    color={i < Math.round(slide.rating ) ? 'gold' : 'grey'}
+                    size={20}
+                  />
+                ))}
              </div>
 
                 <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
