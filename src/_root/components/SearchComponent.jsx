@@ -48,7 +48,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
-        className="absolute top-full left-0 mt-1 w-full bg-slate-900 rounded z-10 max-h-96 overflow-y-scroll"
+        className="absolute top-full left-0 mt-1 w-full bg-primary rounded z-10 max-h-96 overflow-y-scroll"
       >
         {results.map((result, index) => (
           <Link 

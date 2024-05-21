@@ -542,7 +542,55 @@ export  const slides = [
       title: "Tokyo Ghoul",
       posterUrl: "https://image.tmdb.org/t/p/w200/cn7jxG5Xs6nfwUkSOi6EJ3QbFPC.jpg",
       rating: 8.0
-    }
+    },
+     {
+    id: 67,
+    title: "The Godfather: Part III",
+    posterUrl: "https://image.tmdb.org/t/p/w200/7fPul2TRcTMsyp7L9FLvZsm0aon.jpg",
+    rating: 7.4
+  },
+  {
+    id: 68,
+    title: "Heat",
+    posterUrl: "https://image.tmdb.org/t/p/w200/6c9KMSwhAa2aI6p2X7YGsm3mYQy.jpg",
+    rating: 8.3
+  },
+  {
+    id: 69,
+    title: "Scarface",
+    posterUrl: "https://image.tmdb.org/t/p/w200/qLydgIrrSv0XX0Wnyvnm3Bd4o0W.jpg",
+    rating: 8.2
+  },
+  {
+    id: 70,
+    title: "Dog Day Afternoon",
+    posterUrl: "https://image.tmdb.org/t/p/w200/sMx7GROuwF8Rg5K0v7aJsk2X1g2.jpg",
+    rating: 8.0
+  },
+  {
+    id: 71,
+    title: "Serpico",
+    posterUrl: "https://image.tmdb.org/t/p/w200/ebjGlwcxjZGzPfKOCsiEMLWxzqd.jpg",
+    rating: 7.7
+  },
+  {
+    id: 72,
+    title: "Scent of a Woman",
+    posterUrl: "https://image.tmdb.org/t/p/w200/2uqId6pVnOMKhs7QrE90vMFARjM.jpg",
+    rating: 7.9
+  },
+  {
+    id: 73,
+    title: "Glengarry Glen Ross",
+    posterUrl: "https://image.tmdb.org/t/p/w200/fXMzFz5uvY4WJhFlDCWvTxieA8M.jpg",
+    rating: 7.4
+  },
+  {
+    id: 74,
+    title: "The Irishman",
+    posterUrl: "https://image.tmdb.org/t/p/w200/gKDCHbZih9k3X8a14Y7Tq6O12uX.jpg",
+    rating: 7.8
+  }
   ];
   
 
