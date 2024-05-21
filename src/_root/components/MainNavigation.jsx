@@ -8,6 +8,7 @@ import { useComponentContext } from "../../store/componentContext";
 import DropdownButton from "./DropdownButton";
 import { useState } from "react";
 import Button from "./Button";
+import SearchComponent from "./SearchComponent";
 
 const topVariants = {
   closed: { rotate: 0 },
@@ -37,7 +38,11 @@ const listItemVariants ={
 const MainNavigation = () => {
   const { open, setOpen } = useComponentContext();
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [searchVisible, setSearchVisible] = useState(false);
 
+  const handleSearchClick = () => {
+    setSearchVisible(opened=>!opened);
+  };
   const toggleDropdown = (label) => {
     setOpenDropdown(openDropdown === label ? null : label);
   };
@@ -69,18 +74,20 @@ const MainNavigation = () => {
       </div>
 
       <div className="flex">
-        <Nav />
-        <div className="hidden md:flex space-x-6 px-4">
-          <span className="flex items-center self-center w-[0.5px] h-6 bg-babyblue"></span>
-          <button>
-            <BsSearch className="h-5 w-5 self-center text-babyblue flex items-center" />
-          </button>
-          
-          <Button label="Sign In" small  handleClick={handleSubmit} />
-  
-        </div>
-      
+      <Nav />
+      <div className="hidden md:flex space-x-6 px-4">
+        {!searchVisible && (
+          <>
+            <span className="flex items-center self-center w-[0.5px] h-6 bg-babyblue"></span>
+            <button onClick={handleSearchClick}>
+              <BsSearch className="h-5 w-5 self-center text-babyblue flex items-center" />
+            </button>
+            <Button label="Sign In" small handleClick={handleSubmit} />
+          </>
+        )}
+        <SearchComponent isVisible={searchVisible} onClose={handleSearchClick}/>
       </div>
+    </div>
 
       <button
         className="w-10 h-8 flex flex-col justify-between z-20 md:hidden relative"

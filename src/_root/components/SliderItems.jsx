@@ -46,7 +46,7 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
               src={slide.image}
               alt={slide.name}
               onClick={() => setCurrentIndex(index)}
-              className={`cursor-pointer  rounded-md lg:h-52 lg:w-56 w-40 h-36 ${
+              className={`cursor-pointer rounded-md lg:h-52 lg:w-56 w-36 h-32 ${
                 currentIndex === index ? "border-[4px] border-navy" : ""
               }`}
             />

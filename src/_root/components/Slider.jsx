@@ -99,7 +99,7 @@ const Slider = () => {
           </div>
         </div>
 
-        <div className='py-8 mx-auto'>
+        <div className='lg:py-6 py-4 mx-auto'>
         <SliderItems
           prevSlide={prevSlide}
           nextSlide={nextSlide}
