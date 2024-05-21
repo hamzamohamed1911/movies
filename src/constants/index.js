@@ -563,6 +563,12 @@ export  const slides = [
   posterUrl: "https://image.tmdb.org/t/p/w200/or1gBugydmjToAEq7OZY0owwFk.jpg",
   rating: 8.4,
   type: "movie"
+}, {
+  id: 112,
+  title: "Troy",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMTk5MzU1MDMwMF5BMl5BanBnXkFtZTcwNjczODMzMw@@._V1_.jpg",
+  rating: 7.3,
+  type: "movie"
 }
 
   ];
