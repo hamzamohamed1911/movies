@@ -556,6 +556,13 @@ export  const slides = [
   posterUrl: "https://image.tmdb.org/t/p/w200/kLEha9zVVv8acGFKTX4gjvSR2Q0.jpg",
   rating: 8.3,
   type: "tv"
+},
+{
+  id: 111,
+  title: "Braveheart",
+  posterUrl: "https://image.tmdb.org/t/p/w200/or1gBugydmjToAEq7OZY0owwFk.jpg",
+  rating: 8.4,
+  type: "movie"
 }
 
   ];
