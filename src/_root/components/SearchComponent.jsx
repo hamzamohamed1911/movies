@@ -48,19 +48,20 @@ const SearchComponent = ({ isVisible, onClose }) => {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
-        className="absolute top-full left-0 mt-1 w-full bg-primary rounded z-10 max-h-96 overflow-y-scroll"
+        className="absolute top-full left-0 mt-1 w-full bg-primary rounded-lg z-10 max-h-[400px] overflow-y-scroll"
       >
         {results.map((result, index) => (
           <Link 
-            key={index} 
-            to={`/${result.id}`} 
-            className="flex items-center p-4 border-b border-gray-700 hover:bg-gray-800"
-          >
+          key={index} 
+          to={`/${result.type === 'movie' ? 'movie' : 'tv'}/${result.id}`} 
+          className="flex items-center p-6 border-b border-gray-700 hover:bg-gray-800"
+        >
             <img 
               src={result.posterUrl} 
               alt={result.title} 
               className="w-12 h-16 object-cover mr-3"
             />
+            
             <div className="flex-1">
               <h3 className="text-babyblue font-semibold">{result.title}</h3>
               <div className="flex items-center">
@@ -73,7 +74,9 @@ const SearchComponent = ({ isVisible, onClose }) => {
                 ))}
                 <span className="ml-2 text-babyblue">{result.rating}</span>
               </div>
+              
             </div>
+            <p className="bg-navy p-2 text-center rounded text-babyblue text-lg font-bold">{result.type} </p>
           </Link>
         ))}
       </motion.div>
