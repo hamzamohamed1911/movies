@@ -549,6 +549,13 @@ export  const slides = [
   posterUrl: "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg",
   rating: 9.5,
   type: "tv"
+},
+{
+  id: 109,
+  title: "The Vampire Diaries",
+  posterUrl: "https://image.tmdb.org/t/p/w200/kLEha9zVVv8acGFKTX4gjvSR2Q0.jpg",
+  rating: 8.3,
+  type: "tv"
 }
 
   ];
