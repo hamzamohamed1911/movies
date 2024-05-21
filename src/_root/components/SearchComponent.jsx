@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BsX } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 
 const SearchComponent = ({ isVisible, onClose }) => {
     return (
@@ -15,7 +15,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
           placeholder="Search..."
         />
         <button onClick={onClose} className="ml-2">
-          <BsX className="h-5 w-5 text-babyblue" />
+          <IoMdClose className="h-5 w-5 text-babyblue" />
         </button>
       </motion.div>
     );
