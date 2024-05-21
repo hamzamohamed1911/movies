@@ -543,6 +543,12 @@ export  const slides = [
   posterUrl: "https://m.media-amazon.com/images/M/MV5BOGM0YmJlNGItOTVlNi00NjViLWFiMDAtNzE3MDk0YThjOTVhXkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_.jpg",
   rating: 6.7,
   type: "tv"
+},{
+  id: 108,
+  title: "Breaking Bad",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg",
+  rating: 9.5,
+  type: "tv"
 }
 
   ];
