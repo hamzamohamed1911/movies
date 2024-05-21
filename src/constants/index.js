@@ -154,13 +154,7 @@ export  const slides = [
       rating: 9.0,
       type: "movie"
     },
-    {
-      id: 2,
-      title: "Stranger Things",
-      posterUrl: "https://image.tmdb.org/t/p/w200/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
-      rating: 8.7,
-      type: "tv"
-    },
+ 
     {
       id: 3,
       title: "Pulp Fiction",
@@ -174,13 +168,6 @@ export  const slides = [
       posterUrl: "https://image.tmdb.org/t/p/w200/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
       rating: 8.7,
       type: "tv"
-    },
-    {
-      id: 5,
-      title: "Interstellar",
-      posterUrl: "https://image.tmdb.org/t/p/w200/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
-      rating: 8.6,
-      type: "movie"
     },
     {
       id: 6,
@@ -211,53 +198,11 @@ export  const slides = [
       type: "movie"
     },
     {
-      id: 10,
-      title: "Game of Thrones",
-      posterUrl: "https://image.tmdb.org/t/p/w200/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
-      rating: 9.2,
-      type: "tv"
-    },
-    {
-      id: 11,
-      title: "Forrest Gump",
-      posterUrl: "https://image.tmdb.org/t/p/w200/yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg",
-      rating: 8.8,
-      type: "movie"
-    },
-    {
       id: 12,
       title: "The Godfather: Part II",
       posterUrl: "https://image.tmdb.org/t/p/w200/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
       rating: 9.0,
       type: "movie"
-    },
-    {
-      id: 13,
-      title: "The Matrix",
-      posterUrl: "https://image.tmdb.org/t/p/w200/lZpWprJqbIFpEV5uoHfoK0KCnTW.jpg",
-      rating: 8.7,
-      type: "movie"
-    },
-    {
-      id: 14,
-      title: "Inception",
-      posterUrl: "https://image.tmdb.org/t/p/w200/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
-      rating: 8.8,
-      type: "movie"
-    },
-    {
-      id: 15,
-      title: "The Shawshank Redemption",
-      posterUrl: "https://image.tmdb.org/t/p/w200/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg",
-      rating: 9.3,
-      type: "movie"
-    },
-    {
-      id: 16,
-      title: "Breaking Bad",
-      posterUrl: "https://image.tmdb.org/t/p/w200/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg",
-      rating: 9.5,
-      type: "tv"
     },
     {
       id: 17,
@@ -267,40 +212,14 @@ export  const slides = [
       type: "tv"
     },
     {
-      id: 18,
-      title: "Avatar",
-      posterUrl: "https://image.tmdb.org/t/p/w200/ucYY17Q3tjaVyJlcuN0bKDGT5op.jpg",
-      rating: 7.8,
-      type: "movie"
-    },
-    {
       id: 19,
       title: "The Lord of the Rings: The Fellowship of the Ring",
       posterUrl: "https://image.tmdb.org/t/p/w200/bKthjUmxjHjvJK8FktFfQdmwP12.jpg",
       rating: 8.8,
       type: "movie"
     },
-    {
-      id: 20,
-      title: "The Simpsons",
-      posterUrl: "https://image.tmdb.org/t/p/w200/yTZQkSsxUFJZJe67IenRM0AEklc.jpg",
-      rating: 8.7,
-      type: "tv"
-    },
-    {
-      id: 21,
-      title: "Toy Story",
-      posterUrl: "https://image.tmdb.org/t/p/w200/rhIRbceoE9lR4veEXuwCC2wARtG.jpg",
-      rating: 8.3,
-      type: "movie"
-    },
-    {
-      id: 22,
-      title: "The Matrix",
-      posterUrl: "https://image.tmdb.org/t/p/w200/lZpWprJqbIFpEV5uoHfoK0KCnTW.jpg",
-      rating: 8.7,
-      type: "movie"
-    },
+    
+   
     {
       id: 23,
       title: "The Godfather",
@@ -327,13 +246,6 @@ export  const slides = [
       title: "Iron Man",
       posterUrl: "https://image.tmdb.org/t/p/w200/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
       rating: 7.9,
-      type: "movie"
-    },
-    {
-      id: 27,
-      title: "The Incredible Hulk",
-      posterUrl: "https://image.tmdb.org/t/p/w200/csMGR99x9c6wvhtkBEsjA4EBcHS.jpg",
-      rating: 6.7,
       type: "movie"
     },
     {
@@ -397,20 +309,6 @@ export  const slides = [
       title: "Avengers: Age of Ultron",
       posterUrl: "https://image.tmdb.org/t/p/w200/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg",
       rating: 7.3,
-      type: "movie"
-    },
-    {
-      id: 37,
-      title: "Ant-Man",
-      posterUrl: "https://image.tmdb.org/t/p/w200/D6e8RJf2qUstnfkTslTXNTUAlT.jpg",
-      rating: 7.3,
-      type: "movie"
-    },
-    {
-      id: 38,
-      title: "Captain America: Civil War",
-      posterUrl: "https://image.tmdb.org/t/p/w200/kSBXou5Ac7vEqKd97wotJumyJvU.jpg",
-      rating: 7.8,
       type: "movie"
     },
     {
@@ -532,146 +430,14 @@ export  const slides = [
       rating: 6.8,
       type: "movie"
     },
-    {
-      id: 56,
-      title: "Guardians of the Galaxy Vol. 3",
-      posterUrl: "https://image.tmdb.org/t/p/w200/rG4jQfV0ZnBv8CoNtdzjPs9cHnl.jpg",
-      rating: 7.8,
-      type: "movie"
-    },
-    {
-      id: 57,
-      title: "Ant-Man and the Wasp: Quantumania",
-      posterUrl: "https://image.tmdb.org/t/p/w200/qmZgJwx1vT9KFGz6gF2A2MZHh3l.jpg",
-      rating: 6.4,
-      type: "movie"
-    },
-    {
-      id: 58,
-      title: "The Marvels",
-      posterUrl: "https://image.tmdb.org/t/p/w200/5ynEpuJdQ7VAtwNjZ9oGmCaL3r9.jpg",
-      rating: 6.2,
-      type: "movie"
-    },
-    {
-      id: 59,
-      title: "Attack on Titan",
-      posterUrl: "https://image.tmdb.org/t/p/w200/zvxXw0EotbBntUksf1BN5yTMnXJ.jpg",
-      rating: 8.8,
-      type: "movie"
-    },
-    {
-      id: 60,
-      title: "Death Note",
-      posterUrl: "https://image.tmdb.org/t/p/w200/kvxJflHW4EUPVIgWg09QpK1xS4p.jpg",
-      rating: 9.0,
-      type: "movie"
-    },
-    {
-      id: 61,
-      title: "Fullmetal Alchemist: Brotherhood",
-      posterUrl: "https://image.tmdb.org/t/p/w200/w8YKCZ6WMAf5azDk2ebbn2aWXN3.jpg",
-      rating: 9.1,
-      type: "movie"
-    },
-    {
-      id: 62,
-      title: "Naruto: Shippuden",
-      posterUrl: "https://image.tmdb.org/t/p/w200/nvKCt2gz7dh3l1H99j0oG2j9S4z.jpg",
-      rating: 8.6,
-      type: "movie"
-    },
-    {
-      id: 63,
-      title: "One Piece",
-      posterUrl: "https://image.tmdb.org/t/p/w200/j5UkW0k70ZtPDahJp6XMTbeYo6.jpg",
-      rating: 8.8,
-      type: "movie"
-    },
-    {
-      id: 64,
-      title: "Westworld",
-      posterUrl: "https://image.tmdb.org/t/p/w200/6aj09UtX12ztzU6n61zLVn4LnT1.jpg",
-      rating: 8.6,
-      type: "tv"
-      },
-    {
-      id: 65,
-      title: "Dragon Ball Z",
-      posterUrl: "https://image.tmdb.org/t/p/w200/ovUO0sXqL36N8WVuULswjlzyAXW.jpg",
-      rating: 8.7,
-      type: "movie"
-    },
-    {
-      id: 66,
-      title: "My Hero Academia",
-      posterUrl: "https://image.tmdb.org/t/p/w200/5RU4t7knFnpZOtGuoozBvZChqak.jpg",
-      rating: 8.5,
-      type: "movie"
-    },
-    {
-      id: 67,
-      title: "Sword Art Online",
-      posterUrl: "https://image.tmdb.org/t/p/w200/iuCn6JHfGGxb2k8xfmcSkzUsHHJ.jpg",
-      rating: 7.6,
-      type: "movie"
-    },
-    {
-      id: 68,
-      title: "Dexter",
-      posterUrl: "https://image.tmdb.org/t/p/w200/58EVRd8jyv7XcHlJ8S1GGv8d9uT.jpg",
-      rating: 8.6,
-      type: "tv"
-      },
-    {
-      id: 69,
-      title: "Demon Slayer: Kimetsu no Yaiba",
-      posterUrl: "https://image.tmdb.org/t/p/w200/yKQx6xi47XBkb1q6N4OmGi0m43W.jpg",
-      rating: 8.7,
-      type: "movie"
-    },
-    {
-      id: 70,
-      title: "Tokyo Ghoul",
-      posterUrl: "https://image.tmdb.org/t/p/w200/cn7jxG5Xs6nfwUkSOi6EJ3QbFPC.jpg",
-      rating: 8.0,
-      type: "movie"
-    },
+ 
     {
       id: 71,
       title: "The Godfather: Part III",
-      posterUrl: "https://image.tmdb.org/t/p/w200/7fPul2TRcTMsyp7L9FLvZsm0aon.jpg",
+      posterUrl: "https://m.media-amazon.com/images/M/MV5BNWFlYWY2YjYtNjdhNi00MzVlLTg2MTMtMWExNzg4NmM5NmEzXkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg",
       rating: 7.4,
       type: "movie"
-    },
-    {
-      id: 72,
-      title: "Heat",
-      posterUrl: "https://image.tmdb.org/t/p/w200/6c9KMSwhAa2aI6p2X7YGsm3mYQy.jpg",
-      rating: 8.3,
-      type: "movie"
-    },
-    {
-      id: 73,
-      title: "Scarface",
-      posterUrl: "https://image.tmdb.org/t/p/w200/qLydgIrrSv0XX0Wnyvnm3Bd4o0W.jpg",
-      rating: 8.2,
-      type: "movie"
-    },
-    {
-      id: 74,
-      title: "Dog Day Afternoon",
-      posterUrl: "https://image.tmdb.org/t/p/w200/sMx7GROuwF8Rg5K0v7aJsk2X1g2.jpg",
-      rating: 8.0,
-      type: "movie"
-    },
-    {
-      id: 75,
-      title: "The Witcher",
-      posterUrl: "https://image.tmdb.org/t/p/w200/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
-      rating: 8.2,
-      type: "tv"
-      }
+    }
       ,
       {
       id: 76,
@@ -688,46 +454,7 @@ export  const slides = [
       rating: 8.8,
       type: "tv"
       }
-      ,
-      {
-      id: 78,
-      title: "The Simpsons",
-      posterUrl: "https://image.tmdb.org/t/p/w200/qcr9bBY6MVeLzriKCmJOv1562uY.jpg",
-      rating: 7.8,
-      type: "tv"
-      }
-      ,
-      {
-      id: 79,
-      title: "The Big Bang Theory",
-      posterUrl: "https://image.tmdb.org/t/p/w200/1kikYrSd8e5YFe1dz9fIwj58NGo.jpg",
-      rating: 8.1,
-      type: "tv"
-      }
-      ,
-      {
-      id: 80,
-      title: "Narcos",
-      posterUrl: "https://image.tmdb.org/t/p/w200/rg73M0b90dDN8BbpkFsJMXqDb1X.jpg",
-      rating: 8.7,
-      type: "tv"
-      }
-      ,
-      {
-      id: 81,
-      title: "Dexter",
-      posterUrl: "https://image.tmdb.org/t/p/w200/58EVRd8jyv7XcHlJ8S1GGv8d9uT.jpg",
-      rating: 8.6,
-      type: "tv"
-      }
-      ,
-      {
-      id: 82,
-      title: "Avatar: The Last Airbender",
-      posterUrl: "https://image.tmdb.org/t/p/w200/y7UbCmSytHJySj0McPfPPGQaE1q.jpg",
-      rating: 9.3,
-      type: "tv"
-      }
+      
       ,
       {
       id: 83,
@@ -738,12 +465,86 @@ export  const slides = [
       }
       ,
       {
-      id: 84,
-      title: "Westworld",
-      posterUrl: "https://image.tmdb.org/t/p/w200/6aj09UtX12ztzU6n61zLVn4LnT1.jpg",
-      rating: 8.6,
-      type: "tv"
-      }
+        id: 85,
+        title: "The Simpsons",
+        posterUrl: "https://image.tmdb.org/t/p/w200/2IWouZK4gkgHhJa3oyYuSWfSqbG.jpg",
+        rating: 8.7,
+        type: "tv"
+     },
+   
+ 
+{
+  id: 90,
+  title: "Toy Story",
+  posterUrl: "https://image.tmdb.org/t/p/w200/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
+  rating: 8.3,
+  type: "movie"
+}
+,
+{
+  id: 93,
+  title: "Finding Nemo",
+  posterUrl: "https://image.tmdb.org/t/p/w200/eHuGQ10FUzK1mdOY69wF5pGgEf5.jpg",
+  rating: 8.1,
+  type: "movie"
+}
+,{
+  id: 94,
+  title: "The Incredibles",
+  posterUrl: "https://image.tmdb.org/t/p/w200/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg",
+  rating: 8.0,
+  type: "movie"
+},
+{
+  id: 95,
+  title: "Shrek",
+  posterUrl: "https://image.tmdb.org/t/p/w200/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg",
+  rating: 7.9,
+  type: "movie"
+},
+{
+  id: 101,
+  title: "Spider-Man: Into the Spider-Verse",
+  posterUrl: "https://image.tmdb.org/t/p/w200/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+  rating: 8.4,
+  type: "movie"
+},{
+  id: 102,
+  title: "Dragon Ball",
+  posterUrl: "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/257cdb6a1fdd566600a01eb0f9f73b22.jpe",
+  rating: 8.5,
+  type: "tv"
+},
+{
+  id: 103,
+  title: "Dragon Ball Z",
+  posterUrl: "https://imgsrv.crunchyroll.com/cdn-cgi/image/format=auto,fit=contain,width=480,height=720,quality=85/catalog/crunchyroll/35e4ac6339f5fdcc164160a5755790cd.jpe",
+  rating: 8.6,
+  type: "tv"
+},
+{
+  id: 104,
+  title: "Dragon Ball GT",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BYzY3YjhiYTMtNDQ4OS00ZGI0LWE0ODQtOGM1N2M5OTQyNjk1XkEyXkFqcGdeQXVyMjc2Nzg5OTQ@._V1_FMjpg_UX1000_.jpg",
+  rating: 6.8,
+  type: "tv"
+},
+
+{
+  id: 106,
+  title: "Dragon Ball Super",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BY2I2MzI1ODYtMWRlOS00MzdhLWEyOWEtYWJhNmFiZTIxMGJhXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_.jpg",
+  rating: 8.3,
+  type: "tv"
+},
+{
+  id: 107,
+  title: "Dragon Ball Heroes",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BOGM0YmJlNGItOTVlNi00NjViLWFiMDAtNzE3MDk0YThjOTVhXkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_.jpg",
+  rating: 6.7,
+  type: "tv"
+}
+
   ];
   
 
