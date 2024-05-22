@@ -149,11 +149,22 @@ export  const slides = [
   export const dummyData = [
     {
       id: 1,
-      title: "The Dark Knight",
-      posterUrl: "https://image.tmdb.org/t/p/w200/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-      rating: 9.0,
-      type: "movie"
+      title: 'Inception',
+      posterUrl: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg',
+      rating: 8.8,
+      type: 'movies',
+      description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.'
     },
+   {
+    id: 2,
+   
+    title: 'The Dark Knight',
+    posterUrl: 'https://image.tmdb.org/t/p/w200/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
+    rating: 9.0,
+    type: 'movies',
+    description: 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.'
+    
+  },
  
     {
       id: 3,
@@ -167,13 +178,6 @@ export  const slides = [
       title: "Stranger Things",
       posterUrl: "https://image.tmdb.org/t/p/w200/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
       rating: 8.7,
-      type: "tv"
-    },
-    {
-      id: 6,
-      title: "The Witcher",
-      posterUrl: "https://image.tmdb.org/t/p/w200/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
-      rating: 8.2,
       type: "tv"
     },
     {
@@ -580,7 +584,7 @@ export  const slides = [
     {id:1, href: "/", label: "Trending" },
     {id:2, href: "/discover", label:'Discover' },
     {id:3, href: "/tv", label:'Tv' },
-    {id:4, href: "/movies", label: 'Movies' },
+    {id:4, href: "/movie", label: 'Movie' },
     {id:5, href: "/about", label:'About' },
 
 

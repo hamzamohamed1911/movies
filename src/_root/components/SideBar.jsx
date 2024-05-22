@@ -22,7 +22,7 @@ const SideBar = () => {
    <>
         <div className="absolute bottom-1/2 left-0">
           {!isOpen && (
-            <button onClick={toggleSidebar}><IoIosArrowForward className= "text-babyblue " size={24} /></button>
+            <button onClick={toggleSidebar}><IoIosArrowForward className= "fixed text-babyblue " size={24} /></button>
           )}
         </div>
       <AnimatePresence>
@@ -44,7 +44,7 @@ const SideBar = () => {
        <Link to='/' className="flex gap-1  h-12  cursor-pointer">
           <img src={moviesLogo} className=" h-10 object-contain"/>
           <span className=" text-babyblue flex self-center text-xl font-semibold">
-          Movies
+          Movie
           </span>
       </Link>
               </span>

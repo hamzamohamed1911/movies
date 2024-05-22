@@ -68,7 +68,7 @@ const MainNavigation = () => {
         <Link to="/" className="flex gap-1 h-14 cursor-pointer">
           <img src={moviesLogo} className="h-12 object-contain" />
           <span className="text-babyblue flex self-center text-xl font-semibold">
-            Movies
+            Movie
           </span>
         </Link>
       </div>
@@ -130,7 +130,7 @@ const MainNavigation = () => {
                     alt="Movies Logo"
                   />
                   <span className="text-babyblue flex self-center text-xl font-semibold">
-                    Movies
+                    Movie
                   </span>
                 </Link>
               </div>
