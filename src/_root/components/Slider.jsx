@@ -59,7 +59,7 @@ const Slider = () => {
               />
               {/* el setara */}
 
-           <div className='absolute md:w-1/3 w-full h-full  bottom-0  bg-black md:bg-opacity-60 bg-opacity-30  text-white lg:p-20 p-14'>
+           <div className='absolute md:w-1/3 w-full h-full  bottom-0  bg-black md:bg-opacity-5  bg-opacity-30 md:bg-gradient-to-l from-transparent to-black  text-white lg:p-20 p-14'>
                 <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">{slide.title}</h1>
              <div className="flex">
              {[...Array(5)].map((_, i) => (

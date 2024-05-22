@@ -19,9 +19,9 @@ const Details = ({ item }) => {
         <img
           src={item.posterUrl}
           alt={item.title}
-          className="w-full h-[500px] sm:h-[600px] object-cover rounded-lg"
+          className="w-full h-[500px] sm:h-[600px] object-cover rounded-3xl"
         />
-        <div className="absolute inset-0 p-6 sm:p-10 bg-gradient-to-b from-transparent to-black flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
+        <div className="absolute inset-0 p-6 sm:p-10 bg-gradient-to-b from-transparent to-black  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
           <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-14">
             <img
               src={item.posterUrl}
