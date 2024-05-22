@@ -90,7 +90,7 @@ const MovieDetails = () => {
                     <img
                       src={slide.posterUrl}
                       alt={slide.title}
-                      className="cursor-pointer rounded-xl lg:w-80 lg:h-96  w-72 h-96"
+                      className="cursor-pointer rounded-xl lg:w-80 lg:h-96  w-64 h-96"
                     />
                     <h1 className="text-babyblue text-2xl text-center">{slide.title}</h1>
                   </div>
