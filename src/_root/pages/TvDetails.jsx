@@ -4,6 +4,8 @@ import { dummyData, slides } from "../../constants";
 import Details from '../components/Details';
 import Slider from "react-slick";
 import Recommendtions from '../components/Recommendtions';
+import Cast from '../components/Cast';
+import Similar from '../components/Similar';
 
 const TvDetails = () => {
   const { tvId } = useParams();
