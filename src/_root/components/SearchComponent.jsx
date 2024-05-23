@@ -26,16 +26,18 @@ const SearchComponent = ({ isVisible, onClose }) => {
     setQuery("");
     setResults([]);
   };
+  
 
   return (
     <motion.div
       initial={{ opacity: 0, width: "100%" }}
       animate={{
         opacity: isVisible ? 1 : 0,
-        width: isVisible ? (window.innerWidth > 768 ? "350px" : "250px") : 0,
+        width: isVisible ? (window.innerWidth > 768 ? "350px" : "270px") : 0,
       }}
       transition={{ duration: 0.5 }}
       className="relative z-50"
+      onClick={(e) => e.stopPropagation()}
     >
       
       
@@ -60,7 +62,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-full left-0 mt-1 w-full sm:w-[350px] bg-primary rounded-lg z-10 max-h-[400px] overflow-y-scroll"
+          className="absolute top-full left-0 mt-1 w-full sm:w-[350px] bg-primary rounded-lg z-10 max-h-[400px] overflow-y-auto"
         >
           {results.length === 0 ? (
             <p className="p-4 text-babyblue">No results found.</p>
@@ -100,7 +102,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
                   </div>
                 </div>
                 <p className="bg-navy p-2 text-center rounded text-babyblue text-lg font-bold">
-                  {result.type}{" "}
+                  {result.type}
                 </p>
               </Link>
             ))
