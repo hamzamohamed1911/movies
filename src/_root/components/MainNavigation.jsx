@@ -125,6 +125,14 @@ const MainNavigation = () => {
     {searchVisible && (
         <SearchComponent isVisible={searchVisible} onClose={handleSearchClick} />
     )}
+     {searchVisible && (
+       <div
+       className="fixed inset-0 bg-black opacity-30"
+       onClick={handleSearchClick}
+     ></div>
+    )}
+           
+
    
 </div>
 
