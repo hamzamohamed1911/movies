@@ -23,8 +23,8 @@ const MovieDetails = () => {
   return (<>
     <section className='bg-gradient-to-b from-transparent to-black h-full lg:py-20'>
         <Details item={item} />
-        <div className='lg:p-28   '>
-          <div className="lg:max-w-4xl max-w-xl lg:px-4 p-10">
+        <div className='lg:p-28  p-4 '>
+        <div className="lg:max-w-4xl max-w-xl lg:px-4 p-10">
             <h1 className="text-white md:text-4xl text-2xl py-14">DESCRIPTION</h1>
             <p className="lg:text-2xl text-lg font-light text-babyblue">
               The origin story of former Special Forces operative turned mercenary Wade Wilson, who, after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.
