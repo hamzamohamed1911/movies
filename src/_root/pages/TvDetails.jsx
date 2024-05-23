@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { dummyData, slides } from "../../constants";
 import Details from '../components/Details';
-import Slider from "react-slick";
 import Recommendtions from '../components/Recommendtions';
 import Cast from '../components/Cast';
 import Similar from '../components/Similar';
@@ -18,21 +17,9 @@ const TvDetails = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 2 },
-      },
-    ],
+   
   };
+
 
   return (<>
     <section className='bg-gradient-to-b from-transparent to-black h-full lg:py-16'>

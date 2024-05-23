@@ -35,7 +35,7 @@ const Details = ({ item }) => {
                   <AiFillStar
                     key={i}
                     color={i < Math.round(item.rating / 2) ? 'gold' : 'grey'}
-                    size={24}
+                    size={30}
                     aria-label={`${i < Math.round(item.rating / 2) ? 'gold' : 'grey'} star`}
                   />
                 ))}
