@@ -35,7 +35,7 @@ const TvDetails = () => {
   };
 
   return (<>
-    <section className='bg-gradient-to-b from-transparent to-black h-full lg:py-20'>
+    <section className='bg-gradient-to-b from-transparent to-black h-full lg:py-16'>
         <Details item={item} />
         <div className='lg:p-28  p-4 '>
         <div className="lg:max-w-4xl max-w-xl lg:px-4 p-10">
