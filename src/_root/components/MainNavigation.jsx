@@ -85,7 +85,7 @@ const MainNavigation = () => {
           <>
             <span className="flex items-center self-center w-[0.5px] h-6 bg-babyblue"></span>
             <button onClick={handleSearchClick}>
-              <BsSearch className="h-5 w-5 self-center text-babyblue flex items-center" />
+              <BsSearch className="h-6 w-6 self-center text-babyblue flex items-center" />
             </button>
             <Button label="Sign In" small handleClick={handleSubmit} />
           </>
@@ -94,8 +94,21 @@ const MainNavigation = () => {
       </motion.div>
     </div>
 
-      <button
-        className="w-10 h-8 flex flex-col justify-between z-20 md:hidden relative"
+     <div className="md:hidden flex space-x-3">
+   
+      {!searchVisible && (
+          <>
+            <button onClick={handleSearchClick}>
+              <BsSearch className="h-7 w-7  text-blue " />
+            </button>
+          </>
+        )}
+        <div className="pt-10">
+        <SearchComponent isVisible={searchVisible} onClose={handleSearchClick}/>
+
+        </div>
+          <button
+        className="w-10 h-8 flex flex-col justify-between z-20  relative"
         onClick={handlClick}
       >
         <motion.div
@@ -114,6 +127,7 @@ const MainNavigation = () => {
           className="w-10 h-1 bg-blue rounded origin-left"
         ></motion.div>
       </button>
+     </div>
 
       {/* Mobile Navigation Menu */}
 

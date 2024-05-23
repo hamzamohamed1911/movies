@@ -26,7 +26,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
   return (
     <motion.div
     initial={{ opacity: 0, width: 0 }}
-    animate={{ opacity: isVisible ? 1 : 0, width: isVisible ? '300px' : 0 }}
+    animate={{ opacity: isVisible ? 1 : 0, width: isVisible ? '350px' : 0 }}
     transition={{ duration: 0.5 }}
     className="relative">
    {isVisible&& ( 
@@ -39,7 +39,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
         placeholder="Search..."
       />
       <button onClick={onClose} className="ml-2">
-        <IoMdClose className="h-5 w-5 text-babyblue" />
+        <IoMdClose className="h-6 w-6 text-babyblue" />
       </button>
     </div>)}
 

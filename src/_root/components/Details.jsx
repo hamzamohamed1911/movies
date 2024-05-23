@@ -14,19 +14,19 @@ const Details = ({ item }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className=" py-16">
       <div className="relative group">
         <img
           src={item.posterUrl}
           alt={item.title}
-          className="w-full h-[500px] sm:h-[600px] object-cover rounded-3xl"
+          className="w-full h-[500px] lg:h-[700px] object-cover rounded-tl-3xl"
         />
-        <div className="absolute inset-0 p-6 sm:p-10 bg-gradient-to-b from-transparent to-black  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
-          <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-14">
+        <div className="absolute inset-0 p-6 lg:p-24 bg-gradient-to-b from-transparent to-black  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
+          <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-20">
             <img
               src={item.posterUrl}
               alt={item.title}
-              className="w-48 h-64 sm:w-72 sm:h-96 object-fill rounded-lg shadow-md"
+              className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md"
             />
             <div className="text-center sm:text-left">
               <h2 className="text-3xl sm:text-4xl font-semibold mb-4">{item.title}</h2>
