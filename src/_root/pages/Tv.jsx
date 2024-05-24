@@ -46,15 +46,15 @@ const TvShowItem = ({ show }) => {
       </div>
       <div className="pt-8 text-babyblue">
         
-          <h2 className="text-4xl font-bold mb-2">{show.title}</h2>
+          <h2 className="lg:text-4xl text-2xl font-bold mb-2">{show.title}</h2>
           <div className="flex items-center gap-2">
-           <span className="text-2xl">{show.rating}</span>
+           <span className="lg:text-2xl text-xl">{show.rating}</span>
            {[...Array(5)].map((_, i) => (
                   <AiFillStar
                     key={i}
                     color={i < Math.round(show.rating / 2) ? 'gold' : 'grey'}
-                    size={30}
-                    aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
+                    className='h-6 w-6'               
+                     aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
                   />
                 ))} 
           </div>
