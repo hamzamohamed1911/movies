@@ -42,7 +42,6 @@ const Details = ({ item }) => {
                 <span className="ml-3 text-2xl">{item.rating} / 10</span>
               </div>
            
-              <p className="text-base sm:text-lg mb-4">{item.description}</p>
               <div className="flex space-x-4 pt-8 justify-center sm:justify-start">
                 <Button icon={<FaPlay />} normal label="Play Trailer" />
                 <Button icon={<IoMdAdd />} backgroundColor normal label="Add to Watchlist" />

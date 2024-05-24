@@ -449,17 +449,7 @@ export  const slides = [
       posterUrl: "https://image.tmdb.org/t/p/w200/MoEKaPFHABtA1xKoOteirGaHl1.jpg",
       rating: 8.4,
       type: "tv"
-      }
-      ,
-      {
-      id: 77,
-      title: "Black Mirror",
-      posterUrl: "https://image.tmdb.org/t/p/w200/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
-      rating: 8.8,
-      type: "tv"
-      }
-      
-      ,
+      }   ,
       {
       id: 83,
       title: "Rick and Morty",
@@ -475,8 +465,6 @@ export  const slides = [
         rating: 8.7,
         type: "tv"
      },
-   
- 
 {
   id: 90,
   title: "Toy Story",
@@ -507,11 +495,20 @@ export  const slides = [
   type: "movie"
 },
 {
+  id: 96,
+  title: "the punisher",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZDYzODRjNTYtNmVmYy00NTJjLTk3NzQtZjQ5Y2Y1YmIzMzZhXkEyXkFqcGdeQXVyMTY4NTMxNTcx._V1_FMjpg_UX1000_.jpg",
+  rating: 8.4,
+  type: "tv",
+  description:"After his revenge on those who murdered his family, aimless Marine veteran Frank Castle finds a new meaning in life as a vigilante known as The Punisher."
+},
+{
   id: 101,
   title: "Spider-Man: Into the Spider-Verse",
   posterUrl: "https://image.tmdb.org/t/p/w200/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
   rating: 8.4,
-  type: "movie"
+  type: "movie",
+
 },{
   id: 102,
   title: "Dragon Ball",
@@ -567,13 +564,167 @@ export  const slides = [
   posterUrl: "https://image.tmdb.org/t/p/w200/or1gBugydmjToAEq7OZY0owwFk.jpg",
   rating: 8.4,
   type: "movie"
-}, {
+}, 
+{
   id: 112,
   title: "Troy",
   posterUrl: "https://m.media-amazon.com/images/M/MV5BMTk5MzU1MDMwMF5BMl5BanBnXkFtZTcwNjczODMzMw@@._V1_.jpg",
   rating: 7.3,
   type: "movie"
+},
+
+{
+  id: 113,
+  title: "The Mandalorian",
+  posterUrl: "https://image.tmdb.org/t/p/w200/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+  rating: 8.5,
+  type: "tv"
+},{
+  id: 114,
+  title: "Humans",
+  description: "In a parallel present, where the latest must-have gadget for any busy family is a 'Synth' - a highly-developed robotic servant eerily similar to its live counterpart.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMTQ3NjE2OTY4NF5BMl5BanBnXkFtZTgwMTE0NDc0ODE@._V1_.jpg",
+  rating: 7.6,
+  type: "tv"
+},
+{
+  id: 115,
+  title: "Counterpart",
+  description: "A UN employee discovers the agency he works for is hiding a gateway to a parallel dimension.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BODg5NDU5NjM1NV5BMl5BanBnXkFtZTgwOTE0NjY1NjM@._V1_.jpg",
+  rating: 7.7,
+  type: "tv"
+},
+{
+  id: 116,
+  title: "Love, Death & Robots",
+  description: "A collection of animated short stories that span various genres including science fiction, fantasy, horror and comedy.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BYTNiYTNkNTAtYzE3ZS00ZDQ1LWEwZTYtZjI1NzYzMWJjY2U4XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
+  rating: 8.0,
+  type: "tv"
+},
+{
+  id: 117,
+  title: "The Handmaid's Tale",
+  description: "In a dystopian near-future, the totalitarian and Christian fundamentalist government of Gilead rules the former United States.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BN2M0NTdiMGYtNmFjZi00MjIxLWI3OTUtNTdmZDRlOTNiYWU0XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
+  rating: 8.2,
+  type: "tv"
+},
+{
+  id: 118,
+  title: "Doctor Who",
+  description: "The further adventures in time and space of the alien adventurer known as the Doctor and their companions from planet Earth.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BYjU5YTA5OGItYzFmZi00YmFjLWJjNWEtZTk0MjExMTFjYzE2XkEyXkFqcGdeQXVyNjcwMzExMzU@._V1_.jpg",
+  rating: 7.0,
+  type: "tv"
+},
+{
+  id: 123,
+  title: "The Twilight Zone",
+  description: "An anthology series exploring various speculative fiction and psychological thriller themes.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMzBkMTU3MzktMDhhYS00NzQ4LTkwMzItYTM5MDBkZWYwNzM4XkEyXkFqcGdeQXVyMTI3MjgxNjg0._V1_FMjpg_UX1000_.jpg",
+  rating: 9.0,
+  type: "tv"
+},
+{
+  id: 124,
+  title: "Westworld",
+  description: "A dark odyssey about the dawn of artificial consciousness and the evolution of sin.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZDg1OWRiMTktZDdiNy00NTZlLTg2Y2EtNWRiMTcxMGE5YTUxXkEyXkFqcGdeQXVyMTM2MDY0OTYx._V1_FMjpg_UX1000_.jpg",
+  rating: 8.6,
+  type: "tv"
+},
+{
+  id: 125,
+  title: "Dark",
+  description: "A family saga with a supernatural twist, set in a German town, where the disappearance of two young children exposes the relationships among four families.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcxNDE@._V1_.jpg",
+  rating: 8.7,
+  type: "tv"
+},
+{
+  id: 126,
+  title: "Vikings",
+  description: "Vikings transports us to the brutal and mysterious world of Ragnar Lothbrok, a Viking warrior and farmer who yearns to explore--and raid--the distant shores across the ocean.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZWNlZmNiNzItYWMwNC00ODYxLThlNjYtMjU3NzlmNDQxMTY2XkEyXkFqcGdeQXVyMTA3MzQ4MTc0._V1_.jpg",
+  rating: 8.5,
+  type: "tv"
+},
+{
+  id: 127,
+  title: "The Expanse",
+  description: "A police detective in the asteroid belt, the first officer of an interplanetary ice freighter, and an earth-bound United Nations executive slowly discover a vast conspiracy that threatens the Earth's rebellious colony on the asteroid belt.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZDVmMDljM2QtZDkzZC00ZDg2LWFiMGItZjNiNjliZjg2MGEzXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg",
+  rating: 8.5,
+  type: "tv"
+},
+{
+  id: 128,
+  title: "Electric Dreams",
+  description: "An anthology series based on the works of Philip K. Dick.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZjk4NjBmYTQtZWE2Mi00MDRjLTlmNzctOWRkMjkzMGFlYmU0XkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_.jpg",
+  rating: 7.3,
+  type: "tv"
+},
+{
+  id: 129,
+  title: "Altered Carbon",
+  description: "Set in a future where consciousness is digitized and stored, a prisoner returns to life in a new body and must solve a mind-bending murder to win his freedom.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMjU2ZGQwYTctNTk2Ny00ODNmLTkzNDQtMWY2ZjM4MDI5ZmM5XkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_FMjpg_UX1000_.jpg",
+  rating: 8.0,
+  type: "tv"
+},
+{
+  id: 130,
+  title: "The OA",
+  description: "A woman missing for seven years turns up at a hospital with strange scars on her back but can't - or won't - reveal where she's been.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMTY5OTkwNDkzOF5BMl5BanBnXkFtZTgwMDEyNzI1NzM@._V1_FMjpg_UX1000_.jpg",
+  rating: 7.9,
+  type: "tv"
+},
+{
+  id: 131,
+  title: "Mr. Robot",
+  description: "Elliot, a brilliant but highly unstable young cyber-security engineer and vigilante hacker, becomes a key figure in a complex game of global dominance.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMzgxMmQxZjQtNDdmMC00MjRlLTk1MDEtZDcwNTdmOTg0YzA2XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
+  rating: 8.5,
+  type: "tv"
+},
+{
+  id: 132,
+  title: "Orphan Black",
+  description: "A streetwise hustler is pulled into a compelling conspiracy after witnessing the suicide of a girl who looks just like her.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BYmMyNWExOGItMThmNi00NDFkLTk0ZmUtMGQyN2ZjODlmYmE2XkEyXkFqcGdeQXVyMjg1NDcxNDE@._V1_FMjpg_UX1000_.jpg",
+  rating: 8.2,
+  type: "tv"
+},
+{
+  id: 133,
+  title: "Black Mirror: Bandersnatch",
+  description: "A young programmer makes a fantasy novel into a game for a big company. Trying to keep his mind into making it right, his own reality becomes weirdly disoriented.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZTgyNTBkNzctN2I3NC00NTA1LWJiMDMtYzA2MmYyZjc1NWQzXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+  rating: 7.1,
+  type: "tv"
+},
+{
+  id: 134,
+  title: "Fringe",
+  description: "An FBI agent is forced to work with an institutionalized scientist and his son in order to rationalize a brewing storm of unexplained phenomena.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZTNkYjdkMWYtMzY5OS00MzAzLWEzNTctODlhNTgzOWFmMTc3XkEyXkFqcGdeQXVyNDQ0MTYzMDA@._V1_FMjpg_UX1000_.jpg",
+  rating: 8.3,
+  type: "tv"
+},
+{
+  id: 135,
+  title: "Tales from the Loop",
+  description: "The townspeople who live above The Loop, a machine built to unlock and explore the mysteries of the universe, experience things previously consigned to the realm of science fiction.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BNmExMjg1NzgtZmFmMS00ZTEzLWJjODktMmI0ZTJmYjE4ZWRjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+  rating: 7.7,
+  type: "tv"
 }
+
+
 
   ];
   

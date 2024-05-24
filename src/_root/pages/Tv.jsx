@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai'; 
 import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
+import FilteredHeader from '../components/FilteredHeader';
+import Pagination from '../components/Pagination';
 
 const Tv = () => {
+  const limit = 20;
+  const [currentPage, setCurrentPage] = useState(1);
+  const lastIndex = currentPage * limit;
+  const firstIndex = lastIndex - limit;
   const tvShows = dummyData.filter(show => show.type === 'tv');
-
+  const records = [...tvShows.slice(firstIndex ,lastIndex)];
+  const nPage = Math.ceil(tvShows.length / limit);
+  const numbers = [...Array(nPage + 1).keys()].slice(1);
+  
   return (
-    <section className='p-20 pt-28'>
+    <section className='p-20 pt-28 '>
+      <div className=' pb-8'>
+      <FilteredHeader label="All Tv" />
+<Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers}/>
+</div>
       <div className="flex flex-col">
+   
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
-          {tvShows.map(show => (
+          {records.map(show => (
             <TvShowItem key={show.id} show={show} />
           ))}
         </div>
+        <div className='pt-8'>
+<Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers}/>
+
+</div>
       </div>
     </section>
   );
@@ -23,7 +41,7 @@ const TvShowItem = ({ show }) => {
   return (
 <Link to={`/tv/${show.id}`}>
 <div className="relative">
-      <div className="h-[500px] w-full relative overflow-hidden shadow-lg">
+      <div className="h-[440px] w-[280px] relative overflow-hidden shadow-lg">
         <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg" />
       </div>
       <div className="pt-8 text-babyblue">
@@ -31,7 +49,14 @@ const TvShowItem = ({ show }) => {
           <h2 className="text-4xl font-bold mb-2">{show.title}</h2>
           <div className="flex items-center gap-2">
            <span className="text-2xl">{show.rating}</span>
-                  <AiFillStar  color={'gold' }  size={30}/> 
+           {[...Array(5)].map((_, i) => (
+                  <AiFillStar
+                    key={i}
+                    color={i < Math.round(show.rating / 2) ? 'gold' : 'grey'}
+                    size={30}
+                    aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
+                  />
+                ))} 
           </div>
 
       </div>
