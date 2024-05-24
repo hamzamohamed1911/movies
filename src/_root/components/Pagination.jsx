@@ -33,7 +33,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
       </li>
 
       {numbers.map((n, i) => (
-        <li onClick={() => changePage(n)} key={i} className={` size-14 rounded border border-gray-300 text-center flex justify-center items-center text-white ${currentPage === n ? 'bg-blue text-white active' : 'bg-navy hover:bg-blue'}`}>
+        <li onClick={() => changePage(n)} key={i} className={` size-14 rounded border border-gray-300 text-center flex justify-center items-center text-white cursor-pointer ${currentPage === n ? 'bg-blue text-white active' : 'bg-navy hover:bg-blue'}`}>
           <a className='text-xl' href="#">{n}</a>
         </li>
       ))}

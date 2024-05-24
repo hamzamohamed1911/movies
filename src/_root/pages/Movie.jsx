@@ -43,7 +43,7 @@ const TvShowItem = ({ show }) => {
 
 <div className="relative justify-center flex items-center">
       <div>
-      <div className="h-[440px] w-[280px] relative overflow-hidden shadow-lg">
+      <div className="h-[440px] w-[350px] relative overflow-hidden shadow-lg">
       <Link to={`/movie/${show.id}`}>
         <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg" />
         </Link>
@@ -64,7 +64,7 @@ const TvShowItem = ({ show }) => {
           </div>
 
       </div>
-      </div>
+      </div>9
     </div>
 
   );
