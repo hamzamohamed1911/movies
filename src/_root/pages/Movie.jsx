@@ -41,30 +41,30 @@ const Movies = () => {
 const TvShowItem = ({ show }) => {
   return (
 
-<div className="relative">
-
-      <div className="h-[440px] w-[280px]  relative overflow-hidden shadow-lg">
+<div className="relative justify-center flex items-center">
+      <div>
+      <div className="h-[440px] w-[280px] relative overflow-hidden shadow-lg">
       <Link to={`/movie/${show.id}`}>
         <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg" />
         </Link>
       </div>
       <div className="pt-8 text-babyblue">
         
-        <h2 className="lg:text-4xl text-2xl font-bold mb-2">{show.title}</h2>
-        <div className="flex items-center gap-2">
-         <span className="lg:text-2xl text-xl">{show.rating}</span>
-         {[...Array(5)].map((_, i) => (
-                <AiFillStar
-                  key={i}
-                  color={i < Math.round(show.rating / 2) ? 'gold' : 'grey'}
-                  className='h-6 w-6'               
-                   aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
-                />
-              ))} 
-        </div>
+          <h2 className="lg:text-4xl text-2xl font-bold mb-2">{show.title}</h2>
+          <div className="flex items-center gap-2">
+           <span className="lg:text-2xl text-xl">{show.rating}</span>
+           {[...Array(5)].map((_, i) => (
+                  <AiFillStar
+                    key={i}
+                    color={i < Math.round(show.rating / 2) ? 'gold' : 'grey'}
+                    className='h-6 w-6'               
+                     aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
+                  />
+                ))} 
+          </div>
 
-    </div>
-      
+      </div>
+      </div>
     </div>
 
   );
