@@ -4,6 +4,7 @@ import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
 import FilteredHeader from '../components/FilteredHeader';
 import Pagination from '../components/Pagination';
+import SliderComponent from '../components/SliderComponent';
 
 const Tv = () => {
   const limit = 20;
@@ -16,24 +17,37 @@ const Tv = () => {
   const numbers = [...Array(nPage + 1).keys()].slice(1);
   
   return (
-    <section className='p-20 pt-28 '>
-      <div className=' pb-8'>
+   <>
+    <section >
+      <div className=' lg:p-20 pt-10 p-5 '>
+    <div className="flex flex-col">
+          <div className=" grid grid-cols-1 ...">
+          <SliderComponent data={tvShows} />
+          </div>
+     </div>
+
+     <div className=' pb-8 space-y-10'>
       <FilteredHeader label="All Tv" />
-<Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers}/>
+      
+      <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers}/>
+
 </div>
       <div className="flex flex-col">
-   
+
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
           {records.map(show => (
             <TvShowItem key={show.id} show={show} />
           ))}
+
         </div>
-        <div className='pt-8'>
+<div className='pt-8'>
 <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers}/>
 
 </div>
       </div>
+      </div>
     </section>
+   </>
   );
 };
 
@@ -42,9 +56,9 @@ const TvShowItem = ({ show }) => {
 
 <div className="relative justify-center flex items-center">
       <div>
-      <div className="h-[440px] w-[280px] relative overflow-hidden shadow-lg">
+      <div className="h-[440px] w-[300px] relative ">
       <Link to={`/tv/${show.id}`}>
-        <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg" />
+        <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg  shadow-2xl" />
         </Link>
       </div>
       <div className="pt-8 text-babyblue">
@@ -52,19 +66,16 @@ const TvShowItem = ({ show }) => {
           <h2 className="lg:text-4xl text-2xl font-bold mb-2">{show.title}</h2>
           <div className="flex items-center gap-2">
            <span className="lg:text-2xl text-xl">{show.rating}</span>
-           {[...Array(5)].map((_, i) => (
-                  <AiFillStar
-                    key={i}
-                    color={i < Math.round(show.rating / 2) ? 'gold' : 'grey'}
-                    className='h-6 w-6'               
-                     aria-label={`${i < Math.round(show.rating / 2) ? 'gold' : 'grey'} star`}
+           <AiFillStar
+                    className='h-7 w-7 fill-yellow-400'               
+                    
                   />
-                ))} 
           </div>
 
       </div>
       </div>
-    </div>
+ </div>
+
 
   );
 };

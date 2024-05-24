@@ -152,16 +152,15 @@ export  const slides = [
       title: 'Inception',
       posterUrl: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg',
       rating: 8.8,
-      type: 'movies',
+      type: 'movie',
       description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.'
     },
    {
     id: 2,
-   
     title: 'The Dark Knight',
     posterUrl: 'https://image.tmdb.org/t/p/w200/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
     rating: 9.0,
-    type: 'movies',
+    type: 'movie',
     description: 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.'
     
   },

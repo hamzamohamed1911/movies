@@ -15,7 +15,7 @@ const Details = ({ item }) => {
 
   return (
     <div className=" py-16">
-      <div className="relative group">
+      <div className="relative ">
         <img
           src={item.posterUrl}
           alt={item.title}
