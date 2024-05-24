@@ -5,7 +5,7 @@ import Slider from '../components/Slider.jsx'
 
 const Home = () => {
   return (
-    <section >
+    <section className='h-screen' >
       <Slider />
    </section>
   )

@@ -578,8 +578,6 @@ export  const slides = [
   ];
   
 
-
-
   export const navLinks = [
     {id:1, href: "/", label: "Trending" },
     {id:2, href: "/discover", label:'Discover' },
