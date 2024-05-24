@@ -205,7 +205,9 @@ export  const slides = [
       title: "The Godfather: Part II",
       posterUrl: "https://image.tmdb.org/t/p/w200/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
       rating: 9.0,
-      type: "movie"
+      type: "movie",
+      description:'Michael Corleones attempts to legitimize his familys business in the 1970s are complicated by past enemies and internal strife, forcing him to confront his violent past.'
+
     },
     {
       id: 17,
@@ -228,7 +230,8 @@ export  const slides = [
       title: "The Godfather",
       posterUrl: "https://image.tmdb.org/t/p/w200/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg",
       rating: 9.2,
-      type: "movie"
+      type: "movie",
+      description:'The Corleone familys Mafia dealings in 1940s New York, focusing on Michael Corleones rise to power.'
     },
     {
       id: 24,
@@ -439,7 +442,9 @@ export  const slides = [
       title: "The Godfather: Part III",
       posterUrl: "https://m.media-amazon.com/images/M/MV5BNWFlYWY2YjYtNjdhNi00MzVlLTg2MTMtMWExNzg4NmM5NmEzXkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg",
       rating: 7.4,
-      type: "movie"
+      type: "movie",
+      description:'Michael Corleones attempts to legitimize his familys business in the 1970s are complicated by past enemies and internal strife, forcing him to confront his violent past.'
+
     }
       ,
       {
