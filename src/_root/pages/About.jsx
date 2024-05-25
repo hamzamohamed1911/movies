@@ -12,7 +12,7 @@ const About = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="flex flex-col justify-center items-center h-screen bg-primary text-white"
+      className="flex flex-col justify-center items-center h-screen bg-slate-900 text-white"
     >
       <motion.img
         src={moviesLogo}
