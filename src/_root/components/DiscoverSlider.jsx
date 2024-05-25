@@ -32,9 +32,9 @@ const DiscoverSlider = ({ label }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
   return (
-    <div className='lg:max-w-[1200px] max-w-[300px] py-10 '>
-      <h1 className="text-babyblue lg:text-7xl md:text-4xl text-3xl mb-8">{label}</h1>
-      <Slider {...settings} className="space-x-4 container">
+    <div className='lg:max-w-[1200px] max-w-[350px] py-10 '>
+      <h1 className="text-babyblue lg:text-7xl md:text-5xl text-5xl mb-8 text-bold">{label}</h1>
+      <Slider {...settings} className="space-x-4 ">
         {dummyData.map((item, index) => (
           <div
             key={item.id}
@@ -54,7 +54,7 @@ const DiscoverSlider = ({ label }) => {
               </p>
             )}
        <div className='p-4'>
-      <h1 className="text-babyblue text-2xl text-bold mb-2">{item.title}
+      <h1 className="text-babyblue lg:text-3xl text-xl text-bold mb-2">{item.title}
             </h1>
                   <span className='flex space-x-2'>
                         <p className='text-2xl text-babyblue'>
