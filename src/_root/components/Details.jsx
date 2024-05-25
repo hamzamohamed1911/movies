@@ -19,7 +19,7 @@ const Details = ({ item }) => {
         <img
           src={item.posterUrl}
           alt={item.title}
-          className="w-full h-[500px] lg:h-[700px] object-cover rounded-tl-3xl"
+          className="w-full h-[500px] lg:h-[700px] object-cover rounded-tl-[50px]"
         />
         <div className="absolute inset-0 p-6 lg:p-24 bg-gradient-to-b from-transparent to-black  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
           <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-20">

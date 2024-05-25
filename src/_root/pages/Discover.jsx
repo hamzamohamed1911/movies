@@ -1,14 +1,23 @@
-import React from 'react'
+import React from 'react';
+import DiscoverSlider from '../components/DiscoverSlider';
+import Trending from '../components/Trending';
 
 const Discover = () => {
   return (
-    <section className='lg:pt-20 pt-20'> 
-    <h1 className=' text-8xl text-blue'>
-    Discover 
- </h1>
-
- </section>
-  )
-}
+    <section className='pt-28 p-4'>
+      <div className='lg:flex space-x-4'>
+        <div className=' rounded-l-xl lg:p-6 p-4 lg:w-3/4 '>
+          <DiscoverSlider label="Most Popular" />
+          <DiscoverSlider label="Top Rated" />
+          <DiscoverSlider label="Now Playing" />
+          <DiscoverSlider label="Upcoming" />
+        </div>
+        <div className="lg:w-1/4">
+          <Trending />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Discover;
