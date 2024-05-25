@@ -57,16 +57,16 @@ const TvShowItem = ({ show }) => {
         <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg" />
         </Link>
       </div>
-      <div className="pt-8 text-babyblue">
-        
-          <h2 className="lg:text-4xl text-2xl font-bold mb-2">{show.title}</h2>
-          <div className="flex items-center gap-2">
+      <div className="pt-4 text-babyblue h-24 overflow-hidden">
+      <div className="flex items-center gap-2">
            <span className="lg:text-2xl text-xl">{show.rating}</span>
            <AiFillStar
                     className='h-7 w-7 fill-yellow-400'               
                     
                   />
           </div>
+          <h2 className="lg:text-2xl md:text-2xl text-xl  font-bold mb-2 max-w-[300px]  ">{show.title}</h2>
+         
 
       </div>
       </div>

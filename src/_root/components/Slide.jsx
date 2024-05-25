@@ -19,9 +19,9 @@ const Slide = ({ id, title, posterUrl, rating, description }) => (
         initial={{ opacity: 0, y: 120 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex flex-col  p-20 space-y-5"
+        className="flex flex-col  p-16 space-y-5"
       >
-        <h2 className="text-babyblue text-3xl font-semibold lg:text-6xl md:text-3xl ">{title}</h2>
+        <h2 className="text-babyblue  font-semibold lg:text-4xl md:text-3xl text-3xl">{title}</h2>
         <div className="flex items-center gap-2">
           <span className="lg:text-3xl md:text-2xl sm:text-xl text-babyblue">{rating}</span>
           {[...Array(5)].map((_, i) => (
@@ -33,8 +33,8 @@ const Slide = ({ id, title, posterUrl, rating, description }) => (
           ))}
         </div>
         <div className="container">
-          <div className="lg:w-[400px] md:w-[300px] sm:w-[200px]">
-            <p className="text-babyblue font-light lg:text-3xl md:text-2xl sm:text-xl mb-2">{description}</p>
+          <div className="lg:w-[500px] md:w-[300px] sm:w-[200px]">
+            <p className="text-babyblue font-light lg:text-xl md:text-xl sm:text-lg mb-2">{description}</p>
           </div>
         </div>
         <div className="flex gap-4">
