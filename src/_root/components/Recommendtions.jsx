@@ -57,7 +57,7 @@ const Recommendations = () => {
                 {item.type}
               </p>
             )}
-                   <h1 className="text-babyblue text-2xl text-bold p-4 ">{item.title}</h1>
+                   <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">{item.title}</h1>
 
           </Link>
         ))}
