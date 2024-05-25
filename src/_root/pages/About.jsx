@@ -12,13 +12,13 @@ const About = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="flex flex-col justify-center items-center min-h-screen bg-slate-900  px-4 sm:px-8 lg:px-16 xl:px-32"
+      className="flex flex-col justify-center items-center min-h-screen bg-slate-900 pt-10 px-4 sm:px-8 lg:px-16 xl:px-32"
     >
       <motion.img
         src={moviesLogo}
         alt="Logo"
         className="w-24 h-24 mb-8"
-        whileHover={{ scale: 1.1, rotate: [0, 10, -10, 0] }}
+        whileHover={{ scale: 1.1, rotate: [0, 12, -12, 0] }}
         transition={{ duration: 0.5 }}
       />
       <motion.h1
