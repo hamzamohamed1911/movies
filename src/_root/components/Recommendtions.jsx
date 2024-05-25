@@ -36,7 +36,7 @@ const Recommendations = () => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
   return (
-    <div className='lg:max-w-[1600px] max-w-[410px] py-36  p-2 '>
+    <div className='lg:max-w-[1600px] max-w-[410px] py-20  p-2 '>
       <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
       <Slider {...settings}>
         {dummyData.map((item, index) => (
