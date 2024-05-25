@@ -49,21 +49,14 @@ const DiscoverSlider = ({ label }) => {
                 className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
             </Link>
             {hoveredItemId === item.id && (
-              <p className="absolute top-6 left-2 bg-navy p-4 w-20 text-center rounded text-babyblue text-lg font-bold">
+              <p className="absolute top-6 left-2 bg-navy lg:p-4 p-2 w-20 text-center rounded text-babyblue text-lg font-bold">
                 {item.type}
               </p>
             )}
-       <div className='p-4'>
-      <h1 className="text-babyblue lg:text-3xl text-xl text-bold mb-2">{item.title}
-            </h1>
-                  <span className='flex space-x-2'>
-                        <p className='text-2xl text-babyblue'>
-                        {item.rating}
-                        </p>
-                        <AiFillStar size={24} color='gold' />
-
-                 </span> 
-        </div>            
+       
+      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.title}</h1>
+                 
+              
           </div>
         ))}
       </Slider>
