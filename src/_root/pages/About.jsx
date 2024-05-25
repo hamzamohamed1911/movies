@@ -12,7 +12,7 @@ const About = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="flex flex-col justify-center items-center h-screen bg-slate-900 text-white"
+      className="flex flex-col justify-center items-center min-h-screen bg-slate-900  px-4 sm:px-8 lg:px-16 xl:px-32"
     >
       <motion.img
         src={moviesLogo}
@@ -27,7 +27,7 @@ const About = () => {
       >
         About Movies
       </motion.h1>
-      <div className="max-w-xl text-center">
+      <div className="max-w-3xl text-center">
         <motion.p
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ const About = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             className="text-blue text-3xl flex items-center"
-            href="/movies"
+            href="/movie"
           >
             <BiCameraMovie />
             <span className="ml-2">Movies</span>
@@ -125,7 +125,7 @@ const About = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             className="text-blue text-3xl flex items-center"
-            href="/tv-shows"
+            href="/tv"
           >
             <RiMovie2Line />
             <span className="ml-2">TV Shows</span>
