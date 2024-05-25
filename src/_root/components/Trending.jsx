@@ -20,7 +20,7 @@ const Trending = () => {
           </div>
         )}
       </div>
-      <div className="bg-navy h-1 "></div> 
+      <div className="bg-blue h-1 w-20"></div> 
 
       <div className='pt-6'>
         <h2 className="text-4xl text-babyblue mb-6">Trending Movie</h2>
