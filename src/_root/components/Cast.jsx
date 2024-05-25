@@ -4,7 +4,7 @@ import { slides } from '../../constants'
 
 const Cast = ({settings}) => {
   return (<>
- <div className="lg:max-w-2xl max-w-lg py-14 p-4 ">
+ <div className="lg:max-w-2xl  py-14 p-4   max-w-[410px]">
               <h1 className="text-white text-3xl mb-8">CAST</h1>
               <Slider {...settings}>
                 {slides.map((slide, index) => (

@@ -36,21 +36,21 @@ const Recommendations = () => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
   return (
-    <div className='lg:max-w-[1400px] max-w-lg py-36 p-4'>
-      <h1 className="text-white text-3xl mb-8">RECOMMENDATIONS</h1>
+    <div className='lg:max-w-[1600px] max-w-[410px] py-36  p-2 '>
+      <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
       <Slider {...settings}>
         {dummyData.map((item, index) => (
           <Link
             key={item.id}
             onMouseEnter={() => setHoveredItemId(item.id)}
             onMouseLeave={() => setHoveredItemId(null)}
-            className="relative"
+            className="relative "
             to={`/${item.type === "tv" ? "tv" : "movie"  }/${item.id}`}
           >
             <img
               src={item.posterUrl}
               alt={item.title}
-              className="cursor-pointer rounded-xl lg:h-[440px] lg:w-[280px] h-[240px] w-[280px]"
+              className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-64"
             />
             {hoveredItemId === item.id && (
               <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded text-babyblue text-lg font-bold ">

@@ -5,7 +5,7 @@ import { slides } from '../../constants'
 const Similar = ({settings}) => {
   return (
 <>
-<div className="lg:max-w-3xl max-w-lg py-14 p-4">
+<div className="lg:max-w-3xl max-w-[410px] py-14 p-4 ">
               <h1 className="text-white text-3xl mb-8">SIMILAR</h1>
               <Slider {...settings}>
                 {slides.map((slide, index) => (
