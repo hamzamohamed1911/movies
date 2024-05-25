@@ -40,7 +40,7 @@ const MovieDetails = () => {
   };
 
   return (<>
-    <section className='bg-gradient-to-b from-transparent to-black h-full lg:py-16'>
+    <section className=' h-full lg:py-16'>
         <Details item={item} />
         <div className='lg:p-28   '>
         <div className="lg:max-w-4xl max-w-xl lg:px-4 p-10">
