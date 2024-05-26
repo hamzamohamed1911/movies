@@ -19,9 +19,9 @@ const Slide = ({ id, title, posterUrl, rating, description }) => (
         initial={{ opacity: 0, y: 120 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex flex-col lg:p-16 p-14 lg:space-y-5  space-y-3"
+        className="flex flex-col lg:p-14 p-10 lg:space-y-5  space-y-3"
       >
-        <h2 className="text-babyblue  font-semibold lg:text-4xl md:text-3xl text-3xl">{title}</h2>
+        <h2 className="text-babyblue  font-semibold lg:text-6xl md:text-4xl text-4xl">{title}</h2>
         <div className="flex items-center gap-2">
           <span className="lg:text-3xl md:text-2xl sm:text-xl text-babyblue">{rating}</span>
           {[...Array(5)].map((_, i) => (
