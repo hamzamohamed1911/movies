@@ -19,7 +19,7 @@ const Slide = ({ id, title, posterUrl, rating, description }) => (
         initial={{ opacity: 0, y: 120 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex flex-col  p-16 space-y-5"
+        className="flex flex-col lg:p-16 p-14 lg:space-y-5  space-y-3"
       >
         <h2 className="text-babyblue  font-semibold lg:text-4xl md:text-3xl text-3xl">{title}</h2>
         <div className="flex items-center gap-2">
@@ -38,7 +38,7 @@ const Slide = ({ id, title, posterUrl, rating, description }) => (
           </div>
         </div>
         <div className="flex gap-4">
-          <Button normal label="play trailer" />
+          <Button normal label="Play Trailer" />
           <Button normal backgroundColor label="More Deatils" />
         </div>
       </motion.div>

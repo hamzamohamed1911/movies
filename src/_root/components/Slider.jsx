@@ -84,8 +84,8 @@ const Slider = () => {
         <div className='lg:p-20 p-14'>
 
         <div className='flex gap-3 lg:py-10 py-8 '>
-            <Button normal backgroundColor label="Watch trailer" />
-            <Button normal icon={<FaPlay />} label="watch now" />
+            <Button normal backgroundColor label="More Details" />
+            <Button normal icon={<FaPlay />} label="Watch trailer" />
         </div>
 
           <div className='gap-3 flex '>

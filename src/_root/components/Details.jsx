@@ -19,9 +19,9 @@ const Details = ({ item }) => {
         <img
           src={item.posterUrl}
           alt={item.title}
-          className="w-full h-[500px] lg:h-[700px] object-cover rounded-tl-[50px]"
+          className="w-full  lg:h-[700px] h-[550px] object-cover rounded-tl-[50px]"
         />
-        <div className="absolute inset-0 p-6 lg:p-24 bg-gradient-to-b from-transparent to-black  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
+        <div className="absolute inset-0 p-6 lg:p-24 bg-gradient-to-b from-transparent to-slate-950  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
           <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-20">
             <img
               src={item.posterUrl}
@@ -29,7 +29,7 @@ const Details = ({ item }) => {
               className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md"
             />
             <div className="text-center sm:text-left">
-              <h2 className="text-3xl sm:text-4xl font-semibold mb-4">{item.title}</h2>
+              <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title}</h2>
               <div className="flex justify-center sm:justify-start mb-4 text-lg">
                 {[...Array(5)].map((_, i) => (
                   <AiFillStar
@@ -42,7 +42,7 @@ const Details = ({ item }) => {
                 <span className="ml-3 text-2xl">{item.rating} / 10</span>
               </div>
            
-              <div className="flex space-x-4 pt-8 justify-center sm:justify-start">
+              <div className="flex space-x-4 pt-4 justify-center sm:justify-start">
                 <Button icon={<FaPlay />} normal label="Play Trailer" />
                 <Button icon={<IoMdAdd />} backgroundColor normal label="Add to Watchlist" />
               </div>
