@@ -170,14 +170,16 @@ export  const slides = [
       title: "Pulp Fiction",
       posterUrl: "https://image.tmdb.org/t/p/w200/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
       rating: 8.9,
-      type: "movie"
+      type: "movie",
+      description:"The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.  "
     },
     {
       id: 4,
       title: "Stranger Things",
       posterUrl: "https://image.tmdb.org/t/p/w200/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
       rating: 8.7,
-      type: "tv"
+      type: "tv",
+      description:"When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl."
     },
     {
       id: 7,

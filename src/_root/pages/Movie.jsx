@@ -17,7 +17,7 @@ const Movies = () => {
   const numbers = [...Array(nPage + 1).keys()].slice(1);
   return (
     <section >
-    <div className=' lg:p-20 pt-10 p-5 '>
+    <div className='lg:p-20 pt-10 p-5 '>
   <div className="flex flex-col">
         <div className=" grid grid-cols-1 ...">
         <SliderComponent data={movieShows} />

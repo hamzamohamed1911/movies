@@ -10,6 +10,8 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 4,
   arrows: false,
+  autoplay: true,
+  autoplaySpeed: 5000,
   responsive: [
     {
       breakpoint: 1024,
@@ -53,7 +55,7 @@ const Recommendations = () => {
               className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
             />
             {hoveredItemId === item.id && (
-              <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded text-babyblue text-lg font-bold ">
+              <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded-r-3xl text-babyblue text-lg font-bold ">
                 {item.type}
               </p>
             )}

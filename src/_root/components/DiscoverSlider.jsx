@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
 
 const settings = {
   dots: false,
@@ -11,6 +10,8 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 4,
   arrows: false,
+  autoplay: true,
+  autoplaySpeed: 4000,
   responsive: [
     {
       breakpoint: 1024,

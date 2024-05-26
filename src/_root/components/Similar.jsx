@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { dummyData, slides } from '../../constants'
+import { Link } from 'react-router-dom'
 
 const Similar = ({settings}) => {
   return (
@@ -10,11 +11,13 @@ const Similar = ({settings}) => {
               <Slider {...settings}>
                 {dummyData.map((slide, index) => (
                   <div key={slide.id}>
-                  <img
+      <Link to={`/${slide.type === "tv" ? "tv" : "movie"}/${slide.id}`}>                  <img
   src={slide.posterUrl}
   alt={slide.title}
   className="cursor-pointer rounded-lg lg:w-40 lg:h-56 w-32 h-36 " 
 />
+</Link>
+
                     <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 ">{slide.title}</h1>
                   </div>
                 ))}
