@@ -9,6 +9,8 @@ import DropdownButton from "./DropdownButton";
 import { useState } from "react";
 import Button from "./Button";
 import SearchComponent from "./SearchComponent";
+import WatchList from "./WatchList";
+
 
 const topVariants = {
   closed: { rotate: 0 },
@@ -88,7 +90,13 @@ const MainNavigation = () => {
               <BsSearch className="h-6 w-6 self-center text-babyblue flex items-center" />
             </button>
             <Button label="Sign In" small handleClick={handleSubmit} />
+            <div className="  text-babyblue  flex items-center justify-center  space-x-2 ">
+    
+        <WatchList />
+     
+      </div>
           </>
+          
         )}
         <SearchComponent isVisible={searchVisible} onClose={handleSearchClick}/>
       </motion.div>
