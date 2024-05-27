@@ -6,7 +6,7 @@ const Discover = () => {
   return (
     <section className='pt-28 p-4'>
       <div className='lg:flex lg:space-x-4'>
-        <div className='lg:w-3/4 flex justify-center'>
+        <div className='lg:w-3/4 '>
           <div className='rounded-l-3xl rounded-3xl lg:p-6 p-4'>
             <DiscoverSlider label="Most Popular" />
             <DiscoverSlider label="Top Rated" />
