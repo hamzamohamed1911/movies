@@ -26,7 +26,7 @@ const WatchList = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-10 right-0 mt-2 lg:w-96 w-80 bg-navy rounded-lg shadow-lg overflow-hidden"
+          className="absolute top-10 right-0 mt-2 lg:w-96 w-72 bg-navy rounded-lg shadow-lg overflow-hidden"
         >
           <div className="px-4 py-2">
             {watchlist.map((movie, index) => (
