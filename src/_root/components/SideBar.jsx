@@ -32,7 +32,7 @@ const SideBar = () => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ duration: 0.3, type: 'ease' }}
-            className=" fixed h-screen bg-primary  flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl  w-80 z-50 "
+            className=" fixed h-full bg-primary  flex flex-col justify-between  rounded-tr-3xl rounded-br-3xl  w-80 z-50 "
           >
               <button onClick={toggleSidebar} className="absolute bottom-1/2 left-80 text-babyblue rounded-md">
               <IoIosArrowBack size={24} />

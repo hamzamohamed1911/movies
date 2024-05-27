@@ -32,7 +32,7 @@ const Details = ({ item }) => {
           <img
             src={item.posterUrl}
             alt={item.title}
-            className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md"
+            className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md p-4"
           />
           <div className="text-center sm:text-left">
             <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title}</h2>
