@@ -7,16 +7,15 @@ const Trending = () => {
   const { id: movieId, title: movieTitle, posterUrl: moviePosterUrl } = dummyData.find(item => item.type === 'movie') || {};
 
   return (
-    <div className="lg:p-10 p-2 lg:fixed items-center h-full flex flex-col  ">
+    <div className="lg:p-10 p-2 lg:fixed items-center h-full flex flex-col lg:w-1/4"> {/* Added lg:w-1/4 to limit width on large screens */}
 
       <div className='pb-6'>
         <h2 className="text-4xl text-babyblue mb-6">Trending TV Show</h2>
         {tvTitle && (
           <div className='text-center'>
             <Link to={`/tv/${tvId}`}>
-              <div className='flex  justify-center'>
-              <img src={tvPosterUrl} alt={tvTitle} className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg " />
-
+              <div className='flex justify-center'>
+                <img src={tvPosterUrl} alt={tvTitle} className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg" />
               </div>
             </Link>
             <h1 className='text-babyblue text-3xl pt-3'>{tvTitle}</h1>
@@ -30,10 +29,10 @@ const Trending = () => {
         {movieTitle && (
           <div className='text-center'>
             <Link to={`/movie/${movieId}`}>
-            <div className='flex  justify-center'>
-              <img src={moviePosterUrl} alt={movieTitle} className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg " />
-
-              </div>            </Link>
+              <div className='flex justify-center'>
+                <img src={moviePosterUrl} alt={movieTitle} className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg" />
+              </div>
+            </Link>
             <h1 className='text-babyblue text-3xl pt-3'>{movieTitle}</h1>
           </div>
         )}
