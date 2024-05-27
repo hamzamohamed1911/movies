@@ -5,6 +5,7 @@ import { FaBriefcase } from 'react-icons/fa';
 import { BiCameraMovie } from 'react-icons/bi';
 import { RiMovie2Line } from 'react-icons/ri';
 import { moviesLogo } from '../../assets';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -12,15 +13,26 @@ const About = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="flex flex-col justify-center items-center min-h-screen bg-slate-900 pt-10 px-4 sm:px-8 lg:px-16 xl:px-32"
+      className="flex flex-col justify-center items-center min-h-screen bg-slate-900 pt-16 px-4 sm:px-8 lg:px-16 xl:px-32"
     >
-      <motion.img
-        src={moviesLogo}
-        alt="Logo"
-        className="w-24 h-24 mb-8"
-        whileHover={{ scale: 1.1, rotate: [0, 12, -12, 0] }}
-        transition={{ duration: 0.5 }}
-      />
+      <Link to="/" className="flex gap-1 h-24 cursor-pointer my-6 ">
+                        <motion.img
+                            src={moviesLogo}
+                            className="h-20 object-contain"
+                            alt="Movies Logo"
+                            initial={{ y: -100, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                        />
+                        <motion.span
+                            className="text-babyblue flex self-center text-3xl font-semibold"
+                            initial={{ x: -100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.7 }}
+                        >
+                            Movie
+                        </motion.span>
+                    </Link>
       <motion.h1
         className="text-4xl font-bold mb-8 text-blue"
         whileHover={{ scale: 1.1 }}

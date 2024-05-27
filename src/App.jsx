@@ -14,10 +14,12 @@ import SignIn from './_auth/forms/SignIn'
 import SignUp from './_auth/forms/SignUp'
 import TvDetails from './_root/pages/TvDetails'
 import MovieDetails from './_root/pages/MovieDetails'
+import ErrorPage from './_root/components/Error'
 const router = createBrowserRouter([
   {
     path:'',
     element:<RootLayout/>,
+    errorElement:<ErrorPage/>,
     children: [
       { index:true, element: <Home /> },
       { path: 'about', element: <About /> },

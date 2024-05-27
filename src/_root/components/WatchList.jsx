@@ -26,7 +26,7 @@ const WatchList = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-10 right-0 mt-2 lg:w-96 w-72 h-96 bg-navy rounded-lg shadow-lg overflow-y-scroll"
+          className="absolute top-10 right-0 mt-2 lg:w-96 w-72 max-h-96 bg-navy rounded-lg shadow-lg overflow-y-scroll"
         >
           <div className="px-4 py-2">
             {watchlist.map((movie, index) => (
@@ -42,7 +42,7 @@ const WatchList = () => {
               </div>
             ))}
             {watchlist.length === 0 && (
-              <div className="p-2 text-gray-400">Watchlist is empty</div>
+              <div className="p-2 text-gray-400 ">Watchlist is empty</div>
             )}
           </div>
           <div className="bg-gradient-to-r from-navy to-transparent h-1 w-full"></div>
