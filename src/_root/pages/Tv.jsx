@@ -18,7 +18,7 @@ const Tv = () => {
   
   return (
    <>
-    <section >
+    <section  className='relative justify-center flex items-center'>
       <div className=' lg:p-20 pt-10 p-5 '>
     <div className="flex flex-col">
           <div className=" grid grid-cols-1 ...">
@@ -54,11 +54,11 @@ const Tv = () => {
 const TvShowItem = ({ show }) => {
   return (
 
-<div className="relative justify-center flex items-center">
+<div className="justify-center flex items-center">
       <div>
       <div className="h-[440px] w-[300px] relative ">
       <Link to={`/tv/${show.id}`}>
-        <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg  shadow-2xl" />
+        <img src={show.posterUrl} alt={show.title} className="object-cover h-full w-full rounded-lg  " />
         </Link>
       </div>
       <div className="pt-4 text-babyblue h-24 overflow-hidden">

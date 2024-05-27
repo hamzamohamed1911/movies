@@ -40,9 +40,9 @@ const MovieDetails = () => {
   };
 
   return (<>
-    <section className='h-full lg:py-16'>
+    <section className='h-full '>
         
-        <div className='lg:p-28   '>
+        <div className='lg:p-20 '>
         <Details item={item} />
         <div className="lg:max-w-4xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
             <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>

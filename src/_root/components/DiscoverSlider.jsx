@@ -79,7 +79,7 @@ const DiscoverSlider = ({ label }) => {
                 className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
             </Link>
             {hoveredItemId === item.id && (
-              <p className="absolute top-6 left-2 bg-navy lg:p-4 p-2 w-20 text-center rounded text-babyblue text-lg font-bold">
+              <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
                 {item.type}
               </p>
             )}

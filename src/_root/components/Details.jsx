@@ -25,14 +25,14 @@ const Details = ({ item }) => {
       <img
         src={item.posterUrl}
         alt={item.title}
-        className="w-full lg:h-[600px] h-[550px] object-cover rounded-tl-[50px] p-4"
+        className="w-full lg:h-[600px] h-[550px] object-cover rounded-tl-[50px] p-6 "
       />
-      <div className="absolute inset-0 pt-6 lg:p-24 bg-gradient-to-b from-transparent to-slate-950  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
+      <div className="absolute inset-0 p-6 lg:p-24 bg-gradient-to-b from-transparent to-slate-950  flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
         <div className="flex flex-col items-center sm:flex-row space-y-6 sm:space-y-0 sm:space-x-20">
           <img
             src={item.posterUrl}
             alt={item.title}
-            className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md p-4"
+            className="w-52 h-72 lg:w-[320px] lg:h-[460px] object-fill rounded-lg shadow-md"
           />
           <div className="text-center sm:text-left">
             <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title}</h2>
