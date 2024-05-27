@@ -19,7 +19,7 @@ const WatchList = () => {
         onClick={toggleDropdown}
       >
         <BsFillBookmarkPlusFill className="fill-blue" size={28} />
-        <span className="text-sm font-bold">WatchList ({watchlist.length})</span>
+        <span className="text-md font-bold">( {watchlist.length } )</span>
       </button>
       {isOpen && (
         <motion.div
