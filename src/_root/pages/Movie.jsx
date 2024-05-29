@@ -9,13 +9,40 @@ import SliderComponent from '../components/SliderComponent';
 const Movies = () => {
   const limit = 20;
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedRating, setSelectedRating] = useState(''); 
   const lastIndex = currentPage * limit;
   const firstIndex = lastIndex - limit;
+  
   const movieShows = dummyData.filter(show => show.type === 'movie');
-  const records = useMemo(() => [...movieShows.slice(firstIndex, lastIndex)], [firstIndex, lastIndex, movieShows]);
-  const nPage = Math.ceil(movieShows.length / limit);
+  const filteredmovieShows = useMemo(() => {
+    let filteredData = movieShows;
+
+    if (selectedYear) {
+      filteredData = filteredData.filter(show => show.year === parseInt(selectedYear));
+    }
+
+    if (selectedRating) {
+      const selectedFloatRating = Math.round(parseFloat(selectedRating));
+      filteredData = filteredData.filter(show => Math.round(parseFloat(show.rating)) === selectedFloatRating);
+  }
+  
+
+    return filteredData;
+  }, [selectedYear, selectedRating, movieShows]);
+  
+  const records = filteredmovieShows.slice(firstIndex, lastIndex);
+  const nPage = Math.ceil(filteredmovieShows.length / limit);
   const numbers = [...Array(nPage + 1).keys()].slice(1);
-  console.log('movie')
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+  };
+
+  const handleRatingChange = (rating) => {
+    setSelectedRating(rating);
+    setCurrentPage(1);
+  };
 
   return (
     <section>
@@ -27,8 +54,11 @@ const Movies = () => {
         </div>
 
         <div className='pb-8'>
-          <FilteredHeader label="All Movies" />
-          <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers} />
+              <FilteredHeader 
+              label="All Tv" 
+              onYearChange={handleYearChange} 
+              onRatingChange={handleRatingChange} // Pass handleRatingChange to FilteredHeader
+            />          <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers} />
         </div>
 
         <div className="flex flex-col">

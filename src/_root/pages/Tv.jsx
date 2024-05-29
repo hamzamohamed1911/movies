@@ -10,7 +10,7 @@ const Tv = () => {
   const limit = 20;
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState('');
-  const [selectedRating, setSelectedRating] = useState(''); // State variable for selected rating
+  const [selectedRating, setSelectedRating] = useState(''); 
   const lastIndex = currentPage * limit;
   const firstIndex = lastIndex - limit;
 
@@ -23,10 +23,10 @@ const Tv = () => {
     }
 
     if (selectedRating) {
- const selectedFloatRating = parseFloat(selectedRating);
-
-  filteredData = filteredData.filter(show => show.rating === selectedFloatRating);
+      const selectedFloatRating = Math.round(parseFloat(selectedRating));
+      filteredData = filteredData.filter(show => Math.round(parseFloat(show.rating)) === selectedFloatRating);
   }
+  
 
     return filteredData;
   }, [selectedYear, selectedRating, tvShows]);

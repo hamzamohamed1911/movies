@@ -828,6 +828,7 @@ export  const slides = [
   description: "A gangster family epic set in 1919 Birmingham, England; centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.",
   year: 2023
 }
+,
 
 
   ];
