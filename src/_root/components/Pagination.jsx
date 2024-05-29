@@ -1,5 +1,6 @@
 import React from 'react';
-import { GoArrowRight, GoArrowLeft } from "react-icons/go";
+import { IoIosArrowForward  , IoIosArrowBack} from "react-icons/io";
+
 
 const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
 
@@ -28,7 +29,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
           className="inline-flex size-10  items-center justify-center rounded border border-gray-300 bg-navy text-white rtl:rotate-180"
         >
           <button onClick={PrevPage}>
-            <GoArrowLeft className='h-7 w-7 transition hover:-translate-x-3  duration-300' />
+            <IoIosArrowBack className='h-7 w-7 ' />
           </button>
         </a>
       </li>
@@ -45,7 +46,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
           className="inline-flex size-10 items-center justify-center rounded border border-gray-300 bg-navy text-white rtl:rotate-180"
         >
           <button onClick={NextPage}>
-            <GoArrowRight className='h-7 w-7 transition hover:translate-x-3  duration-300' />
+            <IoIosArrowForward className='h-7 w-7 ' />
           </button>
         </a>
       </li>
