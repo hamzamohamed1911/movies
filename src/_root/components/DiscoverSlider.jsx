@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import Slider from 'react-slick';
 import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
@@ -45,7 +45,8 @@ const settings = {
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2, },
+        slidesToScroll: 2,
+      },
     },{
       breakpoint: 600,
       settings: {
@@ -53,8 +54,6 @@ const settings = {
         slidesToScroll: 2,
       },
     },
-    
- 
   ],
 };
 
@@ -66,33 +65,35 @@ const DiscoverSlider = ({ label }) => {
       <h1 className="text-babyblue lg:text-7xl md:text-5xl text-5xl mb-8 text-bold">{label}</h1>
       <Slider {...settings} className="space-x-4 ">
         {dummyData.map((item, index) => (
-          <div
-            key={item.id}
-            onMouseEnter={() => setHoveredItemId(item.id)}
-            onMouseLeave={() => setHoveredItemId(null)}
-            className="relative w-full px-2 rounded-xl transition-transform duration-500 transform hover:scale-95"
-          >
-            <Link to={`/${item.type === "tv" ? "tv" : "movie"}/${item.id}`}>
-              <img
-                src={item.posterUrl}
-                alt={item.title}
-                className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
-            </Link>
-            {hoveredItemId === item.id && (
-              <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
-                {item.type}
-              </p>
-            )}
-       
-      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.title}</h1>
-                 
-              
-          </div>
+          <DiscoverSliderItem key={item.id} item={item} setHoveredItemId={setHoveredItemId} hoveredItemId={hoveredItemId} />
         ))}
       </Slider>
       <div className="bg-navy h-1 "></div> 
     </div>
   );
 };
+
+const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
+  return (
+    <div
+      onMouseEnter={() => setHoveredItemId(item.id)}
+      onMouseLeave={() => setHoveredItemId(null)}
+      className="relative w-full px-2 rounded-xl transition-transform duration-500 transform hover:scale-95"
+    >
+      <Link to={`/${item.type === "tv" ? "tv" : "movie"}/${item.id}`}>
+        <img
+          src={item.posterUrl}
+          alt={item.title}
+          className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
+      </Link>
+      {hoveredItemId === item.id && (
+        <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
+          {item.type}
+        </p>
+      )}
+      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.title}</h1>
+    </div>
+  );
+});
 
 export default DiscoverSlider;

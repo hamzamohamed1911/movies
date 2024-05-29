@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai'; 
 import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const Tv = () => {
   const lastIndex = currentPage * limit;
   const firstIndex = lastIndex - limit;
   const tvShows = dummyData.filter(show => show.type === 'tv');
-  const records = [...tvShows.slice(firstIndex ,lastIndex)];
+  const records = useMemo(() => [...tvShows.slice(firstIndex, lastIndex)], [firstIndex, lastIndex, tvShows]);
   const nPage = Math.ceil(tvShows.length / limit);
   const numbers = [...Array(nPage + 1).keys()].slice(1);
   
@@ -51,7 +51,7 @@ const Tv = () => {
   );
 };
 
-const TvShowItem = ({ show }) => {
+const TvShowItem =memo( ({ show }) => {
   return (
 
 <div className="justify-center flex items-center">
@@ -77,7 +77,7 @@ const TvShowItem = ({ show }) => {
  </div>
 
 
-  );
-};
+);
+});
 
 export default Tv;

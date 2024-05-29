@@ -18,6 +18,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
   const changePage = (id) => {
     setcurrentPage(id);
   };
+  console.log('paginaytion')
 
   return (
     <ol className="flex justify-center gap-1  font-lg">

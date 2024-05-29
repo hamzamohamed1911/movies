@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { dummyData, slides } from "../../constants";
+import { dummyData } from "../../constants";
 import Details from '../components/Details';
 import Recommendtions from '../components/Recommendtions';
 import Cast from '../components/Cast';
@@ -8,7 +8,7 @@ import Similar from '../components/Similar';
 
 const TvDetails = () => {
   const { tvId } = useParams();
-  const item = dummyData.find((item) => item.id === parseInt(tvId));
+  const item = useMemo(() => dummyData.find((item) => item.id === parseInt(tvId)), [tvId]);
 
   const settings = {
     dots: false,

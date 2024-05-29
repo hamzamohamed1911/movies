@@ -1,9 +1,10 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { dummyData, slides } from '../../constants'
+import { dummyData } from '../../constants'
 import { Link } from 'react-router-dom'
 
 const Similar = ({settings}) => {
+  
   return (
 <>
 <div className="lg:max-w-3xl max-w-[410px] py-6 p-2  ">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { dummyData} from "../../constants";
 import Details from '../components/Details';
@@ -9,7 +9,7 @@ import Cast from '../components/Cast';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const item = dummyData.find((item) => item.id === parseInt(movieId));
+  const item = useMemo(() => dummyData.find((item) => item.id === parseInt(movieId)), [movieId]);
   const settings = {
     dots: false,
     infinite: true,
