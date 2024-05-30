@@ -60,7 +60,7 @@ const SliderItems = ({  slides,currentIndex, setCurrentIndex }) => {
 
   return (
     
-      <Slider {...settings} className="space-x-4 ">
+      <Slider {...settings} >
         {slides.map((slide, index) => (
           <div key={slide.id}>
             <img
