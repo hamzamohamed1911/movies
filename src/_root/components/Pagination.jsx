@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
 
@@ -22,8 +23,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
   return (
     <ol className="flex justify-center gap-1 font-lg">
       <li>
-        <a
-          href="#"
+        <Link
           className={`inline-flex size-10 items-center justify-center rounded border border-gray-300 text-white rtl:rotate-180 ${
             currentPage === 1 ? 'bg-gray-400 cursor-default ' : 'bg-navy cursor-pointer'
           }`}
@@ -31,25 +31,26 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
           <button className={`${currentPage === 1 ?  'cursor-default' : 'cursor-pointer'}`} onClick={PrevPage}>
             <IoIosArrowBack className="h-7 w-7" />
           </button>
-        </a>
+        </Link>
       </li>
 
       {numbers.map((n, i) => (
         <li
           onClick={() => changePage(n)}
           key={i}
-          className={`size-10 rounded border border-gray-300 text-center flex justify-center items-center text-white cursor-pointer ${
-            currentPage === n ? 'bg-blue text-white active' : 'bg-navy hover:bg-blue'
+          className={`size-10 rounded border border-gray-300 text-center flex justify-center items-center text-white  ${
+            currentPage === n ? 'bg-blue text-white active cursor-default' : 'bg-navy cursor-pointer hover:bg-blue'
           }`}
         >
-          <a className="text-xl" href="#">
+          <Link className={`text-xl ${
+            currentPage === n ?  'cursor-default' : ' cursor-pointer'}`} >
             {n}
-          </a>
+          </Link>
         </li>
       ))}
 
       <li>
-      <a
+      <Link
           href="#"
           className={`inline-flex size-10 items-center justify-center rounded border border-gray-300 ${
             currentPage === nPage ? 'bg-gray-400 cursor-default' : 'bg-navy cursor-pointer'
@@ -58,7 +59,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
           <button className={`${currentPage === nPage ? 'cursor-default' : 'cursor-pointer'} }`} onClick={NextPage}>
             <IoIosArrowForward className="h-7 w-7" />
           </button>
-        </a>
+        </Link>
       </li>
     </ol>
   );
