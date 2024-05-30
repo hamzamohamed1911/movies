@@ -63,7 +63,7 @@ const FilteredHeader = ({ label, onYearChange ,onRatingChange}) => {
             <option value="4">4</option>
           </select>
           <select className='bg-navy p-3 rounded-3xl w-72 lg:w-auto' value={selectedKind} onChange={handleKindChange}>
-            <option value=""> Kind</option>
+            <option value=""> Type</option>
             <option value="Action">Action</option>
             <option value="Romantic">Romantic</option>
             <option value="Comedy">Comedy</option>

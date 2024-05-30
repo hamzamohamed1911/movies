@@ -23,8 +23,8 @@ const Tv = () => {
     }
 
     if (selectedRating) {
-      const selectedFloatRating = Math.round(parseFloat(selectedRating));
-      filteredData = filteredData.filter(show => Math.round(parseFloat(show.rating)) === selectedFloatRating);
+      const selectedFloatRating = Math.round(selectedRating);
+      filteredData = filteredData.filter(show => Math.round(show.rating) === selectedFloatRating);
   }
   
 

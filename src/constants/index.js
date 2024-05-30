@@ -827,8 +827,87 @@ export  const slides = [
   type: "tv",
   description: "A gangster family epic set in 1919 Birmingham, England; centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.",
   year: 2023
-}
-,
+},
+{
+  id: 141,
+  title: "The Last of Us",
+  description: "Based on the popular video game, a hardened survivor and a young girl embark on a perilous journey across a post-apocalyptic United States.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_.jpg",
+  rating: 8.5,
+  type: "movie",
+  year: 2023
+  },
+  
+  {
+  id: 142,
+  title: "Dune: Part II",
+  description: "The second part of the epic adaptation of Frank Herbert's novel, focusing on the continued journey of Paul Atreides as he navigates the political intrigue and desert landscapes of Arrakis.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
+  rating: 8.8,
+  type: "movie",
+  year: 2023
+  },
+  
+  {
+  id: 143,
+  title: "Interstellar II: Beyond Time",
+  description: "A continuation of Christopher Nolan's science fiction epic, exploring new frontiers of space and time as humanity seeks to ensure its survival.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BMmI2ZDJkYmYtYWIwYi00MzJlLWI2NTItMjNmMGJmYThjZDM5XkEyXkFqcGdeQXVyODY3ODAzMzc@._V1_FMjpg_UX1000_.jpg",
+  rating: 9.0,
+  type: "movie",
+  year: 2023
+  },
+  
+  {
+  id: 144,
+  title: "Blade Runner 2099",
+  description: "A cyberpunk thriller set in a dystopian future, where a replicant hunter uncovers a conspiracy that threatens to upend the fragile balance of society.",
+  posterUrl: "https://m.media-amazon.com/images/M/MV5BNWJiOTFhMDItYmJlMC00YmNmLTliYTctNGViOTM2ZjdlZDI3XkEyXkFqcGdeQXVyMTg1MTc3MQ@@._V1_.jpg",
+  rating: 8.2,
+  type: "movie",
+  year: 2023
+  },
+  {
+    id: 201,
+    title: "The Witcher: Blood of Elves",
+    description: "Geralt of Rivia continues his journey as a monster hunter in a world filled with magic and political intrigue, while Ciri learns to harness her own powers.",
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BYWRlODk4ODQtY2VhYy00ZWNhLWIxMTAtMGI1MjE5YWNmMzE3XkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_FMjpg_UX1000_.jpg",
+    rating: 8.7,
+    type: "tv",
+    year: 2023
+    }
+    ,
+    {
+    id: 202,
+    title: "Stranger Things: Upside Down",
+    description: "The residents of Hawkins face new otherworldly threats as they delve deeper into the mysteries of the Upside Down and the experiments of the sinister Hawkins National Laboratory.",
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
+    rating: 9.0,
+    type: "tv",
+    year: 2023
+    }
+    ,
+    {
+    id: 203,
+    title: "Westworld: Reckoning",
+    description: "In the wake of the android uprising, the hosts and humans struggle to coexist in a world where the lines between reality and illusion are increasingly blurred.",
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BZDg1OWRiMTktZDdiNy00NTZlLTg2Y2EtNWRiMTcxMGE5YTUxXkEyXkFqcGdeQXVyMTM2MDY0OTYx._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    rating: 8.8,
+    type: "tv",
+    year: 2023
+    }
+    ,
+    
+    {
+    id: 205,
+    title: "Black Mirror: Reflections",
+    description: "A chilling anthology series that explores the dark side of technology and its impact on society, presenting cautionary tales of the near future.",
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BOGE0OTlkZTgtMmNhMi00MDU3LWI4MTUtODY4OTMyMDY2OGQ5XkEyXkFqcGdeQXVyMTU3MzMwNQ@@._V1_QL75_UX823_.jpg",
+    rating: 8.5,
+    type: "tv",
+    year: 2023
+    }
+  
 
 
   ];

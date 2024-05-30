@@ -23,8 +23,8 @@ const Movies = () => {
     }
 
     if (selectedRating) {
-      const selectedFloatRating = Math.round(parseFloat(selectedRating));
-      filteredData = filteredData.filter(show => Math.round(parseFloat(show.rating)) === selectedFloatRating);
+      const selectedFloatRating = Math.round(selectedRating);
+      filteredData = filteredData.filter(show => Math.round(show.rating) === selectedFloatRating);
   }
   
 
@@ -57,8 +57,9 @@ const Movies = () => {
               <FilteredHeader 
               label="All Tv" 
               onYearChange={handleYearChange} 
-              onRatingChange={handleRatingChange} // Pass handleRatingChange to FilteredHeader
-            />          <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers} />
+              onRatingChange={handleRatingChange} 
+            />     
+                 <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers} />
         </div>
 
         <div className="flex flex-col">
