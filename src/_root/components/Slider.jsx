@@ -107,7 +107,7 @@ const Slider = () => {
           </div>
         </div>
 
-        <div className='lg:py-6 py-4 mx-auto'>
+        <div className='lg:py-4 pb-2 mx-auto'>
         <SliderItems
           prevSlide={prevSlide}
           nextSlide={nextSlide}
