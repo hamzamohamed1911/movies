@@ -6,6 +6,8 @@ import Button from './Button.jsx';
 import SliderItems from './SliderItems';
 import { FaPlay } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { useApi } from '../../store/ApiContext.jsx';
+
 
 const slideVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -14,26 +16,27 @@ const slideVariants = {
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const {TrendingData}= useApi();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        prevIndex === TrendingData.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [slides]);
+  }, [TrendingData]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+      prevIndex === TrendingData.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+      prevIndex === 0 ? TrendingData.length - 1 : prevIndex - 1
     );
   };
 
@@ -41,7 +44,7 @@ const Slider = () => {
     <>
       <div className="h-full relative  overflow-hidden ">
 
-        {slides.map((slide, index) => (
+        {TrendingData.map((slide, index) => (
           
           <div key={slide.id} className="w-screen absolute top-0 left-0 ">
           <motion.div
@@ -53,8 +56,8 @@ const Slider = () => {
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <img
-                src={slide.posterUrl}
-                alt={slide.title}
+          src={`https://image.tmdb.org/t/p/original${slide.backdrop_path}`}
+          alt={slide.title}
                 className="h-screen w-full object-cover object-both"
               />
               {/* el setara */}
@@ -65,13 +68,13 @@ const Slider = () => {
              {[...Array(5)].map((_, i) => (
                   <FaStar
                     key={i}
-                    color={i < Math.round(slide.rating ) ? 'gold' : 'grey'}
+                    color={i < Math.round(slide.vote_average/2 ) ? 'gold' : 'grey'}
                     size={20}
                   />
                 ))}
              </div>
 
-                <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.description}</p>
+                <p className="max-w-xs text-s md:max-w-lg md:text-lg lg:max-w-xl lg:text-xl font-light py-3">{slide.overview}</p>
            </div>
          </motion.div>
             
@@ -110,7 +113,7 @@ const Slider = () => {
           nextSlide={nextSlide}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
-          slides={slides}
+          slides={TrendingData}
         />
         </div>
         </div>

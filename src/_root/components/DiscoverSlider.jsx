@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import Slider from 'react-slick';
 import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
+import { useApi } from '../../store/ApiContext';
 
 const settings = {
   dots: false,
@@ -59,12 +60,15 @@ const settings = {
 
 const DiscoverSlider = ({ label }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
+  const {TrendingData}= useApi();
+  console.log(TrendingData)
+
 
   return (
     <div className='lg:max-w-[1200px] max-w-[350px] py-10 '>
       <h1 className="text-babyblue lg:text-7xl md:text-5xl text-5xl mb-8 text-bold">{label}</h1>
       <Slider {...settings} className="space-x-4 ">
-        {dummyData.map((item, index) => (
+        {TrendingData.map((item, index) => (
           <DiscoverSliderItem key={item.id} item={item} setHoveredItemId={setHoveredItemId} hoveredItemId={hoveredItemId} />
         ))}
       </Slider>
@@ -82,16 +86,16 @@ const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
     >
       <Link to={`/${item.type === "tv" ? "tv" : "movie"}/${item.id}`}>
         <img
-          src={item.posterUrl}
+          src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
           alt={item.title}
           className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
       </Link>
       {hoveredItemId === item.id && (
         <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
-          {item.type}
+          {item.media_type}
         </p>
       )}
-      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.title}</h1>
+      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.original_title}</h1>
     </div>
   );
 });

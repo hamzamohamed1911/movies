@@ -3,13 +3,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
+const SliderItems = ({  slides,currentIndex, setCurrentIndex }) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 8,
-    slidesToScroll: 8,
+    slidesToShow: 9,
+    slidesToScroll: 9,
     arrows: false,
     responsive: [
       {
@@ -64,10 +64,10 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
         {slides.map((slide, index) => (
           <div key={slide.id}>
             <img
-              src={slide.posterUrl}
-              alt={slide.title}
+          src={`https://image.tmdb.org/t/p/original${slide.poster_path}`}
+          alt={slide.title}
               onClick={() => setCurrentIndex(index)}
-              className={`cursor-pointer rounded-md lg:h-52 lg:w-56  w-32 h-36 ${
+              className={`cursor-pointer rounded-md lg:h-72 md:h-56 h-52  lg:w-60  md:w-48 w-40  ${
                 currentIndex === index ? "border-[4px] border-navy" : ""
               }`}
             />
