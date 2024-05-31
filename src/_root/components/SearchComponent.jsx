@@ -87,15 +87,11 @@ const SearchComponent = ({ isVisible, onClose }) => {
                     {result.title}
                   </h3>
                   <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
+                    
                       <AiFillStar
-                        key={i}
-                        color={
-                          i < Math.round(result.rating / 2) ? "gold" : "grey"
-                        }
-                        size={20}
+                        color= "gold" size={20}
                       />
-                    ))}
+                  
                     <span className="ml-2 text-babyblue">
                       {result.rating}
                     </span>
