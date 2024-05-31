@@ -30,7 +30,7 @@ const Slider = memo(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === TrendingData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 6000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [TrendingData]);
