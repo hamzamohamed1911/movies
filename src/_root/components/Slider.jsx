@@ -69,15 +69,7 @@ const Slider = memo(() => {
                 <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">
                   {slide.title}
                 </h1>
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar
-                      key={i}
-                      color={i < Math.round(slide.vote_average / 2) ? 'gold' : 'grey'}
-                      size={20}
-                    />
-                  ))}
-                </div>
+             
                 <p>
                   {showFullDescription ? (
                         slide.overview
@@ -93,6 +85,15 @@ const Slider = memo(() => {
     </button>
   )}
 </p>
+<div className="flex pt-2">
+                  {[...Array(5)].map((_, i) => (
+                    <FaStar
+                      key={i}
+                      color={i < Math.round(slide.vote_average / 2) ? 'gold' : 'grey'}
+                      size={22}
+                    />
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
