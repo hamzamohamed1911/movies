@@ -1,7 +1,8 @@
 import React, { memo, useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import { useApi } from '../../store/ApiContext';
+import { AiFillStar } from 'react-icons/ai';
+
 
 const settings = {
   dots: false,
@@ -11,7 +12,7 @@ const settings = {
   slidesToScroll: 4,
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 4000,
+  autoplaySpeed: 6000,
   responsive: [
     {
       breakpoint: 1440,
@@ -57,12 +58,8 @@ const settings = {
   ],
 };
 
-const DiscoverSlider = ({ label }) => {
+const DiscoverSlider = memo(({ label, discover }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
-  const { DiscoverMovie, DiscoverTv } = useApi();
-  const discover = [...DiscoverMovie, ...DiscoverTv];
-  console.log(discover);
-
 
   return (
     <div className='lg:max-w-[1200px] max-w-[350px] py-10 '>
@@ -75,7 +72,8 @@ const DiscoverSlider = ({ label }) => {
       <div className="bg-navy h-1 "></div> 
     </div>
   );
-};
+});
+
 
 const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
   return (
@@ -88,14 +86,24 @@ const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
         <img
           src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
           alt={item.title}
-          className="cursor-pointer rounded-xl  lg:h-[440px] lg:w-[280px] h-[240px] w-[280px] " />
+          className="cursor-pointer rounded-xl lg:h-[440px] lg:w-[280px] h-[240px] w-[280px]"
+        />
       </Link>
       {hoveredItemId === item.id && (
+        <div>
+
         <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
-          {item.media_type}
+          {item.type}
         </p>
+       
+        
+        </div>
+
+       
       )}
-      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">{item.original_title ?item.original_title  : item.name }</h1>
+      <h1 className="text-babyblue lg:text-3xl md:text-xl text-lg text-bold mb-2 p-2 text-center">
+        {item.original_title ? item.original_title : item.name}
+      </h1>
     </div>
   );
 });
