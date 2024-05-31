@@ -86,7 +86,7 @@ const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
         <img
           src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
           alt={item.title}
-          className="cursor-pointer rounded-xl lg:h-[440px] lg:w-[280px] h-[240px] w-[280px]"
+          className="cursor-pointer rounded-xl lg:h-[400px] lg:w-[280px] h-[240px] w-[280px]"
         />
       </Link>
       {hoveredItemId === item.id && (
