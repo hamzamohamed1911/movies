@@ -98,16 +98,19 @@ const Slider = memo(() => {
                 />
               ))}
             </div>
-          </motion.div>
-        </motion.div>
-      ))}
-      <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
-        <div className="lg:p-20 p-14">
+            <div className="">
           <div className="flex gap-3 lg:py-10 py-8">
             <Button normal backgroundColor label="More Details" />
             <Button normal icon={<FaPlay />} label="Watch trailer" />
           </div>
-          <div className="gap-3 flex">
+        
+        </div>
+          </motion.div>
+          
+        </motion.div>
+      ))}
+      <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
+      <div className="gap-3 flex lg:p-20 p-14">
             <Button
               normal
               backgroundColor="transparent"
@@ -121,7 +124,6 @@ const Slider = memo(() => {
               handleClick={nextSlide}
             />
           </div>
-        </div>
         <div className="lg:py-4 pb-2 mx-auto">
           <SliderItems
             prevSlide={prevSlide}
