@@ -7,8 +7,13 @@ import Button from './Button.jsx';
 import SliderItems from './SliderItems';
 
 const slideVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 },
+  hidden: { opacity: 0, scale: 0.8, x: 50 },
+  visible: { opacity: 1, scale: 1, x: 0 },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const Slider = memo(() => {
@@ -25,7 +30,7 @@ const Slider = memo(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === TrendingData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [TrendingData]);
@@ -43,34 +48,33 @@ const Slider = memo(() => {
   }, [TrendingData]);
 
   return (
-    <>
-      <div className="h-full relative ">
-        {TrendingData.map((slide, index) => (
-          <div key={slide.id} className="w-screen absolute top-0 left-0 ">
-            <motion.div
-              key={slide.id}
-              className="w-full "
-              initial={{ opacity: 0, scale: 0.4 }}
-              animate={{
-                opacity: index === currentIndex ? 1 : 0,
-                scale: 1,
-              }}
-              variants={slideVariants}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            >
-              <img
-                src={`https://image.tmdb.org/t/p/original${slide.backdrop_path}`}
-                alt={slide.title}
-                className="h-screen w-full object-cover object-both"
-                loading="lazy" 
-              />
-
-              <div className="absolute bottom-0 lg:p-24 p-14  md:w-1/3 w-full h-full  bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white ">
-                <h1 className="lg:text-7xl md:text-4xl text-4xl font-bold py-8">
-                  {slide.title}
-                </h1>
-             
-                <p>
+    <div className="h-full relative">
+      {TrendingData.map((slide, index) => (
+        <motion.div
+          key={slide.id}
+          className={`absolute w-full ${index === currentIndex ? 'block' : 'hidden'}`}
+          initial="hidden"
+          animate={index === currentIndex ? "visible" : "hidden"}
+          variants={slideVariants}
+          transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
+        >
+          <img
+            src={`https://image.tmdb.org/t/p/original${slide.backdrop_path}`}
+            alt={slide.title}
+            className="h-screen w-full object-cover object-both"
+            loading="lazy"
+          />
+          <motion.div
+            className="absolute bottom-0 lg:p-24 p-14 md:w-1/3 w-full h-full bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white"
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <h1 className="lg:text-6xl md:text-4xl text-4xl font-bold py-8">
+              {slide.title}
+            </h1>
+            <p className='text-xl'>
                   {showFullDescription ? (
                         slide.overview
                                     ) : (
@@ -81,56 +85,54 @@ const Slider = memo(() => {
                                                 )}
   {slide.overview.length > 200 && (
     <button className="text-blue" onClick={toggleDescription}>
-      {showFullDescription ? 'Show Less' : 'Show More'}
+      {showFullDescription ? ' Less' : ' More'}
     </button>
   )}
 </p>
-<div className="flex pt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar
-                      key={i}
-                      color={i < Math.round(slide.vote_average / 2) ? 'gold' : 'grey'}
-                      size={22}
-                    />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        ))}
-        <div className="absolute lg:bottom-0 bottom-6 left-0 w-full ">
-          <div className="lg:p-20 p-14">
-            <div className="flex gap-3 lg:py-10 py-8 ">
-              <Button normal backgroundColor label="More Details" />
-              <Button normal icon={<FaPlay />} label="Watch trailer" />
+            <div className="flex pt-2">
+              {[...Array(5)].map((_, i) => (
+                <FaStar
+                  key={i}
+                  color={i < Math.round(slide.vote_average / 2) ? 'gold' : 'grey'}
+                  size={22}
+                />
+              ))}
             </div>
-            <div className="gap-3 flex ">
-              <Button
-                normal
-                backgroundColor="transparent"
-                label={<IoIosArrowBack className="text-white hover:text-opacity-70" />}
-                handleClick={prevSlide}
-              />
-              <Button
-                normal
-                backgroundColor="transparent"
-                label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
-                handleClick={nextSlide}
-              />
-            </div>
+          </motion.div>
+        </motion.div>
+      ))}
+      <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
+        <div className="lg:p-20 p-14">
+          <div className="flex gap-3 lg:py-10 py-8">
+            <Button normal backgroundColor label="More Details" />
+            <Button normal icon={<FaPlay />} label="Watch trailer" />
           </div>
-          <div className="lg:py-4 pb-2 mx-auto">
-            <SliderItems
-              prevSlide={prevSlide}
-              nextSlide={nextSlide}
-              currentIndex={currentIndex}
-              setCurrentIndex={setCurrentIndex}
-              slides={TrendingData}
+          <div className="gap-3 flex">
+            <Button
+              normal
+              backgroundColor="transparent"
+              label={<IoIosArrowBack className="text-white hover:text-opacity-70" />}
+              handleClick={prevSlide}
+            />
+            <Button
+              normal
+              backgroundColor="transparent"
+              label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
+              handleClick={nextSlide}
             />
           </div>
         </div>
+        <div className="lg:py-4 pb-2 mx-auto">
+          <SliderItems
+            prevSlide={prevSlide}
+            nextSlide={nextSlide}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            slides={TrendingData}
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 });
 
