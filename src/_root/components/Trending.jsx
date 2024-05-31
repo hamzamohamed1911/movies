@@ -19,7 +19,7 @@ const Trending = () => {
               <img
                 src={`https://image.tmdb.org/t/p/original${trendingMovie.backdrop_path}`}
                 alt={trendingMovie.title}
-                className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg"
+                className="lg:w-[300px] lg:h-[250px] h-[300px] w-[220px] rounded-lg hover:shadow-lg"
               />
             </div>
           </Link>
@@ -44,7 +44,7 @@ const Trending = () => {
               <img
                 src={`https://image.tmdb.org/t/p/original${trendingTVShow.backdrop_path}`}
                 alt={trendingTVShow.name}
-                className="lg:w-[300px] lg:h-[220px] h-[300px] w-[200px] rounded-lg hover:shadow-lg"
+                className="lg:w-[300px] lg:h-[250px] h-[300px] w-[220px] rounded-lg hover:shadow-lg"
               />
             </div>
           </Link>
