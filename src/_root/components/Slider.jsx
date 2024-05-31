@@ -74,7 +74,7 @@ const Slider = memo(() => {
             <h1 className="lg:text-6xl md:text-4xl text-4xl font-bold py-8">
               {slide.title}
             </h1>
-            <p className='text-xl'>
+            <p className='lg:text-xl text-md font-light'>
                   {showFullDescription ? (
                         slide.overview
                                     ) : (
@@ -84,7 +84,7 @@ const Slider = memo(() => {
                                    </>
                                                 )}
   {slide.overview.length > 200 && (
-    <button className="text-blue" onClick={toggleDescription}>
+    <button className="text-blue font-bold" onClick={toggleDescription}>
       {showFullDescription ? ' Less' : ' More'}
     </button>
   )}

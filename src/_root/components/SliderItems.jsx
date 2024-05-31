@@ -53,8 +53,8 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 9,
-    slidesToScroll: 9,
+    slidesToShow: 8,
+    slidesToScroll: 8,
     arrows: false,
     responsive: responsiveSettings,
   };
