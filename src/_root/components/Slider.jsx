@@ -110,7 +110,7 @@ const Slider = memo(() => {
         </motion.div>
       ))}
       <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
-      <div className="gap-3 flex lg:p-20 p-14">
+      <div className="gap-3 flex lg:p-20 p-12">
             <Button
               normal
               backgroundColor="transparent"
