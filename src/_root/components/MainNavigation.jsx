@@ -77,10 +77,7 @@ const MainNavigation = () => {
 
       <div className="flex">
       <Nav />
-      <motion.div 
-      initial={{ opacity: 0, x: 120 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
+      <div 
       
       className="hidden md:flex space-x-6 px-4">
         {!searchVisible && (
@@ -99,7 +96,7 @@ const MainNavigation = () => {
           
         )}
         <SearchComponent isVisible={searchVisible} onClose={handleSearchClick}/>
-      </motion.div>
+      </div>
     </div>
 
    <div className="md:hidden flex  space-x-3"> 
