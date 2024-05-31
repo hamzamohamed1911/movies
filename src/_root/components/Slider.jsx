@@ -79,11 +79,11 @@ const Slider = memo(() => {
                         slide.overview
                                     ) : (
                                      <>
-                                {slide.overview.slice(0, 200)}
-                                {slide.overview.length > 200 && '...'}
+                                {slide.overview.slice(0, 150)}
+                                {slide.overview.length > 150 && '...'}
                                    </>
                                                 )}
-  {slide.overview.length > 200 && (
+  {slide.overview.length > 150 && (
     <button className="text-blue font-bold" onClick={toggleDescription}>
       {showFullDescription ? ' Less' : ' More'}
     </button>
