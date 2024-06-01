@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Slider from 'react-slick'
-import { dummyData } from '../../constants'
 import { useApi } from '../../store/ApiContext'
 
 const Cast = ({settings , id}) => {
