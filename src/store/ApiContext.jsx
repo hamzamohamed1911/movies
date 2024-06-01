@@ -9,8 +9,12 @@ const ApiContextProvider = ({children}) => {
     const [TopRatedTv, setTopRatedTv] = useState([]);
     const [nowPlayingMovie, setnowPlayingMovie] = useState([]);
     const[Upcoming,setUpcoming]= useState([]);
+    const[moviesDetails,setMoviesDetails]= useState([]);
+    const[moviesSimilar,setMoviesSimilar]= useState([]);
+    const[Recommendations,setRecommendations]= useState([])
+    const [castMovies,setCastMovies]=useState([])
 
-    
+
 
     const [error, setError] = useState('');
 
@@ -135,6 +139,74 @@ const ApiContextProvider = ({children}) => {
           setError(error);
         } 
       }
+      const fetchMoviesDetails = async ({ moviesId }) => {
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+            }
+        };
+        try {
+            const url = `https://api.themoviedb.org/3/movie/${moviesId}?language=en-US`;
+            const response = await fetch(url, options);
+            const result = await response.json();
+            setMoviesDetails(result); 
+        } catch (error) {
+            setError(error);
+        }
+    };
+    const fetchMoviesSimilar = async ({ id }) => {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+        }
+      };
+      try {
+        const url = `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`;
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setMoviesSimilar(result);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    const fetchMoviesRecommendations = async ({ id }) => {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+        }
+      };
+      try {
+        const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setRecommendations(result.results);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    const fetchCastMovies = async ({ id }) => {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+        }
+      };
+      try {
+        const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setCastMovies(result.cast);
+      } catch (error) {
+        setError(error);
+      }
+    };
 
       useEffect(() => {
         fetchTrending();
@@ -146,7 +218,7 @@ const ApiContextProvider = ({children}) => {
         fetchUpcoming()
       }, []);
 
-    const value ={TrendingData ,error,DiscoverMovie ,DiscoverTv ,TopRatedMovie , TopRatedTv ,nowPlayingMovie , Upcoming}
+    const value ={TrendingData ,error,DiscoverMovie ,DiscoverTv ,TopRatedMovie , TopRatedTv ,nowPlayingMovie , Upcoming ,fetchMoviesDetails , moviesDetails , moviesSimilar , fetchMoviesSimilar ,Recommendations ,fetchMoviesRecommendations ,fetchCastMovies ,castMovies } 
   return (
  <ApiContext.Provider value={value}>
     {children}

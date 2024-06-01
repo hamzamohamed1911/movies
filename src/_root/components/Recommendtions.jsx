@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { dummyData } from '../../constants';
 import { Link } from 'react-router-dom';
+import { useApi } from '../../store/ApiContext';
 
 const settings = {
   dots: false,
@@ -34,14 +34,21 @@ const settings = {
   ],
 };
 
-const Recommendations = () => {
+const Recommendations = ({ id }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
+  const { Recommendations, fetchMoviesRecommendations } = useApi();
+
+  useEffect(() => {
+    if (id) {
+      fetchMoviesRecommendations({ id });
+    }
+  }, [id]);
 
   return (
     <div className='lg:max-w-[1600px] max-w-[410px] py-16  p-2 '>
       <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
       <Slider {...settings}>
-        {dummyData.map((item, index) => (
+        {Recommendations.map((item, index) => (
           <Link
             key={item.id}
             onMouseEnter={() => setHoveredItemId(item.id)}
@@ -50,16 +57,16 @@ const Recommendations = () => {
             to={`/${item.type === "tv" ? "tv" : "movie"  }/${item.id}`}
           >
             <img
-              src={item.posterUrl}
-              alt={item.title}
+            src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+            alt={item.title}
               className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
             />
             {hoveredItemId === item.id && (
               <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded-r-3xl text-babyblue text-lg font-bold ">
-                {item.type}
+                {item.media_type}
               </p>
             )}
-                   <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">{item.title}</h1>
+                   <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">{item.title ||item.original_title}</h1>
 
           </Link>
         ))}

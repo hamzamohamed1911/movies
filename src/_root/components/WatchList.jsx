@@ -31,10 +31,10 @@ const WatchList = () => {
           <div className="px-4 py-2">
             {watchlist.map((movie, index) => (
               <div key={movie.id} className={`flex items-center py-3 ${index !== watchlist.length - 1 ? 'border-b border-baby-blue' : ''}`}>
-                <img src={movie.posterUrl} alt={movie.title} className="w-16 h-24 rounded-md mr-4" />
+                <img  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} className="w-16 h-24 rounded-md mr-4" />
                 <div className="flex flex-col space-y-4 flex-1">
                   <h1 className="lg:text-xl text-lg font-semibold text-white">{movie.title}</h1>
-                  <p className="text-lg text-babyblue text-center  bg-blue rounded-r-3xl h-8 w-20">{movie.type}</p>
+                  <p className="text-lg text-babyblue text-center  bg-blue rounded-r-3xl h-8 w-20">{movie.media_type}</p>
                 </div>
                 <button onClick={() => removeFromWatchlist(movie.id)} className="focus:outline-none">
                   <MdOutlineBookmarkRemove size={20} className="text-gray-400 hover:text-white" />
