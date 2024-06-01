@@ -20,14 +20,14 @@ const Cast = ({ settings, cast }) => {
 
       <h1 className="text-babyblue lg:text-3xl text-2xl mb-8">CAST</h1>
         {isLoading ? (
-        <div className='flex space-x-3'>
-        {Array.from({ length: 4 }).map((_, index) => (
+            <Slider {...settings} className='space-x-3'>
+            {Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="flex flex-col items-center">
                 <Skeleton circle height={140} width={140} />
                 <Skeleton height={20} width={100} style={{ marginTop: 10 }} />
               </div>
             ))}
-            </div>
+            </Slider>
         ) : (
           cast ? (
             <Slider {...settings}>

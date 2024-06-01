@@ -22,16 +22,16 @@ const Similar = ({ settings, similar }) => {
            <SkeletonTheme baseColor="#1B262C" highlightColor="#1B263A ">
 
       {isLoading ? (
-        <div className='flex space-x-3'>
-          {Array(4).fill().map((_, index) => (
+        <Slider {...settings} >
+        {Array(4).fill().map((_, index) => (
             <div key={index}>
               <div className="relative">
-                <Skeleton className="rounded-lg   w-30 h-40" />
-                <Skeleton height={30} width={120} style={{ marginTop: 10 }} />
+                <Skeleton className="rounded-lg  lg:w-40 lg:h-56 w-32 h-40" />
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
+
       ) : (
         <Slider {...settings}>
           {similar.map((slide) => (
