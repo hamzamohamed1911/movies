@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const Similar = ({ settings, similar }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="lg:max-w-3xl max-w-[410px] py-6 p-2">
-      <h1 className="text-babyblue text-2xl mb-8">SIMILAR</h1>
-      {similar ? (
+           <h1 className="text-babyblue text-2xl mb-8">SIMILAR</h1>
+           <SkeletonTheme baseColor="#1B262C" highlightColor="#1B263A ">
+
+      {isLoading ? (
+        <div className='flex space-x-3'>
+          {Array(4).fill().map((_, index) => (
+            <div key={index}>
+              <div className="relative">
+                <Skeleton className="rounded-lg   w-30 h-40" />
+                <Skeleton height={30} width={120} style={{ marginTop: 10 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
         <Slider {...settings}>
           {similar.map((slide) => (
             <div key={slide.id}>
@@ -25,9 +49,9 @@ const Similar = ({ settings, similar }) => {
             </div>
           ))}
         </Slider>
-      ) : (
-        <div>Loading...</div>
       )}
+</SkeletonTheme>
+
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, {  lazy } from 'react';
 import DiscoverSlider from '../components/DiscoverSlider';
 import { useApi } from '../../store/ApiContext';
 
@@ -21,9 +21,7 @@ const Discover = () => {
           </div>
         </div>
         <div className="lg:w-1/4">
-          <Suspense fallback={<div>Loading...</div>}>
             <Trending />
-          </Suspense>
         </div>
       </div>
     </section>

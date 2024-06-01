@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const settings = {
   dots: false,
@@ -33,38 +35,59 @@ const settings = {
   ],
 };
 
-const Recommendations = ({ recommendation}) => {
+const Recommendations = ({ recommendation }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
 
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className='lg:max-w-[1600px] max-w-[410px] py-16  p-2 '>
       <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
-      <Slider {...settings}>
-        {recommendation.map((item) => (
-          <Link
-            key={item.id}
-            onMouseEnter={() => setHoveredItemId(item.id)}
-            onMouseLeave={() => setHoveredItemId(null)}
-            className="relative "
-            to={`/${item.media_type === "tv" ? "tv" : "movie"  }/${item.id}`}
-          >
-            <img
-            src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-            alt={item.title}
-              className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
-            />
-            {hoveredItemId === item.id && (
-              <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded-r-3xl text-babyblue text-lg font-bold ">
-                {item.media_type}
-              </p>
-            )}
-                   <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">{item.title ||item.original_title}</h1>
-
-          </Link>
-        ))}
-      </Slider>
+      <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
+        {isLoading ? (
+          <Slider {...settings}>
+            {Array(4).fill().map((_, index) => (
+              <div key={index} className="relative space-x-3">
+                <Skeleton height={400} width={300} className="rounded-xl" />
+                <Skeleton height={20} width={100} style={{ marginTop: 10 }} />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <Slider {...settings}>
+            {recommendation.map((item) => (
+              <Link
+                key={item.id}
+                onMouseEnter={() => setHoveredItemId(item.id)}
+                onMouseLeave={() => setHoveredItemId(null)}
+                className="relative "
+                to={`/${item.media_type === "tv" ? "tv" : "movie"}/${item.id}`}
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                  alt={item.title}
+                  className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
+                />
+                {hoveredItemId === item.id && (
+                  <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded-r-3xl text-babyblue text-lg font-bold ">
+                    {item.media_type}
+                  </p>
+                )}
+                <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">
+                  {item.title || item.original_title}
+                </h1>
+              </Link>
+            ))}
+          </Slider>
+        )}
+      </SkeletonTheme>
     </div>
   );
 };

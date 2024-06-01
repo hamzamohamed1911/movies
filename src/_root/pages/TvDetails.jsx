@@ -80,19 +80,19 @@ const TvDetails = () => {
           </p>
         </div>
         <div className='lg:flex lg:justify-between'>
-          <Suspense fallback={<div>Loading...</div>}>
+         
             <div className='flex justify-center'>
               <Cast cast={castTv} settings={settings} />
             </div>
             <div className='flex justify-center'>
               <Similar similar={TvSimilar} settings={settings} />
             </div>
-          </Suspense>
+     
         </div>
         <div className='flex justify-center'>
-          <Suspense fallback={<div>Loading...</div>}>
+      
             <Recommendations recommendation={TvRecommendations} />
-          </Suspense>
+  
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
 const settings = {
@@ -59,15 +60,36 @@ const settings = {
 
 const DiscoverSlider = memo(({ label, discover }) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className='lg:max-w-[1200px] max-w-[350px] py-10 '>
       <h1 className="text-babyblue lg:text-7xl md:text-5xl text-5xl mb-8 text-bold">{label}</h1>
-      <Slider {...settings} className="space-x-4 ">
-        {discover.map((item) => (
+      <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
+        {isLoading ? (
+          <Slider {...settings} className="space-x-4 ">
+          {Array(4).fill().map((_, index) => (
+              <div key={index} className="relative w-full px-2 rounded-2xl ">
+                <Skeleton  className=" rounded-2xl lg:h-[380px] lg:w-[260px] h-[240px] w-[280px]" />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <Slider {...settings} className="space-x-4 ">
+            {discover.map((item) => (
           <DiscoverSliderItem key={item.id} item={item} setHoveredItemId={setHoveredItemId} hoveredItemId={hoveredItemId} />
-        ))}
-      </Slider>
+            ))}
+          </Slider>
+        )}
+      </SkeletonTheme>
       <div className="bg-navy h-1 "></div> 
     </div>
   );
