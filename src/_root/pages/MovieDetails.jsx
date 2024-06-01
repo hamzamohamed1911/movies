@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { dummyData} from "../../constants";
 import Details from '../components/Details';
@@ -14,7 +14,11 @@ const MovieDetails = () => {
   useEffect(() => {
     fetchMoviesDetails({ moviesId: movieId });
 }, [movieId]);
+const [showFullDescription, setShowFullDescription] = useState(false);
 
+const toggleDescription = useCallback(() => {
+  setShowFullDescription((prev) => !prev);
+}, []);
 
   
 
@@ -55,8 +59,20 @@ const MovieDetails = () => {
         <div className="lg:max-w-4xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
             <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
             <p className="lg:text-2xl text-lg font-light text-babyblue">
-                {moviesDetails.overview}              
-            </p>
+                  {showFullDescription ? (
+                        moviesDetails.overview
+                                    ) : (
+                                     <>
+                                {moviesDetails.overview.slice(0, 150)}
+                                {moviesDetails.overview.length > 150 && '...'}
+                                   </>
+                                                )}
+  {moviesDetails.overview.length > 150 && (
+    <button className="text-blue font-bold" onClick={toggleDescription}>
+      {showFullDescription ? ' Less' : ' More'}
+    </button>
+  )}
+</p>
           </div>
           <div className=' lg:flex lg:justify-between'>
 

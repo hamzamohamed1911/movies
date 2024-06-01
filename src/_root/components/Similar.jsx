@@ -21,9 +21,9 @@ const Similar = ({ settings ,id }) => {
             <div key={slide.id}>
               <Link to={`/${slide.media_type === "tv" ? "tv" : "movie"}/${slide.id}`}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${slide.poster_path || slide.logo_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${slide.poster_path || slide.logo_path}`}
                   alt={slide.title}
-                  className="cursor-pointer rounded-lg lg:w-40 lg:h-56 w-32 h-36"
+                  className="cursor-pointer rounded-lg lg:w-40 lg:h-56 w-32 h-40"
                 />
               </Link>
               <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4">
