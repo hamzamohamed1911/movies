@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import { useApi } from '../../store/ApiContext';
 
 const settings = {
   dots: false,
@@ -34,27 +33,22 @@ const settings = {
   ],
 };
 
-const Recommendations = ({ id }) => {
+const Recommendations = ({ recommendation}) => {
   const [hoveredItemId, setHoveredItemId] = useState(null);
-  const { Recommendations, fetchMoviesRecommendations } = useApi();
 
-  useEffect(() => {
-    if (id) {
-      fetchMoviesRecommendations({ id });
-    }
-  }, [id]);
+
 
   return (
     <div className='lg:max-w-[1600px] max-w-[410px] py-16  p-2 '>
       <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
       <Slider {...settings}>
-        {Recommendations.map((item, index) => (
+        {recommendation.map((item) => (
           <Link
             key={item.id}
             onMouseEnter={() => setHoveredItemId(item.id)}
             onMouseLeave={() => setHoveredItemId(null)}
             className="relative "
-            to={`/${item.type === "tv" ? "tv" : "movie"  }/${item.id}`}
+            to={`/${item.media_type === "tv" ? "tv" : "movie"  }/${item.id}`}
           >
             <img
             src={`https://image.tmdb.org/t/p/original${item.poster_path}`}

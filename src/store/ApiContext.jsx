@@ -11,8 +11,13 @@ const ApiContextProvider = ({children}) => {
     const[Upcoming,setUpcoming]= useState([]);
     const[moviesDetails,setMoviesDetails]= useState([]);
     const[moviesSimilar,setMoviesSimilar]= useState([]);
-    const[Recommendations,setRecommendations]= useState([])
+    const[movieRecommendations,setMovieRecommendations]= useState([])
     const [castMovies,setCastMovies]=useState([])
+    const[TvDetails,setTvDetails]= useState([]);
+    const[TvSimilar,setTvSimilar]= useState([]);
+    const[TvRecommendations,setTvRecommendations]= useState([])
+    const [castTv,setCastTv]=useState([])
+
 
 
 
@@ -155,8 +160,26 @@ const ApiContextProvider = ({children}) => {
         } catch (error) {
             setError(error);
         }
-    };
-    const fetchMoviesSimilar = async ({ id }) => {
+     };
+  
+      const fetchTvDetails = async ({ tvId }) => {
+      const options = {
+          method: 'GET',
+          headers: {
+              accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+          }
+      };
+      try {
+          const url = `https://api.themoviedb.org/3/tv/${tvId}?language=en-US`;
+          const response = await fetch(url, options);
+          const result = await response.json();
+          setTvDetails(result); 
+      } catch (error) {
+          setError(error);
+      }
+     };
+     const fetchMoviesSimilar = async ({ id }) => {
       const options = {
         method: 'GET',
         headers: {
@@ -168,12 +191,65 @@ const ApiContextProvider = ({children}) => {
         const url = `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`;
         const response = await fetch(url, options);
         const result = await response.json();
-        setMoviesSimilar(result);
+        setMoviesSimilar(result.results);
       } catch (error) {
         setError(error);
       }
+     };
+     const fetchTvSimilar = async ({ id }) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+      }
     };
+    try {
+      const url = `https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`;
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setTvSimilar(result.results);
+    } catch (error) {
+      setError(error);
+    }
+     };
     const fetchMoviesRecommendations = async ({ id }) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+      }
+    };
+    try {
+      const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setMovieRecommendations(result.results);
+    } catch (error) {
+      setError(error);
+    }
+     };
+ 
+     const fetchTvRecommendations = async ({ id }) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+      }
+    };
+    try {
+      const url = `https://api.themoviedb.org/3/tv/${id}//recommendations?language=en-US&page=1`;
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setTvRecommendations(result.results);
+    } catch (error) {
+      setError(error);
+    }
+    };
+
+     const fetchCastTv = async ({ id }) => {
       const options = {
         method: 'GET',
         headers: {
@@ -182,15 +258,15 @@ const ApiContextProvider = ({children}) => {
         }
       };
       try {
-        const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
+        const url = `https://api.themoviedb.org/3/tv/${id}/credits?language=en-US`;
         const response = await fetch(url, options);
         const result = await response.json();
-        setRecommendations(result.results);
+        setCastTv(result.cast);
       } catch (error) {
         setError(error);
       }
-    };
-    const fetchCastMovies = async ({ id }) => {
+     };
+     const fetchCastMovies = async ({ id }) => {
       const options = {
         method: 'GET',
         headers: {
@@ -206,7 +282,8 @@ const ApiContextProvider = ({children}) => {
       } catch (error) {
         setError(error);
       }
-    };
+     };
+
 
       useEffect(() => {
         fetchTrending();
@@ -218,7 +295,13 @@ const ApiContextProvider = ({children}) => {
         fetchUpcoming()
       }, []);
 
-    const value ={TrendingData ,error,DiscoverMovie ,DiscoverTv ,TopRatedMovie , TopRatedTv ,nowPlayingMovie , Upcoming ,fetchMoviesDetails , moviesDetails , moviesSimilar , fetchMoviesSimilar ,Recommendations ,fetchMoviesRecommendations ,fetchCastMovies ,castMovies } 
+    const value ={TrendingData ,error,
+      DiscoverMovie ,DiscoverTv ,
+      TopRatedMovie , TopRatedTv ,
+      nowPlayingMovie , Upcoming ,fetchMoviesDetails ,
+      moviesDetails , moviesSimilar , fetchMoviesSimilar ,
+      movieRecommendations , fetchMoviesRecommendations ,
+      fetchCastMovies , castMovies , fetchCastTv , castTv , fetchTvDetails , TvDetails , fetchTvSimilar , fetchTvRecommendations , TvRecommendations , TvSimilar,} 
   return (
  <ApiContext.Provider value={value}>
     {children}

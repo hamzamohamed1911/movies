@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
 
 
 const settings = {
@@ -82,7 +81,7 @@ const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
       onMouseLeave={() => setHoveredItemId(null)}
       className="relative w-full px-2 rounded-xl transition-transform duration-500 transform hover:scale-95"
     >
-      <Link to={`/${item.type === "tv" ? "tv" : "movie"}/${item.id}`}>
+      <Link to={`/${item.media_type === "tv" ? "tv" : "movie"}/${item.id}`}>
         <img
           src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
           alt={item.title}

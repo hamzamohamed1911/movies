@@ -1,27 +1,39 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Details from '../components/Details';
-import Recommendtions from '../components/Recommendtions';
-import Similar from '../components/Similar';
-import Cast from '../components/Cast';
 import { useApi } from '../../store/ApiContext';
 
+const Cast = lazy(() => import('../components/Cast.jsx'));
+const Similar = lazy(() => import('../components/Similar.jsx'));
+const Recommendations = lazy(() => import('../components/Recommendtions.jsx'));
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const {fetchMoviesDetails , moviesDetails}=useApi()
+  const { 
+    fetchMoviesDetails,
+    moviesDetails, 
+    fetchMoviesRecommendations,
+    movieRecommendations,
+    castMovies, 
+    fetchCastMovies,
+    moviesSimilar, 
+    fetchMoviesSimilar 
+  } = useApi();
+
   useEffect(() => {
     fetchMoviesDetails({ moviesId: movieId });
-}, [movieId]);
-const [showFullDescription, setShowFullDescription] = useState(false);
+    fetchCastMovies({ id: movieId });
+    fetchMoviesRecommendations({id: movieId });
+    fetchMoviesSimilar({ id: movieId });
+  }, [movieId, fetchMoviesDetails, fetchCastMovies, fetchMoviesRecommendations, fetchMoviesSimilar]);
 
-const toggleDescription = useCallback(() => {
-  setShowFullDescription((prev) => !prev);
-}, []);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
-  
+  const toggleDescription = useCallback(() => {
+    setShowFullDescription((prev) => !prev);
+  }, []);
 
-  const settings = {
+  const settings = useMemo(() => ({
     dots: false,
     infinite: true,
     speed: 500,
@@ -38,65 +50,64 @@ const toggleDescription = useCallback(() => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
         },
       },
     ],
-  };
+  }), []);
 
-  return (<>
-    <section className='h-full '>
-        
-        <div className='lg:p-20 '>
+  return (
+    <section className='h-full'>
+      <div className='lg:p-20'>
         <Details item={moviesDetails} />
         <div className="lg:max-w-4xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
-            <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
-            <p className="lg:text-2xl text-lg font-light text-babyblue">
-  {moviesDetails?.overview ? (
-    <>
-      {showFullDescription ? (
-        moviesDetails.overview
-      ) : (
-        <>
-          {moviesDetails.overview.slice(0, 200)}
-          {moviesDetails.overview.length > 200 && '...'}
-        </>
-      )}
-      {moviesDetails.overview.length > 200 && (
-        <button className="text-blue font-bold" onClick={toggleDescription}>
-          {showFullDescription ? ' Less' : ' More'}
-        </button>
-      )}
-    </>
-  ) : (
-    <span>No description available.</span>
-  )}
-</p>
-
-          </div>
-          <div className=' lg:flex lg:justify-between'>
-
-          <div className='flex justify-center'>
-            <Cast id={movieId} settings={settings} />
-            </div>
-
-            <div className='flex justify-center'>
-            <Similar id={movieId} settings={settings} />
-            </div>       
-           </div>
-
-       <div className='flex justify-center'>
-       <Recommendtions id={movieId} />
-       </div>
+          <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
+          <p className="lg:text-2xl text-lg font-light text-babyblue">
+            {moviesDetails?.overview ? (
+              <>
+                {showFullDescription ? (
+                  moviesDetails.overview
+                ) : (
+                  <>
+                    {moviesDetails.overview.slice(0, 200)}
+                    {moviesDetails.overview.length > 200 && '...'}
+                  </>
+                )}
+                {moviesDetails.overview.length > 200 && (
+                  <button className="text-blue font-bold" onClick={toggleDescription}>
+                    {showFullDescription ? ' Less' : ' More'}
+                  </button>
+                )}
+              </>
+            ) : (
+              <span>No description available.</span>
+            )}
+          </p>
         </div>
-   </section>
-  </>)
+        <div className='lg:flex lg:justify-between'>
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className='flex justify-center'>
+              <Cast cast={castMovies} settings={settings} />
+            </div>
+            <div className='flex justify-center'>
+              <Similar similar={moviesSimilar} settings={settings} />
+            </div>
+          </Suspense>
+        </div>
+        <div className='flex justify-center'>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Recommendations recommendation={movieRecommendations} />
+          </Suspense>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default MovieDetails;
