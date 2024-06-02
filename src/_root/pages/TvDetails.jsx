@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense } from
 import { useParams } from 'react-router-dom';
 import Details from '../components/Details';
 import { useApi } from '../../store/ApiContext';
-import Recommendations from '../components/Recommendtions';
+const Recommendations = lazy(() => import('../components/Recommendtions.jsx'));
 
 const Cast = lazy(() => import('../components/Cast.jsx'));
 const Similar = lazy(() => import('../components/Similar.jsx'));
