@@ -3,30 +3,29 @@ import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
-import { dummyData } from "../../constants";
+import { useApi } from "../../store/ApiContext";
 
 const SearchComponent = ({ isVisible, onClose }) => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [error, setError] = useState(null); 
+  const { SearchResults, fetchSearchResults, setSearchResults } = useApi();
 
   const handleInputChange = (event) => {
     const newQuery = event.target.value;
     setQuery(newQuery);
-
-    const filteredResults = dummyData.filter((item) =>
-      item.title.toLowerCase().includes(newQuery.toLowerCase())
-    );
-
-    setResults(filteredResults);
+  
+    try{fetchSearchResults(newQuery)}
+    catch (error) {
+      setError(error)
+    }
+  
   };
 
   const handleLinkClick = () => {
-    
     onClose();
     setQuery("");
-    setResults([]);
+    setSearchResults([]);
   };
-  
 
   return (
     <motion.div
@@ -39,8 +38,6 @@ const SearchComponent = ({ isVisible, onClose }) => {
       className="relative z-50"
       onClick={(e) => e.stopPropagation()}
     >
-      
-      
       {isVisible && (
         <div className="flex items-center border-b border-navy p-2">
           <input
@@ -64,41 +61,36 @@ const SearchComponent = ({ isVisible, onClose }) => {
           transition={{ duration: 0.2 }}
           className="absolute top-full left-0 mt-1 w-full sm:w-[350px] bg-primary rounded-lg z-10 max-h-[400px] overflow-y-auto"
         >
-          {results.length === 0 ? (
+          {error ? (
+            <p className="p-4 text-red-500">Error fetching results: {error.message}</p>
+          ) : SearchResults.length === 0 ? (
             <p className="p-4 text-babyblue">No results found.</p>
           ) : (
-            results.map((result, index) => (
+            SearchResults.map((result, index) => (
               <Link
                 key={index}
-                to={`/${
-                  result.type === "tv" ? "tv" : "movie"
-                }/${result.id}`}
+                to={`/${result.media_type === "tv" ? "tv" : "movie"}/${result.id}`}
                 className="flex items-center p-4 sm:p-6 border-b border-gray-700 hover:bg-gray-800"
                 onClick={handleLinkClick}
               >
                 <img
-                  src={result.posterUrl}
-                  alt={result.title}
+                  src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+                  alt={result.title || result.name}
                   className="w-12 h-16 object-cover mr-3"
                 />
-
                 <div className="flex-1">
                   <h3 className="text-babyblue font-semibold">
-                    {result.title}
+                    {result.title || result.name}
                   </h3>
                   <div className="flex items-center">
-                    
-                      <AiFillStar
-                        color= "gold" size={20}
-                      />
-                  
+                    <AiFillStar color="gold" size={20} />
                     <span className="ml-2 text-babyblue">
-                      {result.rating}
+                      {result.vote_average}
                     </span>
                   </div>
                 </div>
                 <p className="bg-navy p-2 text-center rounded text-babyblue text-lg font-bold">
-                  {result.type}
+                  {result.media_type}
                 </p>
               </Link>
             ))
