@@ -79,6 +79,8 @@ const DiscoverSlider = memo(({ label, discover }) => {
           {Array(4).fill().map((_, index) => (
               <div key={index} className="relative w-full px-2 rounded-2xl ">
                 <Skeleton  className=" rounded-2xl lg:h-[380px] lg:w-[260px] h-[240px] w-[280px]" />
+                <Skeleton height={20} width={100} style={{ marginBottom: 12 ,marginTop: 12 }} />
+
               </div>
             ))}
           </Slider>

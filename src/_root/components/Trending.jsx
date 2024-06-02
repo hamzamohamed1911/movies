@@ -24,9 +24,13 @@ const Trending = () => {
         <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
           <div className="text-center mb-6">
             <Skeleton height={300} width={220} className="rounded-lg hover:shadow-lg" />
+            <Skeleton height={20} width={100} style={{ marginTop: 12 }} />
+
           </div>
           <div className="text-center">
             <Skeleton height={300} width={220} className="rounded-lg hover:shadow-lg" />
+            <Skeleton height={20} width={100} style={{ marginTop: 12 }} />
+
           </div>
         </SkeletonTheme>
       ) : (
