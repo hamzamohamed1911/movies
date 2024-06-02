@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Details from '../components/Details';
 import { useApi } from '../../store/ApiContext';
@@ -33,7 +33,7 @@ const TvDetails = () => {
     setShowFullDescription((prev) => !prev);
   }, []);
 
-  const settings = useMemo(() => ({
+  const settings ={
     dots: false,
     infinite: true,
     speed: 500,
@@ -49,7 +49,7 @@ const TvDetails = () => {
         },
       },
     ],
-  }), []);
+  }
 
   return (
     <section className='h-full'>
