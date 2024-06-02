@@ -54,9 +54,9 @@ const Recommendations = ({ recommendation }) => {
         {isLoading ? (
           <Slider {...settings}>
             {Array(4).fill().map((_, index) => (
-              <div key={index} className="relative space-x-3">
-                <Skeleton height={400} width={300} className="rounded-xl" />
-                <Skeleton height={20} width={100} style={{ marginTop: 10 }} />
+              <div key={index} >
+                <Skeleton  className="rounded-xl lg:w-[340px] md:w-[280px] w-[160px] lg:h-[500px] md:h-[400px] h-72 " />
+                <Skeleton height={20} width={90} style={{ marginTop: 10 }} />
               </div>
             ))}
           </Slider>
