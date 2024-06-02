@@ -1,8 +1,6 @@
-import React, {  lazy } from 'react';
 import DiscoverSlider from '../components/DiscoverSlider';
 import { useApi } from '../../store/ApiContext';
-
-const Trending = lazy(() => import('../components/Trending'));
+import Trending  from '../components/Trending'
 
 const Discover = () => {
   const { DiscoverMovie, DiscoverTv, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();
@@ -21,7 +19,7 @@ const Discover = () => {
           </div>
         </div>
         <div className="lg:w-1/4">
-            <Trending />
+            <Trending/>
         </div>
       </div>
     </section>
