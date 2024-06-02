@@ -59,7 +59,7 @@ const PeopleDetails = () => {
                         <strong className='mb-2 text-blue lg:text-3xl text-xl mr-2'>Place of Birth:</strong> {person.place_of_birth || 'N/A'}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
-                        <strong className='mb-2 text-blue text-3xl mr-2'>Gender:</strong> {genderMap[person.gender] || 'Not set / not specified'}
+                        <strong className='mb-2 text-blue lg:text-3xl text-xl mr-2'>Gender:</strong> {genderMap[person.gender] || 'Not set / not specified'}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
                         <strong className="mb-2 text-blue lg:text-3xl text-xl mr-2">Biography:</strong>
