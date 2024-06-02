@@ -5,7 +5,7 @@ import Trending  from '../components/Trending'
 const Discover = () => {
   const { DiscoverMovie, DiscoverTv, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();
   const discoverPopular = [...DiscoverMovie, ...DiscoverTv];
-  const TopRated = [...TopRatedTv, ...TopRatedMovie];
+  const TopRated = [...TopRatedMovie , ...TopRatedTv, ];
 
   return (
     <section className='pt-28 p-4'>

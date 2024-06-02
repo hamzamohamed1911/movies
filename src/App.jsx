@@ -15,6 +15,8 @@ import SignUp from './_auth/forms/SignUp'
 import TvDetails from './_root/pages/TvDetails'
 import MovieDetails from './_root/pages/MovieDetails'
 import ErrorPage from './_root/components/Error'
+import People from './_root/pages/People'
+import PeopleDetails from './_root/pages/PeopleDetails'
 const router = createBrowserRouter([
   {
     path:'',
@@ -33,7 +35,8 @@ const router = createBrowserRouter([
        
           { path: 'movie', element: <Movie /> }, 
           { path:"/movie/:movieId" , element:<MovieDetails/>},
-
+          { path: 'people', element: <People /> }, 
+          { path: '/people/:personId', element: <PeopleDetails /> }, 
           
         ],
       },

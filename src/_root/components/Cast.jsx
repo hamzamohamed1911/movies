@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Link } from 'react-router-dom';
 
 const Cast = ({ settings, cast }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,11 +34,13 @@ const Cast = ({ settings, cast }) => {
             <Slider {...settings}>
               {cast.map((slide) => (
                 <div key={slide.id}>
-                  <img
+                <Link to={`/people/${slide.id}`}>
+                 <img
                     src={`https://image.tmdb.org/t/p/original${slide.profile_path}`}
                     alt={slide.name}
                     className="cursor-pointer rounded-full lg:w-40 lg:h-40 w-32 h-32"
                   />
+                 </Link>
                   <h1 className="text-babyblue lg:text-2xl text-lg font-bold p-4">
                     {slide.original_name || slide.name}
                   </h1>

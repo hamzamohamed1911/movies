@@ -17,8 +17,7 @@ const ApiContextProvider = ({children}) => {
     const[TvSimilar,setTvSimilar]= useState([]);
     const[TvRecommendations,setTvRecommendations]= useState([])
     const [castTv,setCastTv]=useState([])
-
-
+    const [person,setPerson]=useState([])
 
 
     const [error, setError] = useState('');
@@ -283,6 +282,25 @@ const ApiContextProvider = ({children}) => {
         setError(error);
       }
      };
+     const fetchPerson = async ({id}) => {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+        }
+      };
+      try{
+    const url =` https://api.themoviedb.org/3/person/${id}?language=en-US`
+    const response = await fetch (url,options)
+    const result = await response.json()
+    setPerson(result)
+
+      }
+      catch (error) {
+        setError(error);
+      }
+     }
 
 
       useEffect(() => {
@@ -301,7 +319,7 @@ const ApiContextProvider = ({children}) => {
       nowPlayingMovie , Upcoming ,fetchMoviesDetails ,
       moviesDetails , moviesSimilar , fetchMoviesSimilar ,
       movieRecommendations , fetchMoviesRecommendations ,
-      fetchCastMovies , castMovies , fetchCastTv , castTv , fetchTvDetails , TvDetails , fetchTvSimilar , fetchTvRecommendations , TvRecommendations , TvSimilar,} 
+      fetchCastMovies , castMovies , fetchCastTv , castTv , fetchTvDetails , TvDetails , fetchTvSimilar , fetchTvRecommendations , TvRecommendations , TvSimilar, person , fetchPerson} 
   return (
  <ApiContext.Provider value={value}>
     {children}
