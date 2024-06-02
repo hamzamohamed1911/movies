@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import Details from '../components/Details';
 import { useApi } from '../../store/ApiContext';
 
-const Cast = lazy(() => import('../components/Cast.jsx'));
-const Similar = lazy(() => import('../components/Similar.jsx'));
-const Recommendations = lazy(() => import('../components/Recommendtions.jsx'));
+import Recommendations from '../components/Recommendtions';
+import Cast from '../components/Cast';
+import Similar from '../components/Similar';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
