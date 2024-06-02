@@ -8,6 +8,13 @@ const PeopleDetails = () => {
     const { personId } = useParams();
     const [showFullDescription, setShowFullDescription] = useState(false);
 
+    const genderMap = {
+        0: 'Not set / not specified',
+        1: 'Female',
+        2: 'Male',
+        3: 'Non-binary'
+    };
+    
     useEffect(() => {
         if (personId) {
             fetchPerson({ id: personId });
@@ -33,7 +40,7 @@ const PeopleDetails = () => {
                     whileHover={{ scale: 1.05 }}
                 >
                     <img 
-                        className="lg:w-[500px] lg:h-[600px] h-[500px] w-[400px] rounded-3xl object-center"
+                        className="lg:w-[500px] lg:h-[600px] h-[500px] w-[400px] rounded-3xl object-fill "
                         src={`https://image.tmdb.org/t/p/original${person.profile_path}`} 
                         alt={person.name} 
                     />
@@ -43,16 +50,19 @@ const PeopleDetails = () => {
                         {person.name}
                     </h1>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
-                        <strong className='mb-2 text-blue text-3xl mr-2'>Known For:</strong> {person.known_for_department}
+                        <strong className='mb-2 text-blue lg:text-3xl text-xl mr-2'>Known For:</strong> {person.known_for_department}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
-                        <strong className='mb-2 text-blue text-3xl mr-2'>Birthday:</strong> {person.birthday ? new Date(person.birthday).toLocaleDateString() : 'N/A'}
+                        <strong className='mb-2 text-blue lg:text-3xl text-xl mr-2'>Birthday:</strong> {person.birthday ? new Date(person.birthday).toLocaleDateString() : 'N/A'}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
-                        <strong className='mb-2 text-blue text-3xl mr-2'>Place of Birth:</strong> {person.place_of_birth || 'N/A'}
+                        <strong className='mb-2 text-blue lg:text-3xl text-xl mr-2'>Place of Birth:</strong> {person.place_of_birth || 'N/A'}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
-                        <strong className="mb-2 text-blue text-3xl mr-2">Biography:</strong>
+                        <strong className='mb-2 text-blue text-3xl mr-2'>Gender:</strong> {genderMap[person.gender] || 'Not set / not specified'}
+                    </p>
+                    <p className="lg:text-2xl text-lg font-light text-babyblue py-5">
+                        <strong className="mb-2 text-blue lg:text-3xl text-xl mr-2">Biography:</strong>
                         {person.biography ? (
                             <>
                                 {showFullDescription ? (
@@ -74,7 +84,7 @@ const PeopleDetails = () => {
                         )}
                     </p>
                     <p className="lg:text-2xl text-lg font-light text-babyblue mb-2 py-5">
-                        <strong className="mb-2 text-blue text-3xl mr-2">Also Known As:</strong> {person.also_known_as?.join(', ') || 'N/A'}
+                        <strong className="mb-2 text-blue lg:text-3xl text-lg mr-2">Also Known As:</strong> {person.also_known_as?.join(', ') || 'N/A'}
                     </p>
                     <motion.a 
                         href={`https://www.imdb.com/name/${person.imdb_id}`} 
