@@ -182,7 +182,7 @@ const MainNavigation = () => {
                   </motion.li>
                 </NavLink>
                   ))}
-            <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
+            {/* <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
                   <h1 className="text-blue">
                       GENRE
                   </h1>
@@ -199,7 +199,7 @@ const MainNavigation = () => {
         
           <Button label="Sign In" small  handleClick={handleSubmit} />
         
-          </motion.div>
+          </motion.div> */}
           
             </ul>
           </div>

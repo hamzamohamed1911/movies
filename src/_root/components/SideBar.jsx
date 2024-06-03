@@ -60,7 +60,7 @@ const SideBar = () => {
           </NavLink>
         ))}
 
-
+{/* 
         <div className="flex flex-col px-4 py-6  text-3xl  ">
                   <h1 className="text-blue">
                       GENRE
@@ -75,7 +75,7 @@ const SideBar = () => {
         isOpen={openDropdown === 'Movies'}
         toggleDropdown={() => toggleDropdown('Movies')}
       />
-          </div>
+          </div> */}
 
               </ul>
               

@@ -19,6 +19,7 @@ const ApiContextProvider = ({children}) => {
     const [castTv,setCastTv]=useState([])
     const [person,setPerson]=useState([])
     const [SearchResults, setSearchResults] = useState([]);
+    const [PeopleList, setPeopleList] = useState([])
 
 
     const [error, setError] = useState('');
@@ -316,6 +317,28 @@ const ApiContextProvider = ({children}) => {
       
       
     };
+    const fetchPeopleList= async () => {
+      try {
+        const response = await fetch('https://api.themoviedb.org/3/person/popular?language=en-US&page=1', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc`,
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+        });
+        const data = await response.json();
+        const filteredResults = data.results.map(person => {
+          return {
+            ...person,
+            known_for: person.known_for.filter(movie => !movie.adult),
+          };
+        });
+        setPeopleList(filteredResults);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
   
   
       useEffect(() => {
@@ -326,6 +349,7 @@ const ApiContextProvider = ({children}) => {
         fetchTopRatedTv();
         fetchNowPlayingMovie();
         fetchUpcoming()
+        fetchPeopleList()
       }, []);
 
     const value ={TrendingData ,error,
@@ -338,7 +362,7 @@ const ApiContextProvider = ({children}) => {
       fetchTvDetails , TvDetails , fetchTvSimilar ,
        fetchTvRecommendations , TvRecommendations , 
        TvSimilar, person , fetchPerson , SearchResults 
-     , fetchSearchResults , setSearchResults} 
+     , fetchSearchResults , setSearchResults ,PeopleList} 
   return (
  <ApiContext.Provider value={value}>
     {children}

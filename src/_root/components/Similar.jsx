@@ -26,7 +26,7 @@ const Similar = ({ settings, similar }) => {
         {Array(4).fill().map((_, index) => (
             <div key={index}>
               <div className="relative">
-                <Skeleton  ght={60}  width={120} className="rounded-lg  lg:w-40 lg:h-56 w-32 h-40" />
+                <Skeleton  height={60}  width={120} className="rounded-lg  lg:w-40 lg:h-56 w-32 h-40" />
                 <Skeleton height={30} width={120} style={{ marginTop: 10 }} />
 
               </div>
