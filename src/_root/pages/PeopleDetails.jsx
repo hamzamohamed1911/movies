@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useApi } from '../../store/ApiContext';
 import { useParams } from 'react-router-dom';
+import MoviesAndTVShows from '../components/MoviesAndTVShows';
 
 const PeopleDetails = () => {
     const { person, fetchPerson } = useApi();
@@ -28,7 +29,8 @@ const PeopleDetails = () => {
    
 
     return (
-        <section className='relative flex justify-center items-center h-full p-4 sm:p-6 lg:p-20 bg-gradient-to-b from-transparent to-slate-950'>
+       <div className=' h-full p-4 sm:p-6 lg:p-20 bg-gradient-to-b from-transparent to-slate-950'>
+         <div className=' flex justify-center items-center  '>
             <motion.div 
                 className="flex flex-col lg:flex-row rounded-lg shadow-lg p-4 lg:p-10 w-full py-20"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -97,7 +99,9 @@ const PeopleDetails = () => {
                     </motion.a>
                 </div>
             </motion.div>
-        </section>
+        </div>
+        <MoviesAndTVShows personId={personId}/>
+       </div>
     );
 };
 

@@ -20,6 +20,8 @@ const ApiContextProvider = ({children}) => {
     const [person,setPerson]=useState([])
     const [SearchResults, setSearchResults] = useState([]);
     const [PeopleList, setPeopleList] = useState([])
+    const [mediaList, setMediaList] = useState([]);
+
 
 
     const [error, setError] = useState('');
@@ -338,6 +340,22 @@ const ApiContextProvider = ({children}) => {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchMedia = async ({personId}) => {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+        }
+      };
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/person/${personId}/combined_credits?language=en-US`, options);
+        const data = await response.json();
+        setMediaList(data.cast);
+      } catch (error) {
+        console.log(error)
+      }
+    };
 
   
   
@@ -362,7 +380,7 @@ const ApiContextProvider = ({children}) => {
       fetchTvDetails , TvDetails , fetchTvSimilar ,
        fetchTvRecommendations , TvRecommendations , 
        TvSimilar, person , fetchPerson , SearchResults 
-     , fetchSearchResults , setSearchResults ,PeopleList} 
+     , fetchSearchResults , setSearchResults ,PeopleList ,fetchMedia ,mediaList} 
   return (
  <ApiContext.Provider value={value}>
     {children}
