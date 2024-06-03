@@ -69,7 +69,7 @@ const navigate = useNavigate();
             loading="lazy"
           />
           <motion.div
-            className="absolute bottom-0 lg:p-20 md:px-10 md:pt-14 md:w-1/3 w-full h-full bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white"
+            className="absolute bottom-0 lg:p-20 p-14 md:w-1/3 w-full h-full bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white"
             initial="hidden"
             animate="visible"
             variants={textVariants}
