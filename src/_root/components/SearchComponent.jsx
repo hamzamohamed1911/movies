@@ -14,7 +14,10 @@ const SearchComponent = ({ isVisible, onClose }) => {
     const newQuery = event.target.value;
     setQuery(newQuery);
   
-    try{fetchSearchResults(newQuery)}
+    try{fetchSearchResults(newQuery) 
+
+      console.log(SearchResults)
+    }
     catch (error) {
       setError(error)
     }
@@ -69,12 +72,12 @@ const SearchComponent = ({ isVisible, onClose }) => {
             SearchResults.map((result, index) => (
               <Link
                 key={index}
-                to={`/${result.media_type === "tv" ? "tv" : "movie"}/${result.id}`}
+                to={`/${result.media_type === "tv" ? "tv" : result.media_type === "movie" ? "movie" : "people" }/${result.id}`}
                 className="flex items-center p-4 sm:p-6 border-b border-gray-700 hover:bg-gray-800"
                 onClick={handleLinkClick}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500${result.poster_path ||result.profile_path}`}
                   alt={result.title || result.name}
                   className="w-12 h-16 object-cover mr-3"
                 />

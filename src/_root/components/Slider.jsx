@@ -5,6 +5,7 @@ import { FaPlay, FaStar } from 'react-icons/fa';
 import { useApi } from '../../store/ApiContext.jsx';
 import Button from './Button.jsx';
 import SliderItems from './SliderItems';
+import { useNavigate } from 'react-router-dom';
 
 const slideVariants = {
   hidden: { opacity: 0, scale: 0.8, x: 50 },
@@ -20,6 +21,8 @@ const Slider = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { TrendingData } = useApi();
   const [showFullDescription, setShowFullDescription] = useState(false);
+const navigate = useNavigate();
+
 
   const toggleDescription = useCallback(() => {
     setShowFullDescription((prev) => !prev);
@@ -46,6 +49,7 @@ const Slider = memo(() => {
       prevIndex === 0 ? TrendingData.length - 1 : prevIndex - 1
     );
   }, [TrendingData]);
+ 
 
   return (
     <div className="h-full relative">
@@ -100,10 +104,9 @@ const Slider = memo(() => {
             </div>
             <div className="">
           <div className="flex gap-3 lg:py-10 py-8">
-            <Button normal backgroundColor label="More Details" />
+            <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/${slide.id} `)} normal backgroundColor label="More Details" />
             <Button normal icon={<FaPlay />} label="Watch trailer" />
           </div>
-        
         </div>
           </motion.div>
           
