@@ -54,7 +54,7 @@ const Details = ({ item }) => {
             className="w-52 h-72 lg:w-[320px] pt-6 lg:h-[460px] object-fill rounded-lg shadow-md"
           />
           <div className="text-center sm:text-left">
-            <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title}</h2>
+            <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title ||item.name}</h2>
             <div className="flex justify-center sm:justify-start mb-4 text-lg">
               {[...Array(5)].map((_, i) => (
                 <AiFillStar
