@@ -69,14 +69,14 @@ const navigate = useNavigate();
             loading="lazy"
           />
           <motion.div
-            className="absolute bottom-0 lg:p-24 p-14 md:w-1/3 w-full h-full bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white"
+            className="absolute bottom-0 lg:p-20 p-14 md:w-1/3 w-full h-full bg-black md:bg-opacity-5 bg-opacity-30 md:bg-gradient-to-l from-transparent to-black text-white"
             initial="hidden"
             animate="visible"
             variants={textVariants}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <h1 className="lg:text-6xl md:text-4xl text-4xl font-bold py-8">
-              {slide.title}
+            <h1 className="lg:text-6xl md:text-4xl text-3xl font-bold py-8">
+              {slide.title ||slide.name}
             </h1>
             <p className='lg:text-xl text-md font-light'>
                   {showFullDescription ? (
@@ -103,7 +103,7 @@ const navigate = useNavigate();
               ))}
             </div>
             <div className="">
-          <div className="flex gap-3 lg:py-10 py-8">
+          <div className="flex gap-3 lg:py-8 py-6">
             <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/${slide.id} `)} normal backgroundColor label="More Details" />
             <Button normal icon={<FaPlay />} label="Watch trailer" />
           </div>
@@ -113,7 +113,7 @@ const navigate = useNavigate();
         </motion.div>
       ))}
       <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
-      <div className="gap-3 flex lg:p-20 p-12">
+      <div className="gap-3 flex lg:p-20 py-12 p-12">
             <Button
               normal
               backgroundColor="transparent"
