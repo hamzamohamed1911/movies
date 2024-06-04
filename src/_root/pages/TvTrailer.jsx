@@ -63,7 +63,7 @@ const TvTrailer = () => {
         <div className="text-red-500 text-center p-4">{error}</div>
       )}
       {trailerUrl && (
-        <div className="w-full h-[400px] md:h-[600px] flex flex-col items-center justify-center space-y-6">
+        <div className="w-full h-[500px] md:h-[700px] flex flex-col items-center justify-center space-y-6">
           <ReactPlayer
             url={trailerUrl}
             width="80%"
