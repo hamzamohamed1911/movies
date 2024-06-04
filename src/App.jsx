@@ -18,6 +18,9 @@ import ErrorPage from './_root/components/Error'
 import People from './_root/pages/People'
 import PeopleDetails from './_root/pages/PeopleDetails'
 import MovieTrailer from './_root/pages/MovieTrailer'
+import TvTrailer from './_root/pages/TvTrailer'
+
+
 const router = createBrowserRouter([
   {
     path:'',
@@ -34,6 +37,8 @@ const router = createBrowserRouter([
           { path: 'discover', element: <Discover /> }, 
           { path: 'tv', element: <Tv /> },
           {path:"/tv/:tvId" , element:<TvDetails/>},
+          { path: '/tv/trailer/:tvtrailerId', element: <TvTrailer/> },
+
        
           { path: 'movie', element: <Movie /> }, 
           { path:"/movie/:movieId" , element:<MovieDetails/>},

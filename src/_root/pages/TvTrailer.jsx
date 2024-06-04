@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import 'tailwindcss/tailwind.css';
 
-const MovieTrailer = () => {
+const TvTrailer = () => {
   const [trailerUrl, setTrailerUrl] = useState(null);
   const [trailerData, setTrailerData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { mediaId } = useParams();
+  const { tvtrailerId } = useParams();
 
   const youtubeBaseUrl = 'https://www.youtube.com/watch?v=';
 
@@ -26,7 +26,7 @@ const MovieTrailer = () => {
           }
         };
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${mediaId}/videos?language=en-US`, options
+          `https://api.themoviedb.org/3/tv/${tvtrailerId}/videos?language=en-US`, options
         );
         const data = await response.json();
 
@@ -47,10 +47,10 @@ const MovieTrailer = () => {
       }
     };
 
-    if (mediaId) {
+    if (tvtrailerId) {
       fetchTrailer();
     }
-  }, [mediaId]);
+  }, [tvtrailerId]);
 
   return (
     <div className="relative flex flex-col items-center justify-center lg:h-full h-[720px] lg:p-24 pt-20 text-white">
@@ -81,4 +81,4 @@ const MovieTrailer = () => {
   );
 };
 
-export default MovieTrailer;
+export default TvTrailer;
