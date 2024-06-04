@@ -55,7 +55,7 @@ const MovieTrailer = () => {
   return (
     <div className="relative flex flex-col items-center justify-center lg:h-full h-[720px] lg:p-24 pt-20 text-white">
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-700 opacity-75">
+        <div className="absolute inset-0 flex items-center justify-center  opacity-75">
           <p className="text-white text-xl">Loading...</p>
         </div>
       )}
