@@ -17,6 +17,7 @@ import MovieDetails from './_root/pages/MovieDetails'
 import ErrorPage from './_root/components/Error'
 import People from './_root/pages/People'
 import PeopleDetails from './_root/pages/PeopleDetails'
+import MovieTrailer from './_root/pages/MovieTrailer'
 const router = createBrowserRouter([
   {
     path:'',
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     children: [
       { index:true, element: <Home /> },
       { path: 'about', element: <About /> },
+
       {
         path: '',
         element: <SideLayout />,
@@ -35,6 +37,8 @@ const router = createBrowserRouter([
        
           { path: 'movie', element: <Movie /> }, 
           { path:"/movie/:movieId" , element:<MovieDetails/>},
+          { path: '/movie/trailer/:mediaId', element: <MovieTrailer /> },
+
           { path: 'people', element: <People /> }, 
           { path: '/people/:personId', element: <PeopleDetails /> }, 
           

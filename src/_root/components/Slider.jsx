@@ -105,7 +105,7 @@ const navigate = useNavigate();
             <div className="">
           <div className="flex gap-3 lg:py-8 py-6">
             <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/${slide.id} `)} normal backgroundColor label="More Details" />
-            <Button normal icon={<FaPlay />} label="Watch trailer" />
+            <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/trailer/${slide.id} `)}  normal icon={<FaPlay />} label="Watch trailer" />
           </div>
         </div>
           </motion.div>

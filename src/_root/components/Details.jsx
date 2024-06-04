@@ -5,10 +5,13 @@ import { IoMdAdd } from "react-icons/io";
 import { FaPlay } from "react-icons/fa";
 import { useComponentContext } from '../../store/componentContext';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useNavigate } from 'react-router-dom';
 
 const Details = ({ item }) => {
   const { addToWatchlist } = useComponentContext();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,7 +70,7 @@ const Details = ({ item }) => {
               <span className="ml-3 text-2xl">{item.vote_average} / 10</span>
             </div>
             <div className="flex space-x-4 pt-4 justify-center sm:justify-start">
-              <Button icon={<FaPlay />} normal label="Play Trailer" />
+              <Button  handleClick={()=> navigate(`/movie/trailer/${item.id}`)}  normal icon={<FaPlay />} label="Play Trailer" />
               <Button icon={<IoMdAdd />} backgroundColor normal label="Add to Watchlist" handleClick={handleAddToWatchlist} />
             </div>
           </div>

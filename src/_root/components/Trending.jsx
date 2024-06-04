@@ -41,7 +41,7 @@ const Trending = () => {
               <Link to={`/movie/${trendingMovie.id}`}>
                 <div className='flex justify-center'>
                   <img
-                    src={`https://image.tmdb.org/t/p/original${trendingMovie.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/w400${trendingMovie.backdrop_path}`}
                     alt={trendingMovie.title}
                     className="lg:w-[300px] lg:h-[250px] h-[300px] w-[220px] rounded-lg hover:shadow-lg"
                   />

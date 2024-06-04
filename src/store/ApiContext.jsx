@@ -21,6 +21,8 @@ const ApiContextProvider = ({children}) => {
     const [SearchResults, setSearchResults] = useState([]);
     const [PeopleList, setPeopleList] = useState([])
     const [mediaList, setMediaList] = useState([]);
+    const [video, setVideo] = useState([]);
+
 
 
 

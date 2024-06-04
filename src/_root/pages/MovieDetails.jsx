@@ -9,6 +9,7 @@ import Similar from '../components/Similar';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
+  
   const { 
     fetchMoviesDetails,
     moviesDetails, 
