@@ -36,7 +36,7 @@ const Cast = ({ settings, cast }) => {
                 <div key={slide.id}>
                 <Link to={`/people/${slide.id}`}>
                  <img
-                    src={`https://image.tmdb.org/t/p/original${slide.profile_path}`}
+                    src={`https://image.tmdb.org/t/p/w200${slide.profile_path}`}
                     alt={slide.name}
                     className="cursor-pointer rounded-full lg:w-40 lg:h-40 w-32 h-32"
                   />

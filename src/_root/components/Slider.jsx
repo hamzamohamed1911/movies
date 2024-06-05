@@ -20,8 +20,8 @@ const textVariants = {
 const Slider = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { TrendingData } = useApi();
-  const [showFullDescription, setShowFullDescription] = useState(false);
 const navigate = useNavigate();
+const [showFullDescription, setShowFullDescription] = useState(false);
 
 
   const toggleDescription = useCallback(() => {

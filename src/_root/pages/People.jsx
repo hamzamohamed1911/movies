@@ -7,7 +7,7 @@ const People = () => {
 
   return (
     <section className="h-full text-babyblue p-8 pt-20 ">
-      <h1 className=";lg:text-6xl text-3xl font-bold mb-8 text-blue-400">Popular People</h1>
+      <h1 className="lg:text-6xl text-3xl font-bold mb-8 text-blue-400">Popular People</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {PeopleList.map(person => (
           <Link 

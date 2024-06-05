@@ -5,6 +5,7 @@ import { useApi } from '../../store/ApiContext';
 import Recommendations from '../components/Recommendtions';
 import Similar from '../components/Similar';
 import Cast from '../components/Cast';
+import ShowSeasons from '../components/EpisodeDetails';
 
 
 const TvDetails = () => {
@@ -56,7 +57,7 @@ const TvDetails = () => {
       <div className='lg:p-20'>
         <Details item={TvDetails} />
         <div className="lg:max-w-4xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
-          <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
+        <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
           <p className="lg:text-2xl text-lg font-light text-babyblue">
             {TvDetails?.overview ? (
               <>
@@ -89,6 +90,10 @@ const TvDetails = () => {
             </div>
      
         </div>
+        
+        <ShowSeasons showId={tvId} />
+      
+
         <div className='flex justify-center'>
       
             <Recommendations recommendation={TvRecommendations} />

@@ -14,9 +14,9 @@ const SearchComponent = ({ isVisible, onClose }) => {
     const newQuery = event.target.value;
     setQuery(newQuery);
   
-    try{fetchSearchResults(newQuery) 
+    try{
+      fetchSearchResults(newQuery) 
 
-      console.log(SearchResults)
     }
     catch (error) {
       setError(error)
@@ -77,7 +77,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
                 onClick={handleLinkClick}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${result.poster_path ||result.profile_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${result.poster_path ||result.profile_path}`}
                   alt={result.title || result.name}
                   className="w-12 h-16 object-cover mr-3"
                 />

@@ -71,7 +71,7 @@ const Recommendations = ({ recommendation }) => {
                 to={`/${item.media_type === "tv" ? "tv" : "movie"}/${item.id}`}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w400${item.poster_path}`}
                   alt={item.title}
                   className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
                 />

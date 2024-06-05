@@ -52,7 +52,7 @@ const Details = ({ item }) => {
       <div className="absolute inset-0 p-4 lg:p-24 bg-gradient-to-b from-transparent to-slate-950 flex flex-col justify-center items-center sm:items-start text-white rounded-lg shadow-lg">
         <div className="flex flex-col justify-center items-center sm:flex-row lg:space-y-6 space-y-4 sm:space-x-10">
           <img
-            src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w400${item.poster_path}`}
             alt={item.title}
             className="w-52 h-72 lg:w-[320px] pt-6 lg:h-[460px] object-fill rounded-lg shadow-md"
           />
