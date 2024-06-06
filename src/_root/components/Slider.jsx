@@ -2,10 +2,11 @@ import React, { useState, useEffect, useCallback, memo } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { FaPlay, FaStar } from 'react-icons/fa';
-import { useApi } from '../../store/ApiContext.jsx';
+import { useQuery } from '@tanstack/react-query';
 import Button from './Button.jsx';
 import SliderItems from './SliderItems';
 import { useNavigate } from 'react-router-dom';
+import { useApi } from '../../store/ApiContext.jsx';
 
 const slideVariants = {
   hidden: { opacity: 0, scale: 0.8, x: 50 },
@@ -19,10 +20,15 @@ const textVariants = {
 
 const Slider = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { TrendingData } = useApi();
-const navigate = useNavigate();
-const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false);
+  const navigate = useNavigate();
+  const { fetchTrending} = useApi();
 
+
+  const { data: TrendingData = [], isLoading, isError,error } = useQuery({
+    queryKey: ['trendingData'],
+    queryFn: fetchTrending,
+  });
 
   const toggleDescription = useCallback(() => {
     setShowFullDescription((prev) => !prev);
@@ -49,7 +55,9 @@ const [showFullDescription, setShowFullDescription] = useState(false);
       prevIndex === 0 ? TrendingData.length - 1 : prevIndex - 1
     );
   }, [TrendingData]);
- 
+
+  // if (isLoading) return <div>Loading...</div>;
+  if (error) return <h1 className='text-7xl text-gray-200'>Error loading data...</h1>;
 
   return (
     <div className="h-full relative">
@@ -58,7 +66,7 @@ const [showFullDescription, setShowFullDescription] = useState(false);
           key={slide.id}
           className={`absolute w-full ${index === currentIndex ? 'block' : 'hidden'}`}
           initial="hidden"
-          animate={index === currentIndex ? "visible" : "hidden"}
+          animate={index === currentIndex ? 'visible' : 'hidden'}
           variants={slideVariants}
           transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
         >
@@ -76,23 +84,23 @@ const [showFullDescription, setShowFullDescription] = useState(false);
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <h1 className="lg:text-6xl md:text-4xl text-3xl font-bold py-8">
-              {slide.title ||slide.name}
+              {slide.title || slide.name}
             </h1>
-            <p className='lg:text-xl text-md font-light'>
-                  {showFullDescription ? (
-                        slide.overview
-                                    ) : (
-                                     <>
-                                {slide.overview.slice(0, 150)}
-                                {slide.overview.length > 150 && '...'}
-                                   </>
-                                                )}
-  {slide.overview.length > 150 && (
-    <button className="text-blue font-bold" onClick={toggleDescription}>
-      {showFullDescription ? ' Less' : ' More'}
-    </button>
-  )}
-</p>
+            <p className="lg:text-xl text-md font-light">
+              {showFullDescription ? (
+                slide.overview
+              ) : (
+                <>
+                  {slide.overview.slice(0, 150)}
+                  {slide.overview.length > 150 && '...'}
+                </>
+              )}
+              {slide.overview.length > 150 && (
+                <button className="text-blue font-bold" onClick={toggleDescription}>
+                  {showFullDescription ? ' Less' : ' More'}
+                </button>
+              )}
+            </p>
             <div className="flex pt-2">
               {[...Array(5)].map((_, i) => (
                 <FaStar
@@ -103,30 +111,29 @@ const [showFullDescription, setShowFullDescription] = useState(false);
               ))}
             </div>
             <div className="">
-          <div className="flex gap-3 lg:py-8 py-6">
-            <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/${slide.id} `)} normal backgroundColor label="More Details" />
-            <Button  handleClick={()=> navigate(`/${slide.media_type === "tv" ? "tv" : "movie" }/trailer/${slide.id} `)}  normal icon={<FaPlay />} label="Watch trailer" />
-          </div>
-        </div>
+              <div className="flex gap-3 lg:py-8 py-6">
+                <Button handleClick={() => navigate(`/${slide.media_type === 'tv' ? 'tv' : 'movie'}/${slide.id}`)} normal backgroundColor label="More Details" />
+                <Button handleClick={() => navigate(`/${slide.media_type === 'tv' ? 'tv' : 'movie'}/trailer/${slide.id}`)} normal icon={<FaPlay />} label="Watch trailer" />
+              </div>
+            </div>
           </motion.div>
-          
         </motion.div>
       ))}
       <div className="absolute lg:bottom-0 bottom-6 left-0 w-full">
-      <div className="gap-3 flex lg:p-20 py-12 p-12">
-            <Button
-              normal
-              backgroundColor="transparent"
-              label={<IoIosArrowBack className="text-white hover:text-opacity-70" />}
-              handleClick={prevSlide}
-            />
-            <Button
-              normal
-              backgroundColor="transparent"
-              label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
-              handleClick={nextSlide}
-            />
-          </div>
+        <div className="gap-3 flex lg:p-20 py-12 p-12">
+          <Button
+            normal
+            backgroundColor="transparent"
+            label={<IoIosArrowBack className="text-white hover:text-opacity-70" />}
+            handleClick={prevSlide}
+          />
+          <Button
+            normal
+            backgroundColor="transparent"
+            label={<IoIosArrowForward className="text-white hover:text-opacity-70" />}
+            handleClick={nextSlide}
+          />
+        </div>
         <div className="lg:py-4 pb-2 mx-auto">
           <SliderItems
             prevSlide={prevSlide}
@@ -134,6 +141,7 @@ const [showFullDescription, setShowFullDescription] = useState(false);
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
             slides={TrendingData}
+            isLoading={isLoading}
           />
         </div>
       </div>

@@ -2,18 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApi } from '../../store/ApiContext';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useQuery } from '@tanstack/react-query';
 
 const Trending = () => {
-  const { TrendingData } = useApi();
-  const [isLoading, setIsLoading] = useState(true);
+  const { fetchTrending} = useApi();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  const { data: TrendingData = [], isLoading, isError } = useQuery({
+    queryKey: ['trendingData'],
+    queryFn: fetchTrending,
+  });
 
   const trendingMovie = TrendingData.find(item => item.media_type === 'movie');
   const trendingTVShow = TrendingData.find(item => item.media_type === 'tv');

@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const ApiContext = createContext({TrendingData:[],DiscoverMovie:[]})
 const ApiContextProvider = ({children}) => {
-    const [TrendingData, setDataTrendingData] = useState([]);
     const [DiscoverMovie, setDataDiscoverMovie] = useState([]);
     const [DiscoverTv, setDataDiscoverTv] = useState([]);
     const [TopRatedMovie, setTopRatedMovie] = useState([]);
@@ -21,7 +20,6 @@ const ApiContextProvider = ({children}) => {
     const [SearchResults, setSearchResults] = useState([]);
     const [PeopleList, setPeopleList] = useState([])
     const [mediaList, setMediaList] = useState([]);
-    const [video, setVideo] = useState([]);
 
 
 
@@ -36,14 +34,18 @@ const ApiContextProvider = ({children}) => {
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
             }
           };
-        try {
           const response = await fetch('https://api.themoviedb.org/3/trending/all/week?language=en-US', options)
+          if (!response.ok) {
+            const error = new Error('An error occurred while fetching the trending');
+            error.code = response.status;
+            error.info = await response.json();
+            throw error;
+          }
           const result = await response.json();
-          setDataTrendingData(result.results);
-        } catch (error) {
-          setError(error);
-        } 
+           return result.results
+         
       };
+
       const fetchDiscoverMoives =async()=>{
         const options = {
           method: 'GET',
@@ -362,7 +364,6 @@ const ApiContextProvider = ({children}) => {
   
   
       useEffect(() => {
-        fetchTrending();
         fetchDiscoverMoives();
         fetchDiscoverTv();
         fetchTopRatedMovie();
@@ -372,7 +373,7 @@ const ApiContextProvider = ({children}) => {
         fetchPeopleList()
       }, []);
 
-    const value ={TrendingData ,error,
+    const value ={fetchTrending, error,
       DiscoverMovie ,DiscoverTv ,
       TopRatedMovie , TopRatedTv ,
       nowPlayingMovie , Upcoming ,fetchMoviesDetails ,

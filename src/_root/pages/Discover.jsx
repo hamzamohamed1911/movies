@@ -4,6 +4,7 @@ import Trending  from '../components/Trending'
 
 const Discover = () => {
   const { DiscoverMovie, DiscoverTv, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();
+  
   const discoverPopular = [...DiscoverMovie, ...DiscoverTv];
   const TopRated = [...TopRatedMovie , ...TopRatedTv, ];
 

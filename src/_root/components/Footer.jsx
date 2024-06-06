@@ -19,13 +19,16 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold  uppercase text-white">Resources</h2>
+                  <h2 className="mb-6 text-sm font-semibold  uppercase text-white">categories </h2>
                   <ul className=" text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
+                          <Link to="/tv" className="hover:underline">Tv series </Link>
                       </li>
-                      <li>
-                          <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                      <li className="mb-4">
+                          <Link to="/movie" className="hover:underline">Movies</Link>
+                      </li>
+                          <li>
+                          <Link to="/people" className="hover:underline">People</Link>
                       </li>
                   </ul>
               </div>

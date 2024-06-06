@@ -42,8 +42,8 @@ const PeopleDetails = () => {
                     whileHover={{ scale: 1.05 }}
                 >
                     <img 
-                        className="lg:w-[500px] lg:h-[600px] h-[500px] w-[400px] rounded-3xl object-fill "
-                        src={`https://image.tmdb.org/t/p/original${person.profile_path}`} 
+                        className="lg:w-[450px] lg:h-[550px] h-[500px] w-[400px] rounded-3xl object-cover "
+                        src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
                         alt={person.name} 
                     />
                 </motion.div>

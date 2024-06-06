@@ -49,16 +49,8 @@ const responsiveSettings = [
   },
 ];
 
-const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
-  const [loading, setLoading] = useState(true);
+const SliderItems = ({ slides, currentIndex, setCurrentIndex ,isLoading}) => {
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); 
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const settings = {
     dots: false,
@@ -74,7 +66,7 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex }) => {
     <Slider {...settings}>
       {slides.map((slide, index) => (
         <div key={slide.id}>
-          {loading ? (
+          {isLoading ? (
                   <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
 
             <Skeleton height={180} width={130} />

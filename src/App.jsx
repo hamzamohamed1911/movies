@@ -1,4 +1,3 @@
-
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './global.css'
 import RootLayout from './_root/pages/RootLayout'
@@ -6,7 +5,6 @@ import Home from './_root/pages/Home'
 import SideLayout from './_root/pages/SideLayout'
 import Tv from './_root/pages/Tv'
 import Movie from './_root/pages/Movie'
-
 import About from './_root/pages/About'
 import Discover from './_root/pages/Discover'
 import AuthLayout from './_auth/AuthLayout'
@@ -19,7 +17,9 @@ import People from './_root/pages/People'
 import PeopleDetails from './_root/pages/PeopleDetails'
 import MovieTrailer from './_root/pages/MovieTrailer'
 import TvTrailer from './_root/pages/TvTrailer'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -71,8 +71,11 @@ function App() {
   return (
     <>
  <main >
-  
+ <QueryClientProvider client={queryClient}>
+
  <RouterProvider router={router}/>
+ </QueryClientProvider>
+
 
  </main>
     </>
