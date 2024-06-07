@@ -1,11 +1,24 @@
 import DiscoverSlider from '../components/DiscoverSlider';
 import { useApi } from '../../store/ApiContext';
 import Trending  from '../components/Trending'
+import { useQuery } from '@tanstack/react-query';
 
 const Discover = () => {
-  const { DiscoverMovie, DiscoverTv, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();
+  const { fetchDiscoverTv,fetchDiscoverMoives, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();
+
+  const { data: DiscoverMovie  = [] } = useQuery({
+    queryKey: ['movie'],
+    queryFn: fetchDiscoverMoives ,
+  });
+
+  const { data: DiscoverTv  = [] } = useQuery({
+    queryKey: ['tv'],
+    queryFn: fetchDiscoverTv ,
+  });
   
   const discoverPopular = [...DiscoverMovie, ...DiscoverTv];
+  console.log(discoverPopular)
+
   const TopRated = [...TopRatedMovie , ...TopRatedTv, ];
 
   return (

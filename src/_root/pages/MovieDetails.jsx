@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState  } from 'react';
 import { useParams } from 'react-router-dom';
 import Details from '../components/Details';
 import { useApi } from '../../store/ApiContext';
-
 import Recommendations from '../components/Recommendtions';
 import Cast from '../components/Cast';
 import Similar from '../components/Similar';

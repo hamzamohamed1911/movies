@@ -2,8 +2,6 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const ApiContext = createContext({TrendingData:[],DiscoverMovie:[]})
 const ApiContextProvider = ({children}) => {
-    const [DiscoverMovie, setDataDiscoverMovie] = useState([]);
-    const [DiscoverTv, setDataDiscoverTv] = useState([]);
     const [TopRatedMovie, setTopRatedMovie] = useState([]);
     const [TopRatedTv, setTopRatedTv] = useState([]);
     const [nowPlayingMovie, setnowPlayingMovie] = useState([]);
@@ -20,9 +18,6 @@ const ApiContextProvider = ({children}) => {
     const [SearchResults, setSearchResults] = useState([]);
     const [PeopleList, setPeopleList] = useState([])
     const [mediaList, setMediaList] = useState([]);
-
-
-
 
     const [error, setError] = useState('');
 
@@ -46,7 +41,40 @@ const ApiContextProvider = ({children}) => {
          
       };
 
-      const fetchDiscoverMoives =async()=>{
+      const fetchDiscoverMoives = async (year, rating, language, type ,page=1) =>  {
+        const options = {
+          method: 'GET',
+          headers: {
+              accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+          }
+      };       
+      let url = `https://api.themoviedb.org/3/discover/movie?language=${language}&sort_by=popularity.desc&page=${page}`;
+    
+      if (year) {
+        url += `&primary_release_year=${year}`;
+      }
+  
+      if (rating) {
+        url += `&vote_average.gte=${rating}`;
+      }
+  
+      if (type) {
+        url += `&with_genres=${type}`;
+      }
+      if (language) {
+        url += `&with_original_language=${language}`; 
+      }
+    
+        const response = await fetch(url ,options);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data.results.map(movie => ({ ...movie, media_type: 'movie' }));
+      };
+      
+      const fetchDiscoverTv = async (year, rating, language, type ,page=1)=>{
         const options = {
           method: 'GET',
           headers: {
@@ -54,35 +82,37 @@ const ApiContextProvider = ({children}) => {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
           }
         };
-        try {
-          const response = await fetch('https://api.themoviedb.org/3/discover/movie?certification=type%3Astring&include_adult=true&include_video=true&language=en-US&page=1&sort_by=popularity.desc', options)
+        let url = `https://api.themoviedb.org/3/discover/tv?language=${language}&sort_by=popularity.desc&page=${page}`;
 
+        if (year) {
+          url += `&first_air_date_year=${year}`;
+        }
+    
+        if (rating) {
+          url += `&vote_average.gte=${rating}`;
+        }
+    
+        if (type) {
+          url += `&with_genres=${type}`;
+        }
+        if (language) {
+          url += `&with_original_language=${language}`; 
+        }
 
-          const result = await response.json();
-          setDataDiscoverMovie(result.results);
-        } catch (error) {
-          setError(error);
-        } 
+          const response = await fetch(url, options)
 
-      }
-      const fetchDiscoverTv = async()=>{
-        const options = {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
+          if (!response.ok) {
+            const error = new Error('An error occurred while fetching the trending');
+            error.code = response.status;
+            error.info = await response.json();
+            throw error;
           }
-        };
-        try {
-          const response = await fetch('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc', options)
-
           const result = await response.json();
-          setDataDiscoverTv(result.results);
-        } catch (error) {
-          setError(error);
-        } 
+          return result.results.map(tv => ({ ...tv, media_type: 'tv' }));
+
 
       }
+      
       const fetchTopRatedMovie = async ()=>{
         const options = {
           method: 'GET',
@@ -364,8 +394,7 @@ const ApiContextProvider = ({children}) => {
   
   
       useEffect(() => {
-        fetchDiscoverMoives();
-        fetchDiscoverTv();
+       
         fetchTopRatedMovie();
         fetchTopRatedTv();
         fetchNowPlayingMovie();
@@ -373,8 +402,7 @@ const ApiContextProvider = ({children}) => {
         fetchPeopleList()
       }, []);
 
-    const value ={fetchTrending, error,
-      DiscoverMovie ,DiscoverTv ,
+    const value ={fetchTrending, error ,fetchDiscoverTv,fetchDiscoverMoives,
       TopRatedMovie , TopRatedTv ,
       nowPlayingMovie , Upcoming ,fetchMoviesDetails ,
       moviesDetails , moviesSimilar , fetchMoviesSimilar ,

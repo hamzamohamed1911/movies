@@ -11,9 +11,8 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
   };
 
   const NextPage = () => {
-    if (currentPage !== nPage) {
       setcurrentPage(currentPage + 1);
-    }
+    
   };
 
   const changePage = (id) => {
@@ -44,7 +43,7 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
         >
           <Link className={`text-xl ${
             currentPage === n ?  'cursor-default' : ' cursor-pointer'}`} >
-            {n}
+            {currentPage}
           </Link>
         </li>
       ))}
@@ -52,11 +51,9 @@ const Pagination = ({ nPage, setcurrentPage, numbers, currentPage }) => {
       <li>
       <Link
           href="#"
-          className={`inline-flex size-10 items-center justify-center rounded border border-gray-300 ${
-            currentPage === nPage ? 'bg-gray-400 cursor-default' : 'bg-navy cursor-pointer'
-          } text-white rtl:rotate-180`}
+          className={`inline-flex size-10 items-center justify-center rounded border border-gray-300 bg-navy text-white rtl:rotate-180`}
         >
-          <button className={`${currentPage === nPage ? 'cursor-default' : 'cursor-pointer'} }`} onClick={NextPage}>
+          <button  onClick={NextPage}>
             <IoIosArrowForward className="h-7 w-7" />
           </button>
         </Link>

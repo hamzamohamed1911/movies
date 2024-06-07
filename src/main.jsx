@@ -9,7 +9,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ApiContextProvider>
     <ComponentProvider>
-      
     <App />
     </ComponentProvider>
     </ApiContextProvider>

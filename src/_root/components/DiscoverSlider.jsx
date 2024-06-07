@@ -116,7 +116,7 @@ const DiscoverSliderItem = memo(({ item, setHoveredItemId, hoveredItemId }) => {
         <div>
 
         <p className="absolute top-6 left-2 bg-navy lg:p-4 p-1 w-20 text-center rounded-r-3xl text-babyblue text-lg font-bold">
-          {item.type}
+          {item.media_type}
         </p>
        
         
