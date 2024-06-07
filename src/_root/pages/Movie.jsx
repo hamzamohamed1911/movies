@@ -24,7 +24,6 @@ const Movies = () => {
     queryFn: () => fetchDiscoverMoives(selectedYear, selectedRating, selectedLanguage, selectedType, currentPage),
   });
   
-console.log(DiscoverMovie)
 
   const filteredmovieShows = useMemo(() => {
     let filteredData = DiscoverMovie;

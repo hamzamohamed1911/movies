@@ -23,7 +23,6 @@ const Tv = () => {
     queryKey: ['tv', { year: selectedYear, rating: selectedRating, language: selectedLanguage, type: selectedType, page: currentPage }],
     queryFn: () => fetchDiscoverTv(selectedYear, selectedRating, selectedLanguage, selectedType, currentPage),
   });
-  console.log(DiscoverTv)
 
  
   const filteredTvShows = useMemo(() => {

@@ -109,8 +109,6 @@ const ApiContextProvider = ({children}) => {
           }
           const result = await response.json();
           return result.results.map(tv => ({ ...tv, media_type: 'tv' }));
-
-
       }
       
       const fetchTopRatedMovie = async ()=>{
