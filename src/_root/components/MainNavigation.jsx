@@ -5,7 +5,6 @@ import { BsSearch } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { navLinks } from "../../constants";
 import { useComponentContext } from "../../store/componentContext";
-import DropdownButton from "./DropdownButton";
 import { useState } from "react";
 import Button from "./Button";
 import SearchComponent from "./SearchComponent";
@@ -183,19 +182,7 @@ const MainNavigation = () => {
                 </NavLink>
                   ))}
             <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
-                  {/* <h1 className="text-blue">
-                      GENRE
-                  </h1>
-                  <DropdownButton
-        label="TV"
-        isOpen={openDropdown === 'TV'}
-        toggleDropdown={() => toggleDropdown('TV')}
-      />
-      <DropdownButton
-        label="Movies"
-        isOpen={openDropdown === 'Movies'}
-        toggleDropdown={() => toggleDropdown('Movies')}
-      /> */}
+               
         
           <Button label="Sign In" small  handleClick={handleSubmit} />
         

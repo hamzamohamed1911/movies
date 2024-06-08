@@ -67,6 +67,8 @@ const FilteredHeader = ({ tv, Movies,  label, onYearChange, onRatingChange, onLa
               <option value="35">Comedy</option>
               <option value="18">Drama</option>
               <option value="16">Animation</option>
+              <option value="27">Horror</option>
+
             </select>}
 
 
