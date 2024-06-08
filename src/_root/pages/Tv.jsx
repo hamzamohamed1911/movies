@@ -77,7 +77,7 @@ const Tv = () => {
 
           <div className='pb-8 space-y-10'>
           <FilteredHeader 
-            label="All MOVIES" 
+            label="All Tv" 
             onYearChange={handleYearChange} 
             onRatingChange={handleRatingChange} 
             onLanguageChange={handleLanguageChange} 
@@ -118,7 +118,7 @@ const TvShowItem = ({ show }) => {
   return (
     <div className="justify-center flex items-center">
       <div>
-        <div className="h-[440px] w-[300px] relative ">
+      <div className="h-auto md:h-[440px] w-full relative shadow-lg">
           <Link to={`/tv/${show.id}`}>
           <img src={`https://image.tmdb.org/t/p/w500${show.poster_path ||show.backdrop_path}`} alt={show.name} className="object-cover h-full w-full rounded-lg" />
           </Link>

@@ -111,11 +111,12 @@ const TvShowItem = memo(({ show }) => {
   return (
     <div className="relative justify-center flex items-center">
       <div>
-        <div className="h-[440px] w-[300px] relative shadow-lg">
+      <div className="h-auto md:h-[440px] w-full relative shadow-lg">
           <Link to={`/movie/${show.id}`}>
-            <img src={`https://image.tmdb.org/t/p/w500${show.poster_path ||show.backdrop_path}`} alt={show.title} className="object-cover h-full w-full rounded-lg" />
+            <img src={`https://image.tmdb.org/t/p/w500${show.poster_path || show.backdrop_path}`} alt={show.title} className="object-cover h-full w-full rounded-lg" />
           </Link>
         </div>
+        
         <div className="pt-4 text-babyblue h-24 overflow-hidden">
           <div className="flex items-center gap-2">
             <span className="lg:text-2xl text-xl">{show.vote_average}</span>

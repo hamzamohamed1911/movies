@@ -22,7 +22,7 @@ const Discover = () => {
   const TopRated = [...TopRatedMovie , ...TopRatedTv, ];
 
   return (
-    <section className='pt-28 p-4'>
+    <section className='pt-28 lg:p-20 p-4'>
       <div className='lg:flex lg:space-x-4'>
         <div className='lg:w-3/4 '>
           <div className='rounded-l-3xl rounded-3xl lg:p-6 p-4'>

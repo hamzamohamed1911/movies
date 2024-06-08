@@ -36,7 +36,7 @@ const FilteredHeader = ({ tv, Movies,  label, onYearChange, onRatingChange, onLa
   return (
     <div className="bg-transparent text-white p-6 rounded-lg">
       <div className="flex flex-col lg:flex-row justify-between items-center">
-        <h1 className="lg:text-6xl text-3xl font-bold text-babyblue mb-4 lg:mb-0">{label}</h1>
+        <h1 className="text-babyblue font-bold lg:text-5xl  text-3xl mb-4 lg:mb-0">{label}</h1>
         <div className="flex flex-wrap justify-center lg:justify-end space-y-4 lg:space-y-0 lg:space-x-4 text-xl">
           <select className='bg-navy p-3 rounded-3xl mb-4 lg:mb-0 w-72 lg:w-auto' value={selectedYear} onChange={handleYearChange}>
             <option value=""> Year</option>

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApi } from '../../store/ApiContext';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -17,7 +16,7 @@ const Trending = () => {
   const trendingTVShow = TrendingData.find(item => item.media_type === 'tv');
 
   return (
-    <div className="lg:p-10 p-2 lg:fixed items-center h-full flex flex-col lg:w-1/4">
+    <div className="lg:p-10 p-2 lg:fixed items-center h-full flex flex-col ">
       {isLoading ? (
         <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
           <div className="text-center mb-6">

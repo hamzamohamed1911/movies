@@ -56,7 +56,6 @@ const Slider = memo(() => {
     );
   }, [TrendingData]);
 
-  // if (isLoading) return <div>Loading...</div>;
   if (error) return <h1 className='text-7xl text-gray-200'>Error loading data...</h1>;
 
   return (
