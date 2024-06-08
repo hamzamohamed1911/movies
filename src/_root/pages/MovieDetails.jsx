@@ -57,7 +57,7 @@ const MovieDetails = () => {
     <section className='h-full'>
       <div className='lg:p-20'>
         <Details item={moviesDetails} />
-        <div className="lg:max-w-4xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
+        <div className="lg:max-w-3xl max-w-xl lg:py-20 py-4 lg:px-4 lg:p-10 p-4">
           <h1 className="text-white md:text-4xl text-2xl pb-10">DESCRIPTION</h1>
           <p className="lg:text-2xl text-lg font-light text-babyblue">
             {moviesDetails?.overview ? (

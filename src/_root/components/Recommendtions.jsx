@@ -48,7 +48,7 @@ const Recommendations = ({ recommendation }) => {
   }, []);
 
   return (
-    <div className='lg:max-w-[1600px] max-w-[410px] py-16  p-2 '>
+    <div className='lg:max-w-screen-2xl max-w-[410px] py-16   '>
       <h1 className="text-babyblue text-3xl mb-8">RECOMMENDATIONS</h1>
       <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
         {isLoading ? (
@@ -73,14 +73,14 @@ const Recommendations = ({ recommendation }) => {
                 <img
                   src={`https://image.tmdb.org/t/p/w400${item.poster_path}`}
                   alt={item.title}
-                  className="cursor-pointer rounded-xl lg:w-[350px] md:w-[290px] w-[190px] lg:h-[500px] md:h-[400px] h-72"
+                  className="cursor-pointer rounded-xl w-auto lg:h-[500px] md:h-[400px] h-72"
                 />
                 {hoveredItemId === item.id && (
-                  <p className="absolute top-6 left-0 bg-navy p-4 text-center rounded-r-3xl text-babyblue text-lg font-bold ">
+                  <p className="absolute top-6 left-0 bg-navy p-4  rounded-r-3xl text-babyblue text-lg font-bold ">
                     {item.media_type}
                   </p>
                 )}
-                <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4 text-center ">
+                <h1 className="text-babyblue lg:text-2xl text-lg text-bold p-4  ">
                   {item.title || item.original_title}
                 </h1>
               </Link>

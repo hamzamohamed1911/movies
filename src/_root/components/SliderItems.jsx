@@ -76,7 +76,7 @@ const SliderItems = ({ slides, currentIndex, setCurrentIndex ,isLoading}) => {
               src={`https://image.tmdb.org/t/p/w200${slide.poster_path}`}
               alt={slide.title}
               onClick={() => setCurrentIndex(index)}
-              className={`cursor-pointer rounded-md lg:h-72 md:h-56 h-44 lg:w-60 md:w-48 sm:w-40 w-32 ${
+              className={`cursor-pointer rounded-md lg:h-64 md:h-52 h-44 w-auto  ${
                 currentIndex === index ? "border-[4px] border-navy" : ""
               }`}
             />

@@ -69,7 +69,7 @@ const Movies = () => {
     <section>
       <div className='lg:p-20 pt-10 p-5 '>
         <div className="flex flex-col">
-          <div className="grid grid-cols-1 ...">
+          <div className="grid grid-cols-1 ">
             <SliderComponent  data={DiscoverMovie} />
           </div>
         </div>
