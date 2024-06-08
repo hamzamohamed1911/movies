@@ -60,7 +60,7 @@ const Details = ({ item }) => {
             <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title ||item.name}</h2>
             <div className='flex space-x-3 py-3'>
                     {item.genres.map((genre, index) => (
-                        <p key={index} className="text-lg text-babyblue text-center bg-blue rounded-3xl p-3 w-auto">{genre}</p>
+                        <p key={index} className="lg:text-lg text-sm text-babyblue text-center bg-blue rounded-3xl p-3 w-auto">{genre}</p>
                     ))}
                 </div>
 
