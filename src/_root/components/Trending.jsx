@@ -44,14 +44,14 @@ const Trending = () => {
                   />
                 </div>
               </Link>
-              <h1 className='text-babyblue text-3xl pt-3'>{trendingMovie.title}</h1>
+              <h1 className='text-babyblue text-2xl pt-3'>{trendingMovie.title}</h1>
             </div>
           )}
 
           {trendingTVShow && trendingMovie && (
             <>     
-              <div className="bg-blue h-1 w-20 mb-6"></div> 
-              <div className='my-6'></div>
+              <div className="bg-blue h-1 w-20 mb-4"></div> 
+              <div className='my-3'></div>
             </>
           )}
 
@@ -67,7 +67,7 @@ const Trending = () => {
                   />
                 </div>
               </Link>
-              <h1 className='text-babyblue text-3xl pt-3'>{trendingTVShow.name}</h1>
+              <h1 className='text-babyblue text-2xl pt-3'>{trendingTVShow.name}</h1>
             </div>
           )}
         </>

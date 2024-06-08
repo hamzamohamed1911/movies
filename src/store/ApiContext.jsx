@@ -192,12 +192,15 @@ const ApiContextProvider = ({children}) => {
             const url = `https://api.themoviedb.org/3/movie/${moviesId}?language=en-US`;
             const response = await fetch(url, options);
             const result = await response.json();
-            setMoviesDetails(result); 
+            const genres = result.genres.map(genre => genre.name);
+
+            setMoviesDetails({ ...result, genres }); 
         } catch (error) {
             setError(error);
         }
      };
-      const fetchTvDetails = async ({ tvId }) => {
+
+     const fetchTvDetails = async ({ tvId }) => {
       const options = {
           method: 'GET',
           headers: {
@@ -209,11 +212,16 @@ const ApiContextProvider = ({children}) => {
           const url = `https://api.themoviedb.org/3/tv/${tvId}?language=en-US`;
           const response = await fetch(url, options);
           const result = await response.json();
-          setTvDetails(result); 
+          
+          const genres = result.genres.map(genre => genre.name);
+  
+          setTvDetails({ ...result, genres });
       } catch (error) {
           setError(error);
       }
-     };
+  };
+  
+
      const fetchMoviesSimilar = async ({ id }) => {
       const options = {
         method: 'GET',

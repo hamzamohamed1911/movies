@@ -48,13 +48,7 @@ const settings = {
         slidesToShow: 2,
         slidesToScroll: 2,
       },
-    },{
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      },
-    },
+    }
   ],
 };
 
@@ -72,7 +66,7 @@ const DiscoverSlider = memo(({ label, discover }) => {
 
   return (
     <div className='lg:max-w-[1200px] max-w-[350px] py-10 '>
-      <h1 className="text-babyblue lg:text-7xl md:text-5xl text-5xl mb-8 text-bold">{label}</h1>
+      <h1 className="text-babyblue lg:text-6xl md:text-4xl text-3xl mb-8 text-bold">{label}</h1>
       <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
         {isLoading ? (
           <Slider {...settings} className="space-x-4 ">

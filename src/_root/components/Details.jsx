@@ -58,6 +58,12 @@ const Details = ({ item }) => {
           />
           <div className="text-center sm:text-left">
             <h2 className="lg:text-3xl text-2xl font-semibold mb-4">{item.title ||item.name}</h2>
+            <div className='flex space-x-3 py-3'>
+                    {item.genres.map((genre, index) => (
+                        <p key={index} className="text-lg text-babyblue text-center bg-blue rounded-3xl p-3 w-auto">{genre}</p>
+                    ))}
+                </div>
+
             <div className="flex justify-center sm:justify-start mb-4 text-lg">
               {[...Array(5)].map((_, i) => (
                 <AiFillStar
