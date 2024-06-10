@@ -17,7 +17,6 @@ const Discover = () => {
   });
   
   const discoverPopular = [...DiscoverMovie, ...DiscoverTv];
-  console.log(discoverPopular)
 
   const TopRated = [...TopRatedMovie , ...TopRatedTv, ];
 
