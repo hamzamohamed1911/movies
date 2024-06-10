@@ -15,9 +15,9 @@ import MovieDetails from './_root/pages/MovieDetails'
 import ErrorPage from './_root/components/Error'
 import People from './_root/pages/People'
 import PeopleDetails from './_root/pages/PeopleDetails'
-import MovieTrailer from './_root/pages/MovieTrailer'
-import TvTrailer from './_root/pages/TvTrailer'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import MovieTrailerPage , {loader as MovieTrailerLoader } from './_root/pages/MovieTrailerLoader'
+import TvTrailerPage,  {loader as tvTrailerLoader }   from './_root/pages/TvTrailerLoader'
 
 const queryClient = new QueryClient();
 
@@ -37,13 +37,10 @@ const router = createBrowserRouter([
           { path: 'discover', element: <Discover /> }, 
           { path: 'tv', element: <Tv /> },
           {path:"/tv/:tvId" , element:<TvDetails/>},
-          { path: '/tv/trailer/:tvtrailerId', element: <TvTrailer/> },
-
-       
+          { path: '/tv/trailer/:tvtrailerId', element:<TvTrailerPage/> ,loader:tvTrailerLoader },
           { path: 'movie', element: <Movie /> }, 
-          { path:"/movie/:movieId" , element:<MovieDetails/>},
-          { path: '/movie/trailer/:mediaId', element: <MovieTrailer /> },
-
+          { path:"/movie/:movieId" , element:<MovieDetails/> },
+          { path: '/movie/trailer/:mediaId', element: <MovieTrailerPage />,loader: MovieTrailerLoader },
           { path: 'people', element: <People /> }, 
           { path: '/people/:personId', element: <PeopleDetails /> }, 
           

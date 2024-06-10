@@ -7,6 +7,7 @@ import SliderComponent from '../components/SliderComponent';
 import { useApi } from '../../store/ApiContext';
 import { useQuery } from '@tanstack/react-query';
 import ShowItemSkeleton from '../components/ShowItemSkeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
 const Tv = () => {
@@ -69,11 +70,23 @@ const Tv = () => {
     <>
       <section className='relative justify-center flex items-center'>
         <div className='lg:p-20 pt-10 p-5 '>
-          <div className="flex flex-col">
-            <div className="grid grid-cols-1 ...">
-              <SliderComponent data={DiscoverTv} />
-            </div>
-          </div>
+       {isLoading ? (
+ <SkeletonTheme baseColor="#1B262C" highlightColor="#1B2639">
+ <div className="relative">
+   <Skeleton height={400} className="rounded-tl-[50px]" />
+ </div>
+</SkeletonTheme>
+
+
+       ) : (
+   <div className="flex flex-col">
+   <div className="grid grid-cols-1 ...">
+     <SliderComponent  data={DiscoverTv} />
+   </div>
+ </div>
+
+
+       ) }
 
           <div className='pb-8 space-y-10'>
           <FilteredHeader 

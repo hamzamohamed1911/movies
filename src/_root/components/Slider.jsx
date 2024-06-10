@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { FaPlay, FaStar } from 'react-icons/fa';
@@ -22,10 +22,10 @@ const Slider = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const navigate = useNavigate();
-  const { fetchTrending} = useApi();
+  const { fetchTrending } = useApi();
+  const intervalRef = useRef(null);
 
-
-  const { data: TrendingData = [], isLoading, isError,error } = useQuery({
+  const { data: TrendingData = [], isLoading, isError, error } = useQuery({
     queryKey: ['trendingData'],
     queryFn: fetchTrending,
   });
@@ -35,13 +35,13 @@ const Slider = memo(() => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === TrendingData.length - 1 ? 0 : prevIndex + 1
       );
     }, 8000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalRef.current);
   }, [TrendingData]);
 
   const nextSlide = useCallback(() => {
@@ -56,7 +56,9 @@ const Slider = memo(() => {
     );
   }, [TrendingData]);
 
-  if (error) return <h1 className='text-7xl text-gray-200'>Error loading data...</h1>;
+  if (isError) {
+    return <h1 className='text-7xl text-gray-200'>Error loading data...</h1>;
+  }
 
   return (
     <div className="h-full relative">

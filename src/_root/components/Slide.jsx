@@ -18,7 +18,7 @@ const Slide = ({ id, title, backdrop_path, poster_path, vote_average, overview, 
 
   return (
     <div className="relative">
-      <img src={`https://image.tmdb.org/t/p/original${backdrop_path || poster_path}`} alt={title || name} className="w-full relative h-[400px] lg:h-[400px] object-fill rounded-tl-[50px]" />
+      <img src={`https://image.tmdb.org/t/p/original${backdrop_path || poster_path}`} alt={title || name} className="w-full relative h-[400px] lg:h-[400px] object-fill rounded-tl-[50px]" loading="lazy"/>
 
       <div className="absolute inset-0 bg-black bg-opacity-50 rounded-tl-[50px]">
         <motion.div
