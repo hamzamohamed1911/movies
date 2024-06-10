@@ -349,17 +349,15 @@ const ApiContextProvider = ({children}) => {
         headers: {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTM0YjVlYjEyMjMxNDlkYTZjYWQ0ZWVhYjU5ZTQ4MiIsInN1YiI6IjY2M2E5ZGQ1M2Q2YmIzYmRhOTI3NmY0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ABEAo1GkaGt_KMj2AEzEZPB3cTtJrSAzm7Lxh2fHBXc'
-        }
+        },
       };
   
-      
         const response = await fetch(`https://api.themoviedb.org/3/search/multi?query=${query}`, options);
         const result = await response.json();
-        setSearchResults(result.results);
-     
-      
-      
+        return result.results
     };
+
+
     const fetchPeopleList= async () => {
       try {
         const response = await fetch('https://api.themoviedb.org/3/person/popular?language=en-US&page=1', {

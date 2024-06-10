@@ -1,33 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { useApi } from "../../store/ApiContext";
+import { useQuery } from "@tanstack/react-query";
 
 const SearchComponent = ({ isVisible, onClose }) => {
   const [query, setQuery] = useState("");
-  const [error, setError] = useState(null); 
-  const { SearchResults, fetchSearchResults, setSearchResults } = useApi();
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
+  const { fetchSearchResults } = useApi();
+
+  const { data: SearchResults, error, isLoading } = useQuery( {
+    queryKey:['searchMedia' ,{search:query}],
+    queryFn:()=>fetchSearchResults({query}) ,
+     enabled: !!debouncedQuery
+  }
+    
+  );
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, 600);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [query]);
 
   const handleInputChange = (event) => {
     const newQuery = event.target.value;
     setQuery(newQuery);
-  
-    try{
-      fetchSearchResults(newQuery) 
-
-    }
-    catch (error) {
-      setError(error)
-    }
-  
   };
 
   const handleLinkClick = () => {
     onClose();
     setQuery("");
-    setSearchResults([]);
   };
 
   return (
@@ -57,7 +66,7 @@ const SearchComponent = ({ isVisible, onClose }) => {
         </div>
       )}
 
-      {query && isVisible && (
+      {debouncedQuery && isVisible && (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -66,18 +75,20 @@ const SearchComponent = ({ isVisible, onClose }) => {
         >
           {error ? (
             <p className="p-4 text-red-500">Error fetching results: {error.message}</p>
-          ) : SearchResults.length === 0 ? (
+          ) : isLoading ? (
+            <p className="p-4 text-babyblue">Loading...</p>
+          ) : SearchResults && SearchResults.length === 0 ? (
             <p className="p-4 text-babyblue">No results found.</p>
           ) : (
             SearchResults.map((result, index) => (
               <Link
                 key={index}
-                to={`/${result.media_type === "tv" ? "tv" : result.media_type === "movie" ? "movie" : "people" }/${result.id}`}
+                to={`/${result.media_type === "tv" ? "tv" : result.media_type === "movie" ? "movie" : "people"}/${result.id}`}
                 className="flex items-center p-4 sm:p-6 border-b border-gray-700 hover:bg-gray-800"
                 onClick={handleLinkClick}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w200${result.poster_path ||result.profile_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${result.poster_path || result.profile_path}`}
                   alt={result.title || result.name}
                   className="w-12 h-16 object-cover mr-3"
                 />
