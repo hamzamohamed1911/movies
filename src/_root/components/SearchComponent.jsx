@@ -11,13 +11,12 @@ const SearchComponent = ({ isVisible, onClose }) => {
   const [debouncedQuery, setDebouncedQuery] = useState(query);
   const { fetchSearchResults } = useApi();
 
-  const { data: SearchResults, error, isLoading } = useQuery( {
-    queryKey:['searchMedia' ,{search:query}],
-    queryFn:()=>fetchSearchResults({query}) ,
-     enabled: !!debouncedQuery
-  }
-    
-  );
+  const { data: SearchResults, error, isLoading } = useQuery({
+    queryKey: ['searchMedia', { search: query }],
+    queryFn: () => fetchSearchResults({ query }),
+    enabled: !!debouncedQuery
+  });
+  ;
 
   useEffect(() => {
     const handler = setTimeout(() => {

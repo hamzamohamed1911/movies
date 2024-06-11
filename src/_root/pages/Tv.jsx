@@ -19,7 +19,6 @@ const Tv = () => {
   const [selectedType, setSelectedType] = useState('');
   const { fetchDiscoverTv } = useApi();
 
-
   const { data: DiscoverTv = [], isLoading, isError } = useQuery({
     queryKey: ['tv', { year: selectedYear, rating: selectedRating, language: selectedLanguage, type: selectedType, page: currentPage }],
     queryFn: () => fetchDiscoverTv(selectedYear, selectedRating, selectedLanguage, selectedType, currentPage),

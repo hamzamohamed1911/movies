@@ -343,7 +343,7 @@ const ApiContextProvider = ({children}) => {
         setError(error);
       }
      }
-     const fetchSearchResults = async (query) => {
+     const fetchSearchResults = async ({query}) => {
       const options = {
         method: 'GET',
         headers: {

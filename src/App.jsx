@@ -27,6 +27,7 @@ const router = createBrowserRouter([
     element:<RootLayout/>,
     errorElement:<ErrorPage/>,
     children: [
+
       { index:true, element: <Home /> },
       { path: 'about', element: <About /> },
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         children: [
           { path: 'discover', element: <Discover /> }, 
           { path: 'tv', element: <Tv /> },
-          {path:"/tv/:tvId" , element:<TvDetails/>},
+          { path:"/tv/:tvId" , element:<TvDetails/>},
           { path: '/tv/trailer/:tvtrailerId', element:<TvTrailerPage/> ,loader:tvTrailerLoader },
           { path: 'movie', element: <Movie /> }, 
           { path:"/movie/:movieId" , element:<MovieDetails/> },
@@ -47,14 +48,14 @@ const router = createBrowserRouter([
         ],
       },
     ],
-  },{
+  },
+  {
     path:"",
     element:<AuthLayout/>,
     children: [
       { path: 'signin', element: <SignIn /> }, 
       { path: 'signup', element: <SignUp /> },
-     
-      
+    
     ],
 
   }
@@ -69,11 +70,8 @@ function App() {
     <>
  <main >
  <QueryClientProvider client={queryClient}>
-
  <RouterProvider router={router}/>
  </QueryClientProvider>
-
-
  </main>
     </>
   )
