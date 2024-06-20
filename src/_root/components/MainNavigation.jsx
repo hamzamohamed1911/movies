@@ -9,6 +9,7 @@ import { useState } from "react";
 import Button from "./Button";
 import SearchComponent from "./SearchComponent";
 import WatchList from "./WatchList";
+import ProfileDropDown from "./ProfileDropDown";
 
 
 const topVariants = {
@@ -38,15 +39,12 @@ const listItemVariants ={
 
 const MainNavigation = () => {
   const { open, setOpen } = useComponentContext();
-  const [openDropdown, setOpenDropdown] = useState(null);
   const [searchVisible, setSearchVisible] = useState(false);
 
   const handleSearchClick = () => {
     setSearchVisible(opened=>!opened);
   };
-  const toggleDropdown = (label) => {
-    setOpenDropdown(openDropdown === label ? null : label);
-  };
+  
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
@@ -85,7 +83,7 @@ const MainNavigation = () => {
             <button onClick={handleSearchClick}>
               <BsSearch className="h-6 w-6 self-center text-babyblue flex items-center" />
             </button>
-            <Button label="Sign In" small handleClick={handleSubmit} />
+            <ProfileDropDown/>
             <div className="  text-babyblue  flex items-center justify-center  space-x-2 ">
     
         <WatchList />

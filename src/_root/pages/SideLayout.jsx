@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SideBar from '../components/SideBar.jsx';
+import Footer from '../components/Footer.jsx';
 
 const SideLayout = () => {
   return (
@@ -10,7 +11,11 @@ const SideLayout = () => {
       </div>
       <main className="flex-1 ">
         <Outlet />
+        <Footer/>
+
       </main>
+
+
     </div>
   );
 };

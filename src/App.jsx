@@ -18,6 +18,7 @@ import PeopleDetails from './_root/pages/PeopleDetails'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import MovieTrailerPage , {loader as MovieTrailerLoader } from './_root/pages/MovieTrailerLoader'
 import TvTrailerPage,  {loader as tvTrailerLoader }   from './_root/pages/TvTrailerLoader'
+import Profile from './_root/pages/Profile'
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
     children: [
       { path: 'signin', element: <SignIn /> }, 
       { path: 'signup', element: <SignUp /> },
+      { path: 'profile', element: <Profile /> },
+
+      
+
     
     ],
 
