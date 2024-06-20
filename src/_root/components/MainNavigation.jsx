@@ -10,6 +10,8 @@ import Button from "./Button";
 import SearchComponent from "./SearchComponent";
 import WatchList from "./WatchList";
 import ProfileDropDown from "./ProfileDropDown";
+import { useAuth } from "../../store/Auth-context";
+import { FiLogOut } from "react-icons/fi";
 
 
 const topVariants = {
@@ -38,6 +40,8 @@ const listItemVariants ={
 }
 
 const MainNavigation = () => {
+  const { authUser, logOut } = useAuth();
+
   const { open, setOpen } = useComponentContext();
   const [searchVisible, setSearchVisible] = useState(false);
 
@@ -61,6 +65,14 @@ const MainNavigation = () => {
     setOpen(false);
   };
 
+  const handleLogout = async () => {
+    try {
+        await logOut();
+        navigate('/signin');
+    } catch (error) {
+        console.error("Failed to log out", error);
+    }
+};
   return (
     <header>
       <div className="flex items-center space-x-2 md:space-x-10">
@@ -180,9 +192,25 @@ const MainNavigation = () => {
                 </NavLink>
                   ))}
             <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
+               {authUser&& <Link to="/profile" className="flex gap-3 py-3"> 
+              
+                <img
+                src={authUser.photoURL || '../../../public/profile.jpg'}
+                alt="Profile"
+                className="w-12 h-12 bg-fill rounded-full border-blue border-2 cursor-pointer"
+            />
+              <h1 className="text-babyblue">{authUser.displayName}</h1>
+               </Link> 
                
-        
-          <Button label="Sign In" small  handleClick={handleSubmit} />
+               }
+        {authUser? (   <div 
+                                className='flex items-center  py-4 hover:bg-navy rounded-xl text-babyblue cursor-pointer'
+                                onClick={handleLogout}
+                            >
+                                <FiLogOut size={20} />
+                                <span className="block ml-2">Logout</span>
+                            </div>):( <Button label="Sign In" small  handleClick={handleSubmit} />
+) }
         
           </motion.div>
           
