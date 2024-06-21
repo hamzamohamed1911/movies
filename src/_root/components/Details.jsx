@@ -25,8 +25,9 @@ const Details = ({ item }) => {
 
   const handleAddToWatchlist = () => {
     addToWatchlist(item);
-    setNotificationMessage(`${item.title || item.name} has been added to your watchlist`);
+    setNotificationMessage(`${item.title || item.name} added to your watchlist`);
   };
+  console.log(item)
 
   const handleCloseNotification = () => {
     setNotificationMessage(null);

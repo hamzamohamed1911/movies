@@ -3,13 +3,12 @@ import { motion } from 'framer-motion';
 
 const Notification = ({ message, onClose }) => {
     useEffect(() => {
-        const timer = setTimeout(onClose, 2000);
-        return () => clearTimeout(timer);
+         setTimeout(onClose, 2000);
     }, [onClose]);
 
     return (
         <motion.div
-        className="fixed top-24 right-4 bg-blue text-white py-2 px-4 rounded-lg shadow-lg z-50"
+        className="fixed top-24 lg:right-4 right-2 text-lg  bg-blue text-white py-2 px-4 rounded-lg shadow-lg z-50"
         initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         exit={{ opacity: 0, scale: 0.8, rotate: 15 }}
