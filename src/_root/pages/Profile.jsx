@@ -127,6 +127,7 @@ const Profile = () => {
                     <Button
                         handleClick={handleSave}
                         small
+                        disable={loading}
                         label={loading ? 'Saving...' : 'Edit'}
                     />
 

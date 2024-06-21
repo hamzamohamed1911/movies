@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
         return signOut(Auth)
         
             .then(() => {
-                Cookies.remove('uid'); // Remove uid from cookies
+                Cookies.remove('uid'); 
 
                 setAuthUser(null);
                 setIsLoggedIn(false);

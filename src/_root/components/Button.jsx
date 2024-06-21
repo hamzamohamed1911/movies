@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({label, backgroundColor,textColor,borderColor,fullWidth, handleClick ,icon ,small ,normal}) => {
+const Button = ({label, backgroundColor,textColor,borderColor,fullWidth, handleClick ,icon ,small ,normal ,disable}) => {
   return (
     <button
     onClick={handleClick}
@@ -16,6 +16,7 @@ const Button = ({label, backgroundColor,textColor,borderColor,fullWidth, handleC
       
     
     }
+    disabled={disable}
       
     >
         {icon}
