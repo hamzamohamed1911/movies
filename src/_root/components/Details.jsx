@@ -7,13 +7,15 @@ import { useComponentContext } from '../../store/componentContext';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useNavigate } from 'react-router-dom';
 import Notification from './Notification';
-
+import { useAuth } from '../../store/Auth-context';
 
 const Details = ({ item }) => {
   const { addToWatchlist } = useComponentContext();
   const [isLoading, setIsLoading] = useState(true);
   const [notificationMessage, setNotificationMessage] = useState(null);
+  const [showNotification, setShowNotification] = useState(false);
   const navigate = useNavigate();
+  const { authUser } = useAuth();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,10 +26,13 @@ const Details = ({ item }) => {
   }, []);
 
   const handleAddToWatchlist = () => {
-    addToWatchlist(item);
-    setNotificationMessage(`${item.title || item.name} added to your watchlist`);
+    if (!authUser) {
+      setShowNotification(true); 
+    } else {
+      addToWatchlist(item);
+      setNotificationMessage(`${item.title || item.name} added to your watchlist`);
+    }
   };
-  console.log(item)
 
   const handleCloseNotification = () => {
     setNotificationMessage(null);
@@ -35,7 +40,7 @@ const Details = ({ item }) => {
 
   if (isLoading) {
     return (
-      <SkeletonTheme baseColor="#1B262C" highlightColor="#1B263A ">
+      <SkeletonTheme baseColor="#1B262C" highlightColor="#1B263A">
         <div className="container mx-auto px-4 py-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="col-span-1 sm:col-span-2">
@@ -49,9 +54,11 @@ const Details = ({ item }) => {
 
   return (
     <div className="relative pt-20">
+      {showNotification && (
+        <Notification message="Please login first." onClose={() => setShowNotification(false)} />
+      )}
       {notificationMessage && (
-        <Notification
-         message={notificationMessage} onClose={handleCloseNotification} />
+        <Notification message={notificationMessage} onClose={handleCloseNotification} />
       )}
       <img
         src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
@@ -85,7 +92,13 @@ const Details = ({ item }) => {
             </div>
             <div className="flex space-x-4 pt-4 justify-center sm:justify-start">
               <Button handleClick={() => navigate(`/movie/trailer/${item.id}`)} normal icon={<FaPlay />} label="Play Trailer" />
-              <Button icon={<IoMdAdd />} backgroundColor normal label="Add to Watchlist" handleClick={handleAddToWatchlist} />
+              <Button
+                icon={<IoMdAdd />}
+                backgroundColor
+                normal
+                label="Add to Watchlist"
+                handleClick={handleAddToWatchlist}
+              />
             </div>
           </div>
         </div>

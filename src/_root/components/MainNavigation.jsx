@@ -97,8 +97,8 @@ const MainNavigation = () => {
             </button>
             <ProfileDropDown/>
             <div className="  text-babyblue  flex items-center justify-center  space-x-2 ">
-    
-        <WatchList />
+    {authUser &&         <WatchList />
+    }
      
       </div>
           </>
