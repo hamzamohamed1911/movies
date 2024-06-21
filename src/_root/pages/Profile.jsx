@@ -8,13 +8,11 @@ import Button from '../components/Button.jsx';
 
 const Profile = () => {
     const { authUser, setAuthUser } = useAuth();
-    const [userData, setUserData] = useState(null);
     const [username, setUsername] = useState(authUser?.displayName || '');
     const [profilePic, setProfilePic] = useState(authUser?.photoURL || '');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const fileInputRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
@@ -24,7 +22,6 @@ const Profile = () => {
                 const docSnap = await getDoc(userDoc);
 
                 if (docSnap.exists()) {
-                    setUserData(docSnap.data());
                     setUsername(docSnap.data().username || '');
                     setProfilePic(docSnap.data().profilePic || '');
                 }
@@ -122,7 +119,7 @@ const Profile = () => {
                     />
                       <input
                         type="email"
-                        className="w-full px-5 py-4 rounded-lg bg-navy text-babyblue "
+                        className="w-full px-5 py-4 p-10 rounded-lg bg-navy text-babyblue "
                         value={authUser.email}
                         disabled
                     />

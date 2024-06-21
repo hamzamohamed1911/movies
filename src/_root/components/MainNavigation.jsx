@@ -192,7 +192,7 @@ const MainNavigation = () => {
                 </NavLink>
                   ))}
             <motion.div className="flex flex-col px-4 py-6  text-3xl  " variants={listItemVariants}>
-               {authUser&& <Link to="/profile" className="flex gap-3 py-3"> 
+               {authUser&& <Link to="/profile" className="flex items-center  gap-2 py-3"> 
               
                 <img
                 src={authUser.photoURL || '../../../public/profile.jpg'}
