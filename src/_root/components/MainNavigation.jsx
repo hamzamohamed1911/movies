@@ -111,8 +111,8 @@ const MainNavigation = () => {
    <div className="md:hidden flex  space-x-3"> 
     {!searchVisible && (
         <>
-                <WatchList />
-
+  {authUser &&         <WatchList />
+    }
             <button onClick={handleSearchClick}>
                 <BsSearch className="h-7 w-7 text-blue " />
             </button>
