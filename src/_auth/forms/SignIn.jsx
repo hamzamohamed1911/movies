@@ -56,23 +56,28 @@ const SignIn = () => {
                         {error && <p className="text-red-500">{error}</p>}
                         <motion.input
                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="email" placeholder="Email" required
+                            type="email" placeholder="Email" 
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             disabled={loading}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.8 }}
+                            autoComplete="email"
+                            required
                         />
                         <motion.input
                             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="password" placeholder="Password" required
+                            type="password" placeholder="Password" 
+                            required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             disabled={loading}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.9 }}
+                            autoComplete="current-password"
+                            
                         />
                         <div className="mt-5">
                             <motion.div

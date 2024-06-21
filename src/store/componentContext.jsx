@@ -2,12 +2,15 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 import { collection, getDocs, doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { useAuth } from './Auth-context';
 import { firestore } from '../firebase/config';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ComponentContext = createContext();
 
 const ComponentProvider = ({ children }) => {
   const [watchlist, setWatchlist] = useState([]);
   const [notification, setNotification] = useState('');
+  const [open, setOpen] = useState(false);
+
   const { authUser } = useAuth();
 
   useEffect(() => {
@@ -62,12 +65,27 @@ const ComponentProvider = ({ children }) => {
     addToWatchlist,
     removeFromWatchlist,
     showNotification,
+    setOpen,
+    open
   };
 
   return (
     <ComponentContext.Provider value={value}>
-      {children}
-    </ComponentContext.Provider>
+    {children}
+    <AnimatePresence>
+      {notification && (
+        <motion.div
+          className="fixed top-20 right-4 bg-blue text-white py-2 px-4 rounded shadow-lg z-50"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          exit={{ opacity: 0, scale: 0.8, rotate: 15 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        >
+          {notification}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </ComponentContext.Provider>
   );
 };
 
