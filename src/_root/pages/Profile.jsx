@@ -1,10 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../store/Auth-context.jsx';
 import { updateProfile } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { firestore } from '../../firebase/config';
 import Button from '../components/Button.jsx';
+import { useComponentContext } from '../../store/componentContext.jsx';
+import { Link } from 'react-router-dom';
+import { MdOutlineBookmarkRemove } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 const Profile = () => {
     const { authUser, setAuthUser } = useAuth();
@@ -14,6 +18,8 @@ const Profile = () => {
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [selectedImage, setSelectedImage] = useState(null);
+    const { watchlist, removeFromWatchlist } = useComponentContext();
+    const [isWatchlistVisible, setIsWatchlistVisible] = useState(false);
 
     useEffect(() => {
         if (authUser) {
@@ -135,6 +141,43 @@ const Profile = () => {
                     {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
                 </div>
             </div>
+            <h2 className="lg:text-4xl text-2xl text-babyblue my-4">My Watchlist</h2>
+
+            <Button
+                handleClick={() => setIsWatchlistVisible(!isWatchlistVisible)}
+                label= {isWatchlistVisible ? 'Hide Watchlist' : 'Show Watchlist'}
+                fullWidth
+                normal
+                />
+            
+
+            <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: isWatchlistVisible ? 'auto' : 0, opacity: isWatchlistVisible ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full max-w-4xl bg-navy p-6 rounded-lg shadow-md overflow-hidden"
+            >
+                <div className="space-y-4">
+                    {watchlist.length > 0 ? (
+                        watchlist.map((movie, index) => (
+                            <div key={movie.id} className="flex items-center space-x-4 p-4">
+                                <Link to={`/movie/${movie.id}`}>
+                                    <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} className="w-20 h-28 rounded-md shadow-md" />
+                                </Link>
+                                <div className="flex flex-col space-y-2 flex-1">
+                                    <h1 className="text-xl font-semibold text-white">{movie.title || movie.name}</h1>
+                                    <p className="text-sm text-gray-400">{movie.overview}</p>
+                                </div>
+                                <button onClick={() => removeFromWatchlist(movie.id)} className="focus:outline-none">
+                                    <MdOutlineBookmarkRemove size={24} className="text-gray-400 hover:text-white" />
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="p-4 text-gray-400 text-center">Watchlist is empty</div>
+                    )}
+                </div>
+            </motion.div>
         </div>
     );
 };
