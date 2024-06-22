@@ -18,7 +18,23 @@ import PeopleDetails from './_root/pages/PeopleDetails'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import MovieTrailerPage , {loader as MovieTrailerLoader } from './_root/pages/MovieTrailerLoader'
 import TvTrailerPage,  {loader as tvTrailerLoader }   from './_root/pages/TvTrailerLoader'
-import Profile from './_root/pages/Profile'
+import Profile from './_root/pages/Profile';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
+const AuthGuard = ({ children }) => {
+  const uid = Cookies.get('uid');
+
+  if (!uid) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  return children;
+};
+
+
+
 
 const queryClient = new QueryClient();
 
@@ -39,10 +55,18 @@ const router = createBrowserRouter([
           { path: 'discover', element: <Discover /> }, 
           { path: 'tv', element: <Tv /> },
           { path:"/tv/:tvId" , element:<TvDetails/>},
-          { path: '/tv/trailer/:tvtrailerId', element:<TvTrailerPage/> ,loader:tvTrailerLoader },
+          { path: '/tv/trailer/:tvtrailerId', element: (
+            <AuthGuard> 
+             <TvTrailerPage/>
+            </AuthGuard>
+          ) ,loader:tvTrailerLoader },
           { path: 'movie', element: <Movie /> }, 
           { path:"/movie/:movieId" , element:<MovieDetails/> },
-          { path: '/movie/trailer/:mediaId', element: <MovieTrailerPage />,loader: MovieTrailerLoader },
+          { path: '/movie/trailer/:mediaId',element: (
+            <AuthGuard> 
+             <MovieTrailerPage/>
+            </AuthGuard>
+          ),loader: MovieTrailerLoader },
           { path: 'people', element: <People /> }, 
           { path: '/people/:personId', element: <PeopleDetails /> }, 
           
@@ -56,12 +80,14 @@ const router = createBrowserRouter([
     children: [
       { path: 'signin', element: <SignIn /> }, 
       { path: 'signup', element: <SignUp /> },
-      { path: 'profile', element: <Profile /> },
-
-      
-
-    
-    ],
+      { 
+        path: 'profile', 
+        element: (
+          <AuthGuard> 
+            <Profile />
+          </AuthGuard>
+        ) 
+      },    ],
 
   }
 
