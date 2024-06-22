@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../_root/components/Button.jsx';
-import { IoLogInOutline } from 'react-icons/io5';
+import { IoLogInOutline, IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
@@ -13,6 +13,7 @@ const SignIn = () => {
     const { showNotification } = useComponentContext();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -66,26 +67,35 @@ const SignIn = () => {
                             autoComplete="email"
                             required
                         />
-                        <motion.input
-                            className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="password" placeholder="Password" 
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            disabled={loading}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.9 }}
-                            autoComplete="current-password"
-                            
-                        />
+                        <div className="relative">
+                            <motion.input
+                                className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                                required
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                disabled={loading}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 0.9 }}
+                                autoComplete="current-password"
+                            />
+                            <button
+                                type="button"
+                                className="absolute inset-y-0 right-0 px-4 py-2 text-gray-500"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <IoEyeOffOutline size={20} /> : <IoEyeOutline size={20} />}
+                            </button>
+                        </div>
                         <div className="mt-5">
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: 1 }}
                             >
-                                <Button handleClick={handleSubmit} icon={<IoLogInOutline size={20}/>} label={loading? 'Logging in...' : 'Login'} normal fullWidth disabled={loading} />
+                                <Button handleClick={handleSubmit} icon={<IoLogInOutline size={20}/>} label={loading ? 'Logging in...' : 'Login'} normal fullWidth disabled={loading} />
                             </motion.div>
                         </div>
                     </form>
