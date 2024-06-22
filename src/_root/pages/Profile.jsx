@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '../../store/Auth-context.jsx';
 import { updateProfile } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -36,11 +36,11 @@ const Profile = () => {
         }
     }, [authUser]);
 
-    const handleUsernameChange = (e) => {
+    const handleUsernameChange = useCallback((e) => {
         setUsername(e.target.value);
-    };
+    }, []);
 
-    const handleProfilePicChange = (e) => {
+    const handleProfilePicChange = useCallback((e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -50,9 +50,9 @@ const Profile = () => {
             };
             reader.readAsDataURL(file);
         }
-    };
+    }, []);
 
-    const handleSave = async () => {
+    const handleSave = useCallback(async () => {
         setLoading(true);
         setError('');
         setSuccessMessage('');
@@ -92,7 +92,11 @@ const Profile = () => {
         }
 
         setLoading(false);
-    };
+    }, [authUser, username, profilePic, selectedImage, setAuthUser]);
+
+    const memoizedProfilePic = useMemo(() => {
+        return selectedImage ? URL.createObjectURL(selectedImage) : profilePic || '../../../public/profile.jpg';
+    }, [selectedImage, profilePic]);
 
     return (
         <div className="flex flex-col items-center mt-12">
@@ -103,7 +107,7 @@ const Profile = () => {
                     <div className="relative">
                         <label className="cursor-pointer">
                             <img
-                                src={selectedImage ? URL.createObjectURL(selectedImage) : profilePic || '../../../public/profile.jpg'}
+                                src={memoizedProfilePic}
                                 alt="Profile"
                                 className="w-32 h-32 object-cover rounded-full"
                             />
@@ -123,7 +127,7 @@ const Profile = () => {
                         value={username}
                         onChange={handleUsernameChange}
                     />
-                      <input
+                    <input
                         type="email"
                         className="w-full px-5 py-4 p-10 rounded-lg bg-navy text-babyblue "
                         value={authUser.email}
@@ -145,11 +149,10 @@ const Profile = () => {
 
             <Button
                 handleClick={() => setIsWatchlistVisible(!isWatchlistVisible)}
-                label= {isWatchlistVisible ? 'Hide Watchlist' : 'Show Watchlist'}
+                label={isWatchlistVisible ? 'Hide Watchlist' : 'Show Watchlist'}
                 fullWidth
                 normal
-                />
-            
+            />
 
             <motion.div
                 initial={{ height: 0, opacity: 0 }}
