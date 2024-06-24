@@ -94,7 +94,7 @@ const ApiContextProvider = ({children}) => {
     
         if (type) {
           url += `&with_genres=${type}`;
-        }x
+        }
         if (language) {
           url += `&with_original_language=${language}`; 
         }
