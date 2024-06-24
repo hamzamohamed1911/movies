@@ -13,8 +13,7 @@ const People = () => {
           <Link 
             key={person.id}
             to={`/people/${person.id}`} 
-            className=" bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-95"
-          >
+            className=" bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-95">
             <div className="flex items-center mb-6">
               <img 
                 src={`https://image.tmdb.org/t/p/w200${person.profile_path}`} 

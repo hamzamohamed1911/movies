@@ -33,9 +33,6 @@ const AuthGuard = ({ children }) => {
   return children;
 };
 
-
-
-
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([

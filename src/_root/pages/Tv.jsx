@@ -117,9 +117,6 @@ const Tv = () => {
             <Pagination nPage={nPage} setcurrentPage={setCurrentPage} currentPage={currentPage} numbers={numbers} />
           </div>
         </div>
-        
-
-          
         </div>
       </section>
     </>

@@ -7,7 +7,9 @@ import { firestore } from '../../firebase/config';
 import Button from '../components/Button.jsx';
 import { useComponentContext } from '../../store/componentContext.jsx';
 import { Link } from 'react-router-dom';
-import { MdOutlineBookmarkRemove } from 'react-icons/md';
+import { MdOutlineBookmarkRemove, MdCameraAlt } from 'react-icons/md'; // Importing the camera icon
+import { FaCamera } from "react-icons/fa";
+
 import { motion } from 'framer-motion';
 
 const Profile = () => {
@@ -95,7 +97,7 @@ const Profile = () => {
     }, [authUser, username, profilePic, selectedImage, setAuthUser]);
 
     const memoizedProfilePic = useMemo(() => {
-        return selectedImage ? URL.createObjectURL(selectedImage) : profilePic || '../../../public/profile.jpg';
+        return selectedImage ? URL.createObjectURL(selectedImage) : profilePic ;
     }, [selectedImage, profilePic]);
 
     return (
@@ -107,10 +109,11 @@ const Profile = () => {
                     <div className="relative">
                         <label className="cursor-pointer">
                             <img
-                                src={memoizedProfilePic}
+                                src={memoizedProfilePic || '../../../public/profile.jpg'}
                                 alt="Profile"
                                 className="w-32 h-32 object-cover rounded-full"
                             />
+                            <FaCamera className="absolute bottom-0 right-0 text-white bg-black rounded-full p-1" size={26} />
                             <input
                                 type="file"
                                 accept="image/*"

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Button from '../../_root/components/Button.jsx';
 import { IoIosPersonAdd } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useAuth } from '../../store/Auth-context.jsx';
@@ -139,6 +139,7 @@ const SignUp = () => {
                         </a>
                         .
                     </p>
+                    <p className="mt-6 text-xs text-babyblue text-center"> you have account back to <Link  className="text-sm border-b border-gray-500 border-dotted" to="/signin"> Login</Link> </p>
                 </motion.div>
             </motion.div>
         </div>
