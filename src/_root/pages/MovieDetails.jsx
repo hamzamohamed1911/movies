@@ -33,6 +33,7 @@ const MovieDetails = () => {
     setShowFullDescription((prev) => !prev);
   }, []);
 
+
   const settings =  {
     dots: false,
     infinite: true,
@@ -52,6 +53,7 @@ const MovieDetails = () => {
      
     ],
   }
+  console.log(moviesDetails)
 
   return (
     <section className='h-full'>
