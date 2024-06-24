@@ -51,7 +51,6 @@ const TvDetails = () => {
       },
     ],
   } 
-  console.log(TvDetails)
 
   return (
     <section className='h-full'>
