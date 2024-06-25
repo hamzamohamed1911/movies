@@ -139,7 +139,7 @@ const SignUp = () => {
                         </a>
                         .
                     </p>
-                    <p className="mt-6 text-xs text-babyblue text-center"> you have account back to <Link  className="text-sm border-b border-gray-500 border-dotted" to="/signin"> Login</Link> </p>
+                    <p className="mt-6 text-xs text-babyblue text-center"> already have an account  <Link  className="text-sm border-b border-gray-500 border-dotted" to="/signin"> Login</Link> </p>
                 </motion.div>
             </motion.div>
         </div>
