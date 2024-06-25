@@ -51,7 +51,7 @@ const TvDetails = () => {
       },
     ],
   } 
-
+console.log(TvDetails)
   return (
     <section className='h-full'>
       <div className='lg:p-20'>

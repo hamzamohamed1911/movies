@@ -99,6 +99,9 @@ const Profile = () => {
     const memoizedProfilePic = useMemo(() => {
         return selectedImage ? URL.createObjectURL(selectedImage) : profilePic ;
     }, [selectedImage, profilePic]);
+    const determineMediaType = (movie) => {
+        return movie.title ? 'movie' : 'tv';
+      };
 
     return (
         <div className="flex flex-col items-center mt-12">
@@ -173,6 +176,8 @@ const Profile = () => {
                                 <div className="flex flex-col space-y-2 flex-1">
                                     <h1 className="text-xl font-semibold text-white">{movie.title || movie.name}</h1>
                                     <p className="text-sm text-gray-400">{movie.overview}</p>
+                                    <p className="text-lg text-babyblue text-center bg-blue rounded-r-3xl h-8 w-20">{determineMediaType(movie)}</p>
+
                                 </div>
                                 <button onClick={() => removeFromWatchlist(movie.id)} className="focus:outline-none">
                                     <MdOutlineBookmarkRemove size={24} className="text-gray-400 hover:text-white" />

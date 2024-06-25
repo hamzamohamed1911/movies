@@ -25,7 +25,7 @@ const MovieDetails = () => {
     fetchCastMovies({ id: movieId });
     fetchMoviesRecommendations({id: movieId });
     fetchMoviesSimilar({ id: movieId });
-  }, [movieId, fetchMoviesDetails, fetchCastMovies, fetchMoviesRecommendations, fetchMoviesSimilar]);
+  }, [movieId]);
 
   const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -53,6 +53,7 @@ const MovieDetails = () => {
      
     ],
   }
+  console.log(moviesDetails)
 
   return (
     <section className='h-full'>
