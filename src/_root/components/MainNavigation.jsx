@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { moviesLogo } from "../../assets";
 import Nav from "./Nav";

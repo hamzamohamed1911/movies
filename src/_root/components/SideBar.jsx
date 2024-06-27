@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { moviesLogo } from '../../assets';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useState } from 'react';
+import React from 'react';
 
 const SideBar = () => {  
   const [isOpen, setIsOpen] = useState(true);

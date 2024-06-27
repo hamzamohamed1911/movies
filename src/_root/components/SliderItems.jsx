@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import React from 'react';
 
 const responsiveSettings = [
   {

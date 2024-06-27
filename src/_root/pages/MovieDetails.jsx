@@ -53,7 +53,6 @@ const MovieDetails = () => {
      
     ],
   }
-  console.log(moviesDetails)
 
   return (
     <section className='h-full'>

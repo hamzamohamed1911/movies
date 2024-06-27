@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useApi } from '../../store/ApiContext';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 
 const Trending = () => {
   const { fetchTrending} = useApi();

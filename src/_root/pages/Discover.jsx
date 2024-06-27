@@ -2,6 +2,7 @@ import DiscoverSlider from '../components/DiscoverSlider';
 import { useApi } from '../../store/ApiContext';
 import Trending  from '../components/Trending'
 import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 
 const Discover = () => {
   const { fetchDiscoverTv,fetchDiscoverMoives, TopRatedMovie, TopRatedTv, nowPlayingMovie, Upcoming } = useApi();

@@ -1,6 +1,7 @@
 import { AiFillStar } from "react-icons/ai";
 import { useApi } from "../../store/ApiContext";
 import { Link } from "react-router-dom";
+import React from 'react';
 
 const People = () => {
   const { PeopleList } = useApi();

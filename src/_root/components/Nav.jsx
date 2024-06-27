@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 
 export default function Nav() {
   const activeClasses = "text-4xl text-navy border-b-[1px] border-navy animate-pulse transform transition-all ease-in-out duration-400";
