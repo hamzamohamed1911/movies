@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../../store/Auth-context.jsx';
 import { updateProfile } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -7,9 +7,9 @@ import { firestore } from '../../firebase/config';
 import Button from '../components/Button.jsx';
 import { useComponentContext } from '../../store/componentContext.jsx';
 import { Link } from 'react-router-dom';
-import { MdOutlineBookmarkRemove, MdCameraAlt } from 'react-icons/md'; // Importing the camera icon
-import { FaCamera } from "react-icons/fa";
-
+import { MdOutlineBookmarkRemove } from 'react-icons/md'; 
+import { FaCamera } from 'react-icons/fa'; 
+import { LuLoader } from "react-icons/lu";
 import { motion } from 'framer-motion';
 
 const Profile = () => {
@@ -22,6 +22,8 @@ const Profile = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const { watchlist, removeFromWatchlist } = useComponentContext();
     const [isWatchlistVisible, setIsWatchlistVisible] = useState(false);
+    const [isEditing, setIsEditing] = useState(false); 
+    const [isImageEditing, setIsImageEditing] = useState(false); 
 
     useEffect(() => {
         if (authUser) {
@@ -94,14 +96,31 @@ const Profile = () => {
         }
 
         setLoading(false);
+        setIsEditing(false); 
+        setIsImageEditing(false); 
     }, [authUser, username, profilePic, selectedImage, setAuthUser]);
 
-    const memoizedProfilePic = useMemo(() => {
-        return selectedImage ? URL.createObjectURL(selectedImage) : profilePic ;
-    }, [selectedImage, profilePic]);
     const determineMediaType = (movie) => {
         return movie.title ? 'movie' : 'tv';
-      };
+    };
+
+    const handleEditClick = (e) => {
+        e.preventDefault();
+        setIsEditing(true);
+    };
+
+    const handleCancelEdit = (e) => {
+        e.preventDefault();
+        setUsername(authUser?.displayName || '');
+        setProfilePic(authUser?.photoURL || '');
+        setSelectedImage(null);
+        setIsEditing(false); 
+        setIsImageEditing(false); 
+    };
+
+    const handleImageEditClick = () => {
+        setIsImageEditing(true); 
+    };
 
     return (
         <div className="flex flex-col items-center mt-12">
@@ -112,26 +131,35 @@ const Profile = () => {
                     <div className="relative">
                         <label className="cursor-pointer">
                             <img
-                                src={memoizedProfilePic || '../../../public/profile.jpg'}
+                                src={profilePic || '../../../public/profile.jpg'}
                                 alt="Profile"
                                 className="w-32 h-32 object-cover rounded-full"
                             />
-                            <FaCamera className="absolute bottom-0 right-0 text-white bg-black rounded-full p-1" size={26} />
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleProfilePicChange}
-                                style={{ display: "none" }}
-                            />
+                            {isEditing && (
+                                <FaCamera
+                                    className="absolute bottom-0 right-0 text-white bg-black rounded-full p-1 "
+                                    size={26}
+                                    onClick={handleImageEditClick}
+                                />
+                            )}
+                            {isImageEditing && (
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleProfilePicChange}
+                                    style={{ display: 'none' }}
+                                />
+                            )}
                         </label>
                     </div>
 
                     <input
                         type="text"
-                        className="w-full px-5 py-4 rounded-lg border border-gray-300"
+                        className={`w-full px-5 py-4 rounded-lg border border-gray-300 ${isEditing ? '' : 'bg-gray-200'}`}
                         placeholder="Username"
                         value={username}
                         onChange={handleUsernameChange}
+                        disabled={!isEditing}
                     />
                     <input
                         type="email"
@@ -140,12 +168,39 @@ const Profile = () => {
                         disabled
                     />
 
-                    <Button
-                        handleClick={handleSave}
-                        small
-                        disable={loading}
-                        label={loading ? 'Saving...' : 'Edit'}
-                    />
+                    {isEditing ? (
+                        <div className="flex items-center justify-center space-x-4">
+                            {loading ? (
+                                <LuLoader
+                                    className="text-primary animate-spin"
+                                    size={26}
+                                    color='#BBE1FA'
+                                />
+                            ) : (
+                                <>
+                                    <Button
+                                        handleClick={handleSave}
+                                        small
+                                        disable={loading}
+                                        label="Save"
+                                    />
+                                    <Button
+                                        handleClick={handleCancelEdit}
+                                        small
+                                        disable={loading}
+                                        label="Cancel"
+                                    />
+                                </>
+                            )}
+                        </div>
+                    ) : (
+                        <Button
+                            handleClick={handleEditClick}
+                            small
+                            disable={loading}
+                            label="Edit"
+                        />
+                    )}
 
                     {error && <p className="text-red-500 mt-4">{error}</p>}
                     {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
@@ -176,11 +231,18 @@ const Profile = () => {
                                 <div className="flex flex-col space-y-2 flex-1">
                                     <h1 className="text-xl font-semibold text-white">{movie.title || movie.name}</h1>
                                     <p className="text-sm text-gray-400">{movie.overview}</p>
-                                    <p className="text-lg text-babyblue text-center bg-blue rounded-r-3xl h-8 w-20">{determineMediaType(movie)}</p>
-
+                                    <p className="text-lg text-babyblue text-center bg-blue rounded-r-3xl h-8 w-20">
+                                        {determineMediaType(movie)}
+                                    </p>
                                 </div>
-                                <button onClick={() => removeFromWatchlist(movie.id)} className="focus:outline-none">
-                                    <MdOutlineBookmarkRemove size={24} className="text-gray-400 hover:text-white" />
+                                <button
+                                    onClick={() => removeFromWatchlist(movie.id)}
+                                    className="focus:outline-none"
+                                >
+                                    <MdOutlineBookmarkRemove
+                                        size={24}
+                                        className="text-gray-400 hover:text-white"
+                                    />
                                 </button>
                             </div>
                         ))
