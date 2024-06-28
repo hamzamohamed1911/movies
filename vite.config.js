@@ -1,13 +1,6 @@
-import MillionLint from "@million/lint";
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [
-    MillionLint.vite(),
-    // Other plugins if any
-  ],
-  server: {
-    host: true, // Use the default host
-    port: 5173, // Specify the desired port
-  },
-});
+  plugins: [react()],
+})
