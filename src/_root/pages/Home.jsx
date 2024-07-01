@@ -102,7 +102,7 @@ const Home = memo(() => {
             </h1>
             <p className="lg:text-xl text-md font-light">
               {showFullDescription ? (
-                slide.overview.slice(0,250)
+                slide.overview.slice(0,280)
               ) : (
                 <>
                   {slide.overview.slice(0, 150)}
